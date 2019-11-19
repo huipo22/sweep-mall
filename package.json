@@ -1,0 +1,23 @@
+{
+  "name": "mall",
+  "version": "1.0.0",
+  "description": "点餐1.1.0",
+  "main": "app.js",
+  "dependencies": {
+    "vant-weapp": "^0.5.23"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/huipo22/sweep-mall.git"
+  },
+  "author": "huipo22",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huipo22/sweep-mall/issues"
+  },
+  "homepage": "https://github.com/huipo22/sweep-mall#readme"
+}

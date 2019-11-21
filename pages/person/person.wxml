@@ -1,0 +1,8 @@
+<!--pages/person.wxml-->
+<view class="container">
+  <!-- 个人中心列表 -->
+  <van-cell-group class="wid">
+    <van-cell title="我的订单" icon="location-o" />
+    <van-cell title="我的点餐" icon="location-o" />
+  </van-cell-group>
+</view>

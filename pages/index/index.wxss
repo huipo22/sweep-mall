@@ -1,21 +1,40 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
+
+.swiper {
+  width: 100%;
+}
+
+.swiper-item {
+  height: 100%;
+}
+
+.tabBox{
+  width: 100%;
+}
+/* 轮播图 废弃 */
+.demo-text-3 {
+  position: relative;
   align-items: center;
+  justify-content: center;
+  background-color: #f1f1f1;
+  color: #353535;
+  font-size: 18px;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.demo-text-1 {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: #1aad19;
+  color: rgb(112, 49, 49);
+  font-size: 18px;
 }
 
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 200px;
+.demo-text-2 {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: #082744;
+  color: #fff;
+  font-size: 18px;
 }

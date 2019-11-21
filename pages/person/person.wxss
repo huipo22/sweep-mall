@@ -1,0 +1,12 @@
+/* pages/person.wxss */
+
+.wid {
+  width: 100%;
+}
+
+#avatarBox {
+  height: 200rpx;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}

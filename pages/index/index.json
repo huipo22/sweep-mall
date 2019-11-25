@@ -1,8 +1,9 @@
 {
   "usingComponents": {
-    "van-tab": "../../miniprogram_npm/vant-weapp/tab/index",
-    "van-tabs": "../../miniprogram_npm/vant-weapp/tabs/index",
-    "van-row": "../../miniprogram_npm/vant-weapp/row/index",
-    "van-col": "../../miniprogram_npm/vant-weapp/col/index"
+    "van-tab": "../../dist/vant/tab/index",
+    "van-tabs": "../../dist/vant/tabs/index",
+    "van-col": "../../dist/vant/col/index",
+    "van-tree-select": "../../dist/vant/tree-select/index",
+    "van-image": "../../dist/vant/image/index"
   }
 }

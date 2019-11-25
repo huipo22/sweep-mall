@@ -2,7 +2,9 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/person/person"
+    "pages/person/person",
+    "pages/cart/cart",
+    "pages/subscribe/subscribe"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -23,6 +25,18 @@
         "text": "点餐",
         "iconPath": "./dist/icon/home.png",
         "selectedIconPath": "./dist/icon/home-select.png"
+      },
+      {
+        "pagePath": "pages/subscribe/subscribe",
+        "text": "预约",
+        "iconPath": "./dist/icon/subscribe.png",
+        "selectedIconPath": "./dist/icon/subscribe-select.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "./dist/icon/cart.png",
+        "selectedIconPath": "./dist/icon/cart-select.png"
       },
       {
         "pagePath": "pages/person/person",

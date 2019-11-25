@@ -10,9 +10,17 @@ Page({
     autoplay: false,
     interval: 2000,
     duration: 500,
-    active:1
+    active: 1,
+    mainActiveIndex: 0,
+    activeId: [],
+    items: [{ text: '分组 1' }, { text: '分组 2' }]
   },
-  onLoad: function() {
+  onClickNav({ detail = {} }) {
+    this.setData({
+      mainActiveIndex: detail.index || 0
+    });
+  },
+  onLoad: function () {
 
   },
 })

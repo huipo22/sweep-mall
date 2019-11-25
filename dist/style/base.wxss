@@ -1,0 +1,61 @@
+page {
+  color: #000;
+  background-color: #f2f2f2;
+}
+
+/*全局设置所有页面属性*/
+
+image {
+  width: 100%;
+  height: 100%;
+}
+
+text {
+  color: #000;
+}
+
+/*text可复制类颜色*/
+
+rich-text {
+  color: #000;
+}
+
+/* 需要转码文本（行数间需要空格则后台转码div便签间加<br />）*/
+
+/* 表单类 */
+
+input {
+  color: #000;
+}
+
+textarea {
+  color: #000;
+  width: 100%;
+}
+
+.input-placeholder {
+  color: #dedfe5;
+}
+
+/*表单placeholder默认样式*/
+
+button {
+  margin: 0;
+  padding: 0;
+  line-height: staic;
+}
+
+/* 如需清空button样式 */
+
+button:after {
+  border: none;
+}
+
+/* 处理button默认边框 */
+
+button[disabled] {
+  background-color: #d0cbc5 !important;
+  color: #ece9e6 !important;
+}
+
+/*按钮不可点击时的默认样式，必须强制改;*/

@@ -1,4 +1,4 @@
-<!--index.wxml-->
+<!-- index.wxml -->
 <view class="container">
   <!-- 轮播 -->
   <view class="page-section page-section-spacing swiper">
@@ -10,14 +10,22 @@
       </block>
     </swiper>
   </view>
-  <van-row class="tabBox">
-    <van-tabs active="{{ active }}">
-      <van-tab title="标签 1">内容 1</van-tab>
-      <van-tab title="标签 2">内容 2</van-tab>
-      <van-tab title="标签 3">内容 3</van-tab>
-      <van-tab title="标签 4">内容 4</van-tab>
-      <van-tab title="标签 5">内容 5</van-tab>
-      <van-tab title="标签 6">内容 6</van-tab>
-    </van-tabs>
-  </van-row>
+  <view class="Box">
+    <van-row>
+      <van-tabs active="{{ active }}">
+        <van-tab title="标签 1">内容 1</van-tab>
+        <van-tab title="标签 2">内容 2</van-tab>
+        <van-tab title="标签 3">内容 3</van-tab>
+        <van-tab title="标签 4">内容 4</van-tab>
+        <van-tab title="标签 5">内容 5</van-tab>
+        <van-tab title="标签 6">内容 6</van-tab>
+      </van-tabs>
+    </van-row>
+  </view>
+  <view class="Box">
+    <van-tree-select items="{{ items }}" main-active-index="{{ mainActiveIndex }}" bind:click-nav="onClickNav">
+      <view slot="content" wx:if="{{ mainActiveIndex === 0 }}">333</view>
+      <view slot="content" wx:if="{{ mainActiveIndex ===1 }}">333444</view>
+    </van-tree-select>
+  </view>
 </view>

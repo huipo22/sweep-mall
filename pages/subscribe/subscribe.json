@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "van-image": "../../dist/vant/image/index"
+  },
+  "navigationBarTitleText": "预约"
 }

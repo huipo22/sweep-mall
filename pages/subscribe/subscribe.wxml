@@ -1,2 +1,4 @@
-<!--pages/subscribe/subscribe.wxml-->
-<text>pages/subscribe/subscribe.wxml</text>
+<!-- pages/subscribe/subscribe.wxml -->
+<view class="container">
+    <van-image class="Box" width="100%" height="160px" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+</view>

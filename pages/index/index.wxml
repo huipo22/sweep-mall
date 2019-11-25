@@ -24,7 +24,16 @@
   </view>
   <view class="Box">
     <van-tree-select items="{{ items }}" main-active-index="{{ mainActiveIndex }}" bind:click-nav="onClickNav">
-      <view slot="content" wx:if="{{ mainActiveIndex === 0 }}">333</view>
+      <view slot="content" wx:if="{{ mainActiveIndex === 0 }}">
+        <van-card title="商品标题" thumb="https://img.yzcdn.cn/vant/t-thirt.jpg">
+          <view slot="bottom" style="margin-top:120rpx">
+            <van-row>
+              <van-col span="12">32</van-col>
+              <van-col span="12">img</van-col>
+            </van-row>
+          </view>
+        </van-card>
+      </view>
       <view slot="content" wx:if="{{ mainActiveIndex ===1 }}">333444</view>
     </van-tree-select>
   </view>

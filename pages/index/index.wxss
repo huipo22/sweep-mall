@@ -8,9 +8,7 @@
   height: 100%;
 }
 
-.Box{
-  width: 100%;
-}
+
 /* 轮播图 废弃 */
 .demo-text-3 {
   position: relative;

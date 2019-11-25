@@ -2,8 +2,11 @@
   "usingComponents": {
     "van-tab": "../../dist/vant/tab/index",
     "van-tabs": "../../dist/vant/tabs/index",
+    "van-row": "../../dist/vant/row/index",
     "van-col": "../../dist/vant/col/index",
     "van-tree-select": "../../dist/vant/tree-select/index",
-    "van-image": "../../dist/vant/image/index"
-  }
+    "van-image": "../../dist/vant/image/index",
+    "van-card": "../../dist/vant/card/index"
+  },
+  "navigationBarTitleText": "点餐"
 }

@@ -1,12 +1,19 @@
 /* pages/person.wxss */
 
-.wid {
-  width: 100%;
-}
-
-#avatarBox {
-  height: 200rpx;
+.avatarBox {
+  height: 300rpx;
   display: flex;
   align-items: center;
   width: 100%;
+  background: #ccc;
+}
+
+.avatar {
+  margin-left: 10%;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  padding-left: 45rpx;
 }

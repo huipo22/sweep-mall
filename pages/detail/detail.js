@@ -1,5 +1,4 @@
-// pages/subscribe/subscribe.js
-import util from '../../utils/util'
+// pages/detail/detail.js
 Page({
 
   /**
@@ -8,14 +7,12 @@ Page({
   data: {
 
   },
-  detailPage(){
-    util.navigateTo('../detail/detail?id=1')
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options)
   },
 
   /**

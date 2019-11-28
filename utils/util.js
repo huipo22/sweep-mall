@@ -14,6 +14,33 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+// 跳转事件 封装
+const navigateTo = (path) => {
+  wx.navigateTo({
+    url: path,
+    success: function (res) { },
+    fail: function (res) {
+      wx.showToast({
+        title: '跳转失败',
+        icon: 'none',
+        duration: 2000
+      })
+    },
+    complete: function (res) { },
+  })
+}
+// 请求成功弹出框
+const showToastSuccess = (successVal) => {
+  wx.showToast({
+    title: successVal,
+    icon: 'success',
+    duration: 2000
+  })
+}
+// 页面参数获取 小程序自带  onLoad(options)
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  navigateTo: navigateTo,
+  showToastSuccess: showToastSuccess,
 }

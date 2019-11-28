@@ -1,4 +1,8 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "van-checkbox": "../../dist/vant/checkbox/index",
+    "van-checkbox-group": "../../dist/vant/checkbox-group/index",
+    "van-card": "../../dist/vant/card/index"
+  },
   "navigationBarTitleText": "购物车"
 }

@@ -7,6 +7,14 @@ page {
   background: #fff!important
 }
 
+.van-checkbox__label {
+  width: 100%!important;
+}
+
+.van-checkbox {
+  align-items: center;
+}
+
 button:not([size='mini']) {
   min-height: auto!important;
   width: auto!important;

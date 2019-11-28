@@ -21,6 +21,8 @@ Page({
     });
   },
   onLoad: function () {
-
+    // wx.navigateTo({
+    //   url: '../authorization/authorization'
+    // })
   },
 })

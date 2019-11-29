@@ -6,7 +6,11 @@
     "van-col": "../../dist/vant/col/index",
     "van-tree-select": "../../dist/vant/tree-select/index",
     "van-image": "../../dist/vant/image/index",
-    "van-card": "../../dist/vant/card/index"
+    "van-card": "../../dist/vant/card/index",
+    "van-overlay": "../../dist/vant/overlay/index",
+    "van-button": "../../dist/vant/button/index",
+    "van-popup": "../../dist/vant/popup/index",
+    "van-stepper": "../../dist/vant/stepper/index"
   },
   "navigationBarTitleText": "点餐"
 }

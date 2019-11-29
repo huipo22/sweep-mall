@@ -1,4 +1,5 @@
 /**app.wxss**/
+
 @import './dist/style/base.wxss';
 .container {
   height: 100%;
@@ -12,4 +13,54 @@
 
 .Box {
   width: 100%;
+}
+
+/* 遮罩 */
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.block {
+  width: 120px;
+  height: 120px;
+  background-color: #fff;
+}
+
+/* 弹出层 下方 */
+
+.popup {
+  display: flex;
+  flex-direction: row;
+  padding: 10rpx 20rpx;
+}
+
+.price {
+  display: flex;
+  align-items: flex-end;
+  color: red;
+}
+
+.popup-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* font-size: .8rem; */
+}
+
+.popup-btn {
+  width: 100%!important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stepper {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }

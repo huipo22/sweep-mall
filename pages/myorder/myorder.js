@@ -1,5 +1,4 @@
-// pages/subscribe/subscribe.js
-import util from '../../utils/util'
+// pages/myorder/myorder.js
 Page({
 
   /**
@@ -8,7 +7,7 @@ Page({
   data: {
 
   },
-  
+
   /**
    * 生命周期函数--监听页面加载
    */

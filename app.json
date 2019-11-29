@@ -1,12 +1,15 @@
 {
   "pages": [
+    "pages/authorization/authorization",
     "pages/index/index",
     "pages/logs/logs",
     "pages/person/person",
     "pages/cart/cart",
     "pages/subscribe/subscribe",
     "pages/detail/detail",
-    "pages/authorization/authorization"
+    "pages/myorder/myorder",
+    "pages/mycoupon/mycoupon",
+    "pages/address/address"
   ],
   "window": {
     "backgroundTextStyle": "light",

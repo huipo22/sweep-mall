@@ -1,5 +1,6 @@
 <!-- index.wxml -->
 <view class="container">
+  <van-overlay show="{{show}}"></van-overlay>
   <!-- 轮播 -->
   <view class="page-section page-section-spacing swiper">
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
@@ -10,7 +11,8 @@
       </block>
     </swiper>
   </view>
-  <view class="Box">
+  <!-- 套餐 -->
+  <!-- <view class="Box">
     <van-row>
       <van-tabs active="{{ active }}">
         <van-tab title="标签 1">内容 1</van-tab>
@@ -21,15 +23,18 @@
         <van-tab title="标签 6">内容 6</van-tab>
       </van-tabs>
     </van-row>
-  </view>
+  </view> -->
+  <!-- 分类 -->
   <view class="Box">
     <van-tree-select items="{{ items }}" main-active-index="{{ mainActiveIndex }}" bind:click-nav="onClickNav">
-      <view slot="content" wx:if="{{ mainActiveIndex === 0 }}">
+      <view slot="content" wx:if="{{ mainActiveIndex === 0 }}" bindtap="detailPage">
         <van-card title="商品标题" thumb="https://img.yzcdn.cn/vant/t-thirt.jpg">
           <view slot="bottom" style="margin-top:120rpx">
             <van-row>
               <van-col span="12">32</van-col>
-              <van-col span="12">img</van-col>
+              <van-col span="12">
+                <van-image width="20" height="20" src="https://img.yzcdn.cn/vant/cat.jpeg" catchtap="showPopup" />
+              </van-col>
             </van-row>
           </view>
         </van-card>
@@ -37,4 +42,22 @@
       <view slot="content" wx:if="{{ mainActiveIndex ===1 }}">333444</view>
     </van-tree-select>
   </view>
+  <!-- 弹出层 -->
+  <van-popup show="{{ popupShow }}" closeable position="bottom" custom-style="height: 35%" bind:close="onClose">
+    <view class="popup">
+      <view>
+        <van-image width="80" height="80" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+      </view>
+      <view class="price">¥7</view>
+    </view>
+    <view class="popup">
+      <view class="popup-title">数量</view>
+      <view class="stepper">
+        <van-stepper value="{{ 5 }}" min="1" max="8" />
+      </view>
+    </view>
+    <view class="popup">
+      <button class="popup-btn" type="primary">确定</button>
+    </view>
+  </van-popup>
 </view>

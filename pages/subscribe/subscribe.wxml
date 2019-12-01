@@ -4,11 +4,16 @@
     <van-card title="商品标题" thumb="https://img.yzcdn.cn/vant/t-thirt.jpg" class="Box">
         <view slot="bottom" style="margin-top:120rpx">
             <van-row>
-                <van-col span="12">32</van-col>
-                <van-col span="8">
-                    <button size="mini">预约</button>
+                <van-col span="6">32</van-col>
+                <van-col span="18">
+                    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+                        <view>
+                            <text>{{orderData}}</text>
+                        </view>
+                    </picker>
                 </van-col>
             </van-row>
         </view>
     </van-card>
+    <view class="section"></view>
 </view>

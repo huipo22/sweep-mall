@@ -1,6 +1,7 @@
 import apiList from './apiList'   //  引入apiList.js文件
 
 const apiRequest = (url, method, data, header) => {     //接收所需要的参数，如果不够还可以自己自定义参数
+    console.log(header)
     let promise = new Promise(function (resolve, reject) {
         wx.request({
             url: url,
@@ -21,15 +22,9 @@ const apiRequest = (url, method, data, header) => {     //接收所需要的参�
 }
 
 //登录接口的调用
-let login = (data) => {
+let login = (data, header) => {
     return new Promise((resolve, reject) => {
-        resolve(apiRequest(apiList.login, 'get', data))
-    })
-}
-//注册接口的调用
-let register = (data) => {
-    return new Promise((resolve, reject) => {
-        resolve(apiRequest(apiList.register, 'get', data))
+        resolve(apiRequest(apiList.login, 'post', data, header))
     })
 }
 
@@ -37,5 +32,4 @@ let register = (data) => {
 
 export default {
     login: login,
-    register: register
 }

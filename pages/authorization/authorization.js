@@ -1,3 +1,4 @@
+let api = require('../../utils/request').default;
 Page({
   data: {
     //判断小程序的API，回调，参数，组件等是否在当前版本可用。
@@ -13,6 +14,7 @@ Page({
         if (res.authSetting['scope.userInfo']) {
           wx.getUserInfo({
             success: function (res) {
+              let wxData = res;
               wx.switchTab({
                 url: '../index/index'
               })
@@ -23,17 +25,21 @@ Page({
                 success: res => {
                   // 获取到用户的 code 之后：res.code
                   console.log("用户的code:" + res.code);
-                 
-                  // 可以传给后台，再经过解析获取用户的 openid
-                  // 或者可以直接使用微信的提供的接口直接获取 openid ，方法如下：
-                  // wx.request({
-                  //     // 自行补上自己的 APPID 和 SECRET
-                  //     url: 'https://api.weixin.qq.com/sns/jscode2session?appid=自己的APPID&secret=自己的SECRET&js_code=' + res.code + '&grant_type=authorization_code',
-                  //     success: res => {
-                  //         // 获取到用户的 openid
-                  //         console.log("用户的openid:" + res.data.openid);
-                  //     }
-                  // });
+                  let wxCode = res.code;
+                  let params = {
+                    code: wxCode,
+                    encrypted_data: wxData.encryptedData,
+                    iv: wxData.iv,
+                    raw_data: wxData.rawData,
+                    signature: wxData.signature
+                  }
+                  let header = {
+                    'AppId': 'wxa06c1e9af5658b7b' // 默认值
+                  }
+                  api.login(params, header).then(res => {
+                    console.log(res)     //API返回的数据
+                    //业务处理
+                  })
                 }
               });
             }

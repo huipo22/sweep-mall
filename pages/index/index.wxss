@@ -8,31 +8,34 @@
   height: 100%;
 }
 
-
-/* 轮播图 废弃 */
-.demo-text-3 {
-  position: relative;
-  align-items: center;
+.recommend {
+  width: 100%;
+  height: 50rpx;
+  display: flex;
   justify-content: center;
-  background-color: #f1f1f1;
-  color: #353535;
-  font-size: 18px;
+  align-items: center;
+  border-bottom: 1rpx solid #ccc;
 }
 
-.demo-text-1 {
-  position: relative;
+.foodBox {
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  background-color: #1aad19;
-  color: rgb(112, 49, 49);
-  font-size: 18px;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-.demo-text-2 {
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  background-color: #082744;
-  color: #fff;
-  font-size: 18px;
+.foodBox>.food {
+  width: 49%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.foodBox>.food>.title{
+  font-size: 12px;
+}
+.foodBox>.food>.price{
+  margin-top: 20rpx;
+  color:#fa0;
 }

@@ -28,3 +28,12 @@
      margin: 70rpx 50rpx;
      font-size: 35rpx;
  }
+
+ button:not([size='mini']) {
+     min-height: auto;
+     width: auto;
+     margin-left: auto;
+     margin-right: auto;
+     line-height: 2;
+
+ }

@@ -1,0 +1,29 @@
+<!-- pages/category/category.wxml -->
+<view class="container">
+    <!-- 分类 left -->
+    <van-sidebar>
+        <van-sidebar-item title="{{cate.name}}" wx:for="{{categoryList}}" wx:for-item="cate" wx:key="unique" bind:tap="categoryNav" data-cateId="{{cate.id}}" />
+    </van-sidebar>
+    <!-- 分类 right -->
+    <view class="Box">
+        <van-card title="商品标题" thumb="https://img.yzcdn.cn/vant/t-thirt.jpg"></van-card>
+    </view>
+    <!-- 弹出层 -->
+    <van-popup show="{{ popupShow }}" closeable position="bottom" custom-style="height: 35%" bind:close="onClose">
+        <view class="popup">
+            <view>
+                <van-image width="80" height="80" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+            </view>
+            <view class="price">¥7</view>
+        </view>
+        <view class="popup">
+            <view class="popup-title">数量</view>
+            <view class="stepper">
+                <van-stepper value="{{ 5 }}" min="1" max="8" />
+            </view>
+        </view>
+        <view class="popup">
+            <button class="popup-btn" type="primary">确定</button>
+        </view>
+    </van-popup>
+</view>

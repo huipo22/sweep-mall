@@ -34,6 +34,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    imgAddress:'https://saoma.jishanhengrui.com/upload/'
   }
 })

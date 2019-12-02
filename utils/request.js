@@ -1,7 +1,6 @@
 import apiList from './apiList'   //  引入apiList.js文件
 
 const apiRequest = (url, method, data, header) => {     //接收所需要的参数，如果不够还可以自己自定义参数
-    console.log(header)
     let promise = new Promise(function (resolve, reject) {
         wx.request({
             url: url,
@@ -27,9 +26,29 @@ let login = (data, header) => {
         resolve(apiRequest(apiList.login, 'post', data, header))
     })
 }
-
+//轮播图
+let wheels = (data) => {
+    return new Promise((resolve, reject) => {
+        resolve(apiRequest(apiList.wheels, 'get', data))
+    })
+}
+// 总分类
+let category = (data) => {
+    return new Promise((resolve, reject) => {
+        resolve(apiRequest(apiList.category, 'get', data))
+    })
+}
+// 分类=>商品列表
+let getGoods = (data) => {
+    return new Promise((resolve, reject) => {
+        resolve(apiRequest(apiList.getGoods, 'get', data))
+    })
+}
 //最后需要将具体调用的函数暴露出，给具体业务调用
 
 export default {
     login: login,
+    wheels: wheels,
+    category: category,
+    getGoods:getGoods
 }

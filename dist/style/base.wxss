@@ -1,8 +1,10 @@
 page {
   color: #000;
-  background-color: #fff;
+  background-color: #f7f7f7;
 }
-
+.van-tree-select{
+  height: 100%!important;
+}
 .van-tree-select__nav {
   background: #fff!important
 }

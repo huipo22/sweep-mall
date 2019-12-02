@@ -1,15 +1,16 @@
 {
   "pages": [
-    "pages/authorization/authorization",
     "pages/index/index",
     "pages/logs/logs",
     "pages/person/person",
     "pages/cart/cart",
     "pages/subscribe/subscribe",
+    "pages/authorization/authorization",
     "pages/detail/detail",
     "pages/myorder/myorder",
     "pages/mycoupon/mycoupon",
-    "pages/address/address"
+    "pages/address/address",
+    "pages/category/category"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -27,6 +28,12 @@
     "list": [
       {
         "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "./dist/icon/home.png",
+        "selectedIconPath": "./dist/icon/home-select.png"
+      },
+      {
+        "pagePath": "pages/category/category",
         "text": "点餐",
         "iconPath": "./dist/icon/home.png",
         "selectedIconPath": "./dist/icon/home-select.png"

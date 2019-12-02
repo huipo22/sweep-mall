@@ -2,46 +2,43 @@
 //获取应用实例
 const app = getApp()
 import util from '../../utils/util'
+let api = require('../../utils/request').default;
 Page({
   data: {
-    background: ['demo-text-1', 'demo-text-2', 'demo-text-3'],
+    wheelList: [],
+    resourse: app.globalData.imgAddress,
     indicatorDots: true,
     vertical: false,
     autoplay: false,
     interval: 2000,
     duration: 500,
-    active: 1,
-    mainActiveIndex: 0,
-    activeId: [],
-    items: [{ text: '分组 1' }, { text: '分组 2' }],
-    show: true,
-    popupShow: false
+    // show: true,//遮罩控制器
   },
-  // 左侧点击事件
-  onClickNav({ detail = {} }) {
-    this.setData({
-      mainActiveIndex: detail.index || 0
-    });
-  },
-  // 商品详情
-  detailPage() {
-    util.navigateTo('../detail/detail?id=1')
-  },
-  // 商品弹框
-  showPopup() {
-    this.setData({
-      popupShow: true
-    })
-  },
-  // 关闭商品导航
-  onClose() {
-    this.setData({
-      popupShow: false
-    })
+  // 图片加载失败
+  imageError(e) {
+    console.log('轮播图发生error事件，携带值为', e.detail.errMsg)
   },
   onReady: function () {
-    this.setData({
-      show: false
+    //小程序是否授权
+    wx.getSetting({
+      success: (res) => {
+        // 未授权 ==>授权页
+        if (!res.authSetting['scope.userInfo']) {
+          wx.reLaunch({
+            url: '../authorization/authorization',
+          })
+        }
+      }
     })
   },
+  onLoad() {
+    // 轮播图接口
+    api.wheels({ shop_id: 1 }).then(res => {
+      if (res.data.code == 1) {
+        this.setData({
+          wheelList: res.data.data
+        })
+      }
+    })
+  }
 })

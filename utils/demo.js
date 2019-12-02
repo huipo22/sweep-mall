@@ -11,3 +11,9 @@ var api = require('./request.js').default;
 //         //业务处理
 //     })
 // }
+
+// onReady(){
+//     this.setData({
+//         show: false
+//     })
+// }

@@ -1,63 +1,49 @@
 <!-- index.wxml -->
 <view class="container">
-  <van-overlay show="{{show}}"></van-overlay>
+  <!-- <van-overlay show="{{show}}"></van-overlay> -->
   <!-- 轮播 -->
   <view class="page-section page-section-spacing swiper">
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-      <block wx:for="{{background}}" wx:key="*this">
+      <block wx:for="{{wheelList}}" wx:key="unique" wx:for-item="item">
         <swiper-item>
-          <view class="swiper-item {{item}}"></view>
+          <view class="swiper-item">
+            <image src="{{resourse+item.url}}" class="slide-image" mode="aspectFill" binderror="imageError" />
+          </view>
         </swiper-item>
       </block>
     </swiper>
   </view>
-  <!-- 套餐 -->
-  <!-- <view class="Box">
-    <van-row>
-      <van-tabs active="{{ active }}">
-        <van-tab title="标签 1">内容 1</van-tab>
-        <van-tab title="标签 2">内容 2</van-tab>
-        <van-tab title="标签 3">内容 3</van-tab>
-        <van-tab title="标签 4">内容 4</van-tab>
-        <van-tab title="标签 5">内容 5</van-tab>
-        <van-tab title="标签 6">内容 6</van-tab>
-      </van-tabs>
-    </van-row>
-  </view> -->
-  <!-- 分类 -->
-  <view class="Box">
-    <van-tree-select items="{{ items }}" main-active-index="{{ mainActiveIndex }}" bind:click-nav="onClickNav">
-      <view slot="content" wx:if="{{ mainActiveIndex === 0 }}" bindtap="detailPage">
-        <van-card title="商品标题" thumb="https://img.yzcdn.cn/vant/t-thirt.jpg">
-          <view slot="bottom" style="margin-top:120rpx">
-            <van-row>
-              <van-col span="12">32</van-col>
-              <van-col span="12">
-                <van-image width="20" height="20" src="https://img.yzcdn.cn/vant/cat.jpeg" catchtap="showPopup" />
-              </van-col>
-            </van-row>
-          </view>
-        </van-card>
+  <!-- 精品推荐 -->
+  <view class="Box pageSetting Boxtop">
+    <view class="recommend">
+      <view>精品推荐</view>
+    </view>
+    <view class="Box foodBox">
+      <view class="food">
+        <image src="https://img.yzcdn.cn/vant/cat.jpeg" style="height:120px" />
+        <view class="title">金牌酸菜鱼</view>
+        <view class="title price">68</view>
       </view>
-      <view slot="content" wx:if="{{ mainActiveIndex ===1 }}">333444</view>
-    </van-tree-select>
+      <view class="food">
+        <image src="https://img.yzcdn.cn/vant/cat.jpeg" style="height:50px" />
+        <view>金牌酸菜鱼</view>
+        <view>68</view>
+      </view>
+      <view class="food">
+        <image src="https://img.yzcdn.cn/vant/cat.jpeg" style="height:50px" />
+        <view>金牌酸菜鱼</view>
+        <view>68</view>
+      </view>
+    </view>
   </view>
-  <!-- 弹出层 -->
-  <van-popup show="{{ popupShow }}" closeable position="bottom" custom-style="height: 35%" bind:close="onClose">
-    <view class="popup">
-      <view>
-        <van-image width="80" height="80" src="https://img.yzcdn.cn/vant/cat.jpeg" />
-      </view>
-      <view class="price">¥7</view>
+  <!-- 商家介绍 -->
+  <view class="Box pageSetting Boxtop">
+    <view class="recommend">
+      <view>商家介绍</view>
     </view>
-    <view class="popup">
-      <view class="popup-title">数量</view>
-      <view class="stepper">
-        <van-stepper value="{{ 5 }}" min="1" max="8" />
-      </view>
+    <view>
+      con
     </view>
-    <view class="popup">
-      <button class="popup-btn" type="primary">确定</button>
-    </view>
-  </van-popup>
+      
+  </view>
 </view>

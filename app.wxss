@@ -64,3 +64,12 @@
   flex-direction: row;
   justify-content: flex-end;
 }
+/* 页面边距 */
+.pageSetting{
+  padding: 0px 16px;
+  box-sizing: border-box;
+  background: #fff;
+}
+.Boxtop{
+  margin-top: 16rpx;
+}

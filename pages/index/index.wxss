@@ -32,10 +32,20 @@
   align-items: flex-start;
   justify-content: flex-start;
 }
-.foodBox>.food>.title{
+
+.foodBox>.food>.title {
   font-size: 12px;
 }
-.foodBox>.food>.price{
+
+.foodBox>.food>.price {
   margin-top: 20rpx;
-  color:#fa0;
+  color: #fa0;
+}
+
+.phoneIcon {
+  width: 25px;
+  height: 25px;
+  position: fixed;
+  top: 60%;
+  right: 5%;
 }

@@ -1,4 +1,7 @@
 <!-- pages/category/category.wxml -->
+<view class="topSearch" bindtap="searchTap">
+    <input placeholder="搜索" class="top_search"></input>
+</view>
 <view class="container">
     <!-- 分类 left -->
     <van-sidebar>
@@ -6,20 +9,29 @@
     </van-sidebar>
     <!-- 分类 right -->
     <view class="Box">
-        <van-card title="商品标题" thumb="https://img.yzcdn.cn/vant/t-thirt.jpg"></van-card>
+        <van-card title="{{good.goods_name}}" thumb="{{resourse+good.goods_img}}" wx:for="{{goodsList}}" wx:for-item="good" wx:key="unique" bind:tap="detailPage" data-goodId="{{good.id}}">
+            <view slot="bottom" class="goodContent">
+                <view class="left">
+                    <text class="">{{'¥'+good.present_price}}</text>
+                </view>
+                <view class="right">
+                    <image src="../../dist/icon/cart-select.png" mode="aspectFit" style="width:15px" catch:tap="showPopup" data-item="{{good}}"/>
+                </view>
+            </view>
+        </van-card>
     </view>
     <!-- 弹出层 -->
     <van-popup show="{{ popupShow }}" closeable position="bottom" custom-style="height: 35%" bind:close="onClose">
         <view class="popup">
             <view>
-                <van-image width="80" height="80" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+                <van-image width="80" height="80" src="{{resourse+activeItem.goods_img}}" />
             </view>
-            <view class="price">¥7</view>
+            <view class="price">¥{{activeItem.present_price}}</view>
         </view>
         <view class="popup">
             <view class="popup-title">数量</view>
             <view class="stepper">
-                <van-stepper value="{{ 5 }}" min="1" max="8" />
+                <van-stepper value="{{ 1 }}" min="1" max="8" />
             </view>
         </view>
         <view class="popup">

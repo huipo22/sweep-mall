@@ -1,2 +1,27 @@
-<!--pages/detail/detail.wxml-->
-<text>pages/detail/detail.wxml</text>
+<!-- pages/detail/detail.wxml -->
+<view class="container">
+    <view class="goodDetail">
+        <view>
+            <image src="{{resourse+goodDetail.goods_img}}" mode="aspectFill" style="height:400rpx" />
+        </view>
+        <view class="priceBox">
+            <text>{{'¥'+goodDetail.present_price}}</text>
+        </view>
+        <view class="goodNameBox">
+            <text>{{goodDetail.goods_name}}</text>
+        </view>
+    </view>
+    <view class="goodDetailCon">
+        <view class="goodDetailCon_title">详情</view>
+        <view class="goodDetailCon_con">
+            <rich-text class="" nodes="{{rich}}"></rich-text>
+        </view>
+    </view>
+    <van-goods-action>
+        <!-- <van-goods-action-icon icon="chat-o" text="客服"/> -->
+        <van-goods-action-icon icon="cart-o" text="首页" />
+        <van-goods-action-icon icon="shop-o" text="购物车" />
+        <van-goods-action-button text="加入购物车" type="warning" custom-class="btn"/>
+        <van-goods-action-button text="立即购买" custom-class="btn"/>
+    </van-goods-action>
+</view>

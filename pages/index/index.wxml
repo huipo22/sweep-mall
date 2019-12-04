@@ -4,7 +4,7 @@
   <!-- 轮播 -->
   <view class="page-section page-section-spacing swiper">
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-      <block wx:for="{{wheelList}}" wx:key="unique" wx:for-item="item">
+      <block wx:for="{{indexData.banners}}" wx:key="unique" wx:for-item="item">
         <swiper-item>
           <view class="swiper-item">
             <image src="{{resourse+item.url}}" class="slide-image" mode="aspectFill" binderror="imageError" />
@@ -13,26 +13,20 @@
       </block>
     </swiper>
   </view>
+  <!-- 商家地址 -->
+  <view class="Box">
+    <van-cell title="单元格" icon="location-o" bindtap="getLocation" is-link />
+  </view>
   <!-- 精品推荐 -->
   <view class="Box pageSetting Boxtop">
     <view class="recommend">
       <view>精品推荐</view>
     </view>
     <view class="Box foodBox">
-      <view class="food">
-        <image src="https://img.yzcdn.cn/vant/cat.jpeg" style="height:120px" />
-        <view class="title">金牌酸菜鱼</view>
-        <view class="title price">68</view>
-      </view>
-      <view class="food">
-        <image src="https://img.yzcdn.cn/vant/cat.jpeg" style="height:50px" />
-        <view>金牌酸菜鱼</view>
-        <view>68</view>
-      </view>
-      <view class="food">
-        <image src="https://img.yzcdn.cn/vant/cat.jpeg" style="height:50px" />
-        <view>金牌酸菜鱼</view>
-        <view>68</view>
+      <view class="food" wx:for="{{recommendList}}" wx:key="unique" wx:for-item="item">
+        <image src="{{resourse+item.goods_img}}" style="height:120px" />
+        <view class="title">{{item.goods_name}}</view>
+        <view class="title price">{{item.present_price}}</view>
       </view>
     </view>
   </view>
@@ -41,9 +35,12 @@
     <view class="recommend">
       <view>商家介绍</view>
     </view>
-    <view>
-      con
+    <view class="richBox">
+      <rich-text class="" nodes="{{indexRich}}"></rich-text>
     </view>
-      
+  </view>
+  <!-- 商家电话 -->
+  <view bindtap='call' data-id="{{phone}}" class="phoneIcon">
+    <image class="" src="../../dist/icon/phone.png" mode="aspectFit" />
   </view>
 </view>

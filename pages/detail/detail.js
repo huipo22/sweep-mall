@@ -1,18 +1,31 @@
 // pages/detail/detail.js
+const app = getApp()
+import util from '../../utils/util'
+let api = require('../../utils/request').default;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    goodDetail: null,
+    resourse: app.globalData.imgAddress,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    const goodId = options.goodId;
+    // 商品详情
+    api.getGoodDetail({ shop_id: app.globalData.shopId, goods_id: goodId }).then(res => {
+      if (res.data.code == 1)
+        var rich = res.data.data.goods_detail.replace(/\<p><img/gi, '<img class="richImg" ')
+      this.setData({
+        goodDetail: res.data.data,
+        rich: rich
+      })
+    })
   },
 
   /**

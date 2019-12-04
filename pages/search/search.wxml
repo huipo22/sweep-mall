@@ -1,0 +1,44 @@
+<view class="container">
+    <!-- 搜索框 -->
+    <view class='search'>
+        <input type='text' placeholder='输入你想要的内容' confirm-type='search' value="{{inputValue}}" bindblur='inputBind' bindconfirm='query'></input>
+        <van-icon name="search" catch:tap='query' class="s_icon" />
+    </view>
+    <!-- 显示 -->
+    <view wx:if="{{goodList!==null}}" style="width:100%">
+        <scroll-view class="" scroll-x="false" scroll-y="true" style="height: 1254rpx;" upper-threshold="50" lower-threshold="50" scroll-top="0" scroll-left="0" scroll-into-view="" scroll-with-animation="false" enable-back-to-top="false" bindscrolltoupper="" bindscrolltolower="loadMore" bindscroll="" data-type="true">
+            <view class="menu_tab_list">
+                <view class="menu_tab_list_good" bindtap="goodSelect" wx:for="{{goodList}}" wx:key="id" wx:for-item="good" data-goodid="{{good.id}}">
+                    <view>
+                        <image src="{{resourse+good.goods_img}}" mode="aspectFill"></image>
+                        <view class="good_detail">
+                            <text>{{good.goods_name}}</text>
+                            <view class="menu_box_n">
+                                <view class="menu_box_n_1">
+                                    <text>{{"￥"+good.present_price}}</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+    <!-- 为你推荐 -->
+    <view class="menu_tab_list" wx:elif="{{goodListR!==null}}">
+        <view class="re_title">为你推荐</view>
+        <view class="menu_tab_list_good" bindtap="goodSelect" wx:for="{{goodListR}}" wx:key="id" wx:for-item="good" data-goodid="{{good.id}}">
+            <view>
+                <image src="{{resourse+good.goods_img}}" mode="aspectFill"></image>
+                <view class="good_detail">
+                    <text>{{good.goods_name}}</text>
+                    <view class="menu_box_n">
+                        <view class="menu_box_n_1">
+                            <text>{{"￥"+good.present_price}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

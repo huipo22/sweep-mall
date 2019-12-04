@@ -44,11 +44,39 @@ let getGoods = (data) => {
         resolve(apiRequest(apiList.getGoods, 'get', data))
     })
 }
+// 分类=>商品详情
+let getGoodDetail = (data) => {
+    return new Promise((resolve, reject) => {
+        resolve(apiRequest(apiList.getGoodDetail, 'get', data))
+    })
+}
+// 搜索
+let search = (data) => {
+    return new Promise((resolve, reject) => {
+        resolve(apiRequest(apiList.search, 'get', data))
+    })
+}
+// 精品推荐
+let recommend = (data) => {
+    return new Promise((resolve, reject) => {
+        resolve(apiRequest(apiList.recommend, 'get', data))
+    })
+}
+// 为你推荐/猜你喜欢
+let guess = (data) => {
+    return new Promise((resolve, reject) => {
+        resolve(apiRequest(apiList.guess, 'get', data))
+    })
+}
 //最后需要将具体调用的函数暴露出，给具体业务调用
 
 export default {
     login: login,
     wheels: wheels,
     category: category,
-    getGoods:getGoods
+    getGoods:getGoods,
+    getGoodDetail:getGoodDetail,
+    search:search,
+    recommend:recommend,
+    guess:guess,
 }

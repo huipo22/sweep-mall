@@ -37,10 +37,19 @@ const showToastSuccess = (successVal) => {
     duration: 2000
   })
 }
+const errorTip=()=>{
+  wx.showToast({
+    title: '无数据',
+    duration: 1500,
+    mask: false,
+  });
+
+}
 // 页面参数获取 小程序自带  onLoad(options)
 
 module.exports = {
   formatTime: formatTime,
   navigateTo: navigateTo,
   showToastSuccess: showToastSuccess,
+  errorTip:errorTip
 }

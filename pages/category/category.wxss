@@ -1,7 +1,40 @@
 /* pages/category/category.wxss */
 
 .container {
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.goodContent {
+  display: flex;
+  flex-direction: row;
+  margin-top: 70rpx;
+}
+
+.goodContent>.left, .right {
+  flex: 1;
+}
+
+.goodContent>.right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* search */
+
+.topSearch {
+  width: 100%;
+  height: 80rpx;
+  background: #fff;
+  margin: 20rpx;
+  /* display: flex; */
+  border-radius: 8rpx;
+}
+
+.topSearch>.top_search {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 30rpx;
 }

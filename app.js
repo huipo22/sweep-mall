@@ -35,6 +35,8 @@ App({
   },
   globalData: {
     userInfo: null,
-    imgAddress:'https://saoma.jishanhengrui.com/upload/'
+    imgAddress:'https://saoma.jishanhengrui.com/upload/',
+    page: 1,//分页默认
+    shopId: 1,//商家id,
   }
 })

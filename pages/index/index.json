@@ -4,9 +4,10 @@
     "van-tabs": "../../dist/vant/tabs/index",
     "van-overlay": "../../dist/vant/overlay/index",
     "van-button": "../../dist/vant/button/index",
-    "van-stepper": "../../dist/vant/stepper/index",
     "van-row": "../../dist/vant/row/index",
-    "van-col": "../../dist/vant/col/index"
+    "van-col": "../../dist/vant/col/index",
+    "van-cell-group": "../../dist/vant/cell-group/index",
+    "van-cell": "../../dist/vant/cell/index"
   },
   "navigationBarTitleText": "首页"
 }

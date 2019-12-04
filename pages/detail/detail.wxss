@@ -1,1 +1,21 @@
 /* pages/detail/detail.wxss */
+
+.goodDetail {
+    width: 100%;
+}
+
+.goodDetailCon {
+    width: 100%;
+}
+
+.goodDetailCon_title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.btn{
+    width: 100px;
+}

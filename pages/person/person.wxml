@@ -17,7 +17,6 @@
     <van-cell title="我的预约" icon="location-o" />
     <van-cell title="我的优惠券" icon="location-o" />
     <van-cell title="我的订单" icon="location-o" />
-    <van-cell title="我的充值" icon="location-o" />
     <van-cell title="我的积分" icon="location-o" />
     <van-cell title="联系开发小程序" icon="location-o" />
   </van-cell-group>

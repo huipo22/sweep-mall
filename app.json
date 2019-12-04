@@ -10,7 +10,8 @@
     "pages/myorder/myorder",
     "pages/mycoupon/mycoupon",
     "pages/address/address",
-    "pages/category/category"
+    "pages/category/category",
+    "pages/search/search"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -18,7 +19,6 @@
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },
-  "style": "v2",
   "sitemapLocation": "sitemap.json",
   "tabBar": {
     "color": "#2f2f2f",
@@ -57,5 +57,10 @@
         "selectedIconPath": "./dist/icon/person-select.png"
       }
     ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
   }
 }

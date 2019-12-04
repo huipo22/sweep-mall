@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-icon": "../../dist/vant/icon/index"
+  },
+  "navigationBarTitleText": "搜索"
+}

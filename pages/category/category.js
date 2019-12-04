@@ -1,4 +1,6 @@
 // pages/category/category.js
+const app = getApp()
+import util from '../../utils/util'
 let api = require('../../utils/request').default;
 Page({
 
@@ -6,24 +8,34 @@ Page({
    * 页面的初始数据
    */
   data: {
-    categoryList: [],
-    goodsList: [],
+    categoryList: [],//总分类
+    goodsList: [],//分类内容
     popupShow: false,//底部弹框
-    active: 0
+    active: 0,
+    activeItem:{},
+    resourse: app.globalData.imgAddress,
+  },
+  // 搜索事件=>跳转页面
+  searchTap() {
+    util.navigateTo("../search/search")
   },
   // 左侧点击事件
   categoryNav(e) {
     const cateId = e.currentTarget.dataset.cateid;
+    this.getGoods(cateId)
 
   },
   // 商品详情
-  detailPage() {
-    util.navigateTo('../detail/detail?id=1')
+  detailPage(e) {
+    const goodId=e.currentTarget.dataset.goodid
+    util.navigateTo('../detail/detail?goodId='+goodId)
   },
   // 商品弹框
-  showPopup() {
+  showPopup(e) {
+    console.log(e)
     this.setData({
-      popupShow: true
+      popupShow: true,
+      activeItem:e.currentTarget.dataset.item
     })
   },
   // 关闭商品导航
@@ -42,17 +54,22 @@ Page({
       if (res.data.code == 1) {
         // 获取分类[0]内容
         const firstId = res.data.data[0].id;
-        api.getGoods({ shop_id: 1, category_id: firstId }).then(res => {
-          if (res.data.code == 1)
-            console.log(res)
-        })
+        this.getGoods(firstId)
         this.setData({
           categoryList: res.data.data
         })
       }
     })
   },
-
+  // 分类列表
+  getGoods(cateId) {
+    api.getGoods({ shop_id: app.globalData.shopId, category_id: cateId }).then(res => {
+      if (res.data.code == 1)
+        this.setData({
+          goodsList: res.data.data
+        })
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -15,7 +15,7 @@
   </view>
   <!-- 商家地址 -->
   <view class="Box">
-    <van-cell title="单元格" icon="location-o" bindtap="getLocation" is-link />
+    <van-cell title="{{shopInfo.user_address}}" icon="location-o" bindtap="getLocation" is-link />
   </view>
   <!-- 精品推荐 -->
   <view class="Box pageSetting Boxtop">
@@ -40,7 +40,7 @@
     </view>
   </view>
   <!-- 商家电话 -->
-  <view bindtap='call' data-id="{{phone}}" class="phoneIcon">
+  <view bindtap='call' data-id="{{shopInfo.user_phone}}" class="phoneIcon">
     <image class="" src="../../dist/icon/phone.png" mode="aspectFit" />
   </view>
 </view>

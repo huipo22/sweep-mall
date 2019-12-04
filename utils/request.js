@@ -68,15 +68,43 @@ let guess = (data) => {
         resolve(apiRequest(apiList.guess, 'get', data))
     })
 }
-//最后需要将具体调用的函数暴露出，给具体业务调用
+// 商家信息
+let shopInfo = (data) => {
+    return new Promise((resolve, reject) => {
+        resolve(apiRequest(apiList.shopInfo, 'get', data))
+    })
+}
+// 添加到购物车
+let addShop = (data, header) => {
+    return new Promise((resolve, reject) => {
+        resolve(apiRequest(apiList.addShop, 'post', data, header))
+    })
+}
+//购物车 增加  减少  删除
+let actionShop = (data, header) => {
+    return new Promise((resolve, reject) => {
+        resolve(apiRequest(apiList.actionShop, 'post', data, header))
+    })
+}
+// 购物车查询
+let getShop = (data, header) => {
+    return new Promise((resolve, reject) => {
+        resolve(apiRequest(apiList.getShop, 'get', data, header))
+    })
+}
 
+//最后需要将具体调用的函数暴露出，给具体业务调用
 export default {
     login: login,
     wheels: wheels,
     category: category,
-    getGoods:getGoods,
-    getGoodDetail:getGoodDetail,
-    search:search,
-    recommend:recommend,
-    guess:guess,
+    getGoods: getGoods,
+    getGoodDetail: getGoodDetail,
+    search: search,
+    recommend: recommend,
+    guess: guess,
+    shopInfo: shopInfo,
+    addShop: addShop,
+    actionShop: actionShop,
+    getShop: getShop,
 }

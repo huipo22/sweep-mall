@@ -2,7 +2,9 @@
   "usingComponents": {
     "van-checkbox": "../../dist/vant/checkbox/index",
     "van-checkbox-group": "../../dist/vant/checkbox-group/index",
-    "van-card": "../../dist/vant/card/index"
+    "van-card": "../../dist/vant/card/index",
+    "van-submit-bar": "../../dist/vant/submit-bar/index",
+    "van-stepper": "../../dist/vant/stepper/index"
   },
   "navigationBarTitleText": "购物车"
 }

@@ -6,15 +6,15 @@ let api = require('../../utils/request').default;
 Page({
   data: {
     indexData: null,
-    recommendList:[],
+    recommendList: [],
     resourse: app.globalData.imgAddress,
     indicatorDots: true,
     vertical: false,
     autoplay: false,
     interval: 2000,
     duration: 500,
-    phone: '13279200819',
-    indexRich:null
+    indexRich: null,
+    shopInfo:null,
     // show: true,//遮罩控制器
   },
   // 图片加载失败
@@ -68,15 +68,23 @@ Page({
         var rich = res.data.data.content.replace(/\<p><img/gi, '<img class="richImg" ')
         this.setData({
           indexData: res.data.data,
-          indexRich:rich
+          indexRich: rich
         })
       }
     })
     // 精品推荐
-    api.recommend({ shop_id: app.globalData.shopId }).then(res=>{
+    api.recommend({ shop_id: app.globalData.shopId }).then(res => {
       if (res.data.code == 1) {
         this.setData({
           recommendList: res.data.data
+        })
+      }
+    })
+    // 商家信息
+    api.shopInfo({ shop_id: 8 }).then(res => {
+      if (res.data.code == 1) {
+        this.setData({
+          shopInfo: res.data.data
         })
       }
     })

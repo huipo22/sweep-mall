@@ -1,1 +1,8 @@
 /* pages/cart/cart.wxss */
+
+.checkBox {
+    display: flex;
+    background: #fff;
+    align-items: center;
+    padding: 0 30rpx;
+}

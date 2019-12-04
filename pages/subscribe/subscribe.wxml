@@ -6,11 +6,7 @@
             <van-row>
                 <van-col span="6">32</van-col>
                 <van-col span="18">
-                    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
-                        <view>
-                            <text>{{orderData}}</text>
-                        </view>
-                    </picker>
+                    <view bind:tap="subscribe">预约</view>
                 </van-col>
             </van-row>
         </view>

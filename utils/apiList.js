@@ -9,6 +9,10 @@ let apiList = {
     search: host + "/api/goods/goods/search",//搜索
     recommend: host + "/api/goods/goods/good_goods",//精品推荐
     guess: host + "/api/goods/goods",// 为你推荐/猜你喜欢
+    shopInfo: host + "/api/goods/shop/shop_info",//商家信息
+    addShop: host + "/api/goods/goods/add_shopcar",//添加到购物车 
+    actionShop: host + "/api/goods/goods/action_shopcar",//购物车 增加  减少  删除  
+    getShop: host + "/api/goods/goods/shopcar",//购物车查询
 }
 
 module.exports = apiList;    //暴露出来

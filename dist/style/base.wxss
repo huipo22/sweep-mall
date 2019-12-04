@@ -57,6 +57,41 @@ rich-text {
   color: #000;
 }
 
+/* 猜你喜欢 为你推荐 */
+.recommend {
+  width: 100%;
+  height: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1rpx solid #ccc;
+}
+
+.foodBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.foodBox>.food {
+  width: 49%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.foodBox>.food>.title {
+  font-size: 12px;
+}
+
+.foodBox>.food>.price {
+  margin-top: 20rpx;
+  color: #fa0;
+}
+
 /* 需要转码文本（行数间需要空格则后台转码div便签间加<br />）*/
 
 /* 表单类 */

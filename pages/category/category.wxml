@@ -31,11 +31,11 @@
         <view class="popup">
             <view class="popup-title">数量</view>
             <view class="stepper">
-                <van-stepper value="{{ 1 }}" min="1" max="8" />
+                <van-stepper value="{{ goodNum }}" min="1" async-change bind:change="goodNumChange"/>
             </view>
         </view>
         <view class="popup">
-            <button class="popup-btn" type="primary">确定</button>
+            <button class="popup-btn" type="primary" bind:tap="addShopEvent">确定</button>
         </view>
     </van-popup>
 </view>

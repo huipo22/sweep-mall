@@ -12,8 +12,9 @@ Page({
     goodsList: [],//分类内容
     popupShow: false,//底部弹框
     active: 0,
-    activeItem:{},
+    activeItem: {},
     resourse: app.globalData.imgAddress,
+    goodNum: 1,//默认商品数量
   },
   // 搜索事件=>跳转页面
   searchTap() {
@@ -27,21 +28,48 @@ Page({
   },
   // 商品详情
   detailPage(e) {
-    const goodId=e.currentTarget.dataset.goodid
-    util.navigateTo('../detail/detail?goodId='+goodId)
+    const goodId = e.currentTarget.dataset.goodid
+    util.navigateTo('../detail/detail?goodId=' + goodId)
   },
   // 商品弹框
   showPopup(e) {
     console.log(e)
     this.setData({
       popupShow: true,
-      activeItem:e.currentTarget.dataset.item
+      activeItem: e.currentTarget.dataset.item
     })
   },
   // 关闭商品导航
   onClose() {
     this.setData({
       popupShow: false
+    })
+  },
+  // 商品数量改变
+  goodNumChange(target) {
+    setTimeout(() => {
+      this.setData({ goodNum: target.detail });
+    }, 0);
+  },
+  // 添加购物车事件
+  addShopEvent() {
+    let header = {
+      Token: wx.getStorageSync('token'),
+      "Device-Type": 'wxapp',
+      'content-type': 'application/x-www-form-urlencoded'
+    }
+    let data = {
+      num: this.data.goodNum,
+      shop_id: app.globalData.shopId,
+      goods_id: this.data.activeItem.id
+    }
+    api.addShop(data, header).then(res => {
+      if (res.data.code == 1) {
+        util.showToastSuccess('加入购物车成功')
+        this.setData({
+          popupShow: false
+        })
+      }
     })
   },
   /**

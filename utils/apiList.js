@@ -13,6 +13,7 @@ let apiList = {
     addShop: host + "/api/goods/goods/add_shopcar",//添加到购物车 
     actionShop: host + "/api/goods/goods/action_shopcar",//购物车 增加  减少  删除  
     getShop: host + "/api/goods/goods/shopcar",//购物车查询
+    createPrice: host + "/api/goods/order/create_price",// 购物车计算价格
 }
 
 module.exports = apiList;    //暴露出来

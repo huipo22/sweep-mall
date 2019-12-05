@@ -92,7 +92,12 @@ let getShop = (data, header) => {
         resolve(apiRequest(apiList.getShop, 'get', data, header))
     })
 }
-
+// 购物车计算价格
+let createPrice = (data, header) => {
+    return new Promise((resolve, reject) => {
+        resolve(apiRequest(apiList.createPrice, 'post', data, header))
+    })
+}
 //最后需要将具体调用的函数暴露出，给具体业务调用
 export default {
     login: login,
@@ -107,4 +112,5 @@ export default {
     addShop: addShop,
     actionShop: actionShop,
     getShop: getShop,
+    createPrice:createPrice,
 }

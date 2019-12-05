@@ -6,8 +6,35 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isShow: false,          // 默认不显示插件
+    beginTime: '8:30',
+    endTime: '22:00',
+    timeGap: 60,
+    themeColor: '#ffd00a',
+    showOverdue: true,      // 默认显示过期时刻，false则隐藏已过期时刻
+    calendarType: 'yytime',
+    timeSlotList: [{
+      timeStamp: '1575534600000',
+      state:0
+    }
+    ]
   },
-  subscribe(){
+  // 点击显示插件
+  btnClick: function () {
+    this.setData({
+      isShow: true,
+    })
+  },
+
+  _yybindchange: function (e) {
+    var data = e.detail
+    console.log(data)
+  },
+
+  _yybindhide: function () {
+    console.log('隐藏')
+  },
+  subscribe() {
     util.navigateTo('../orderTime/orderTime')
   },
   /**

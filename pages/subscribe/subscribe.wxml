@@ -6,10 +6,12 @@
             <van-row>
                 <van-col span="6">32</van-col>
                 <van-col span="18">
-                    <view bind:tap="subscribe">预约</view>
+                    <view bind:tap="btnClick">预约</view>
                 </van-col>
             </van-row>
         </view>
     </van-card>
-    <view class="section"></view>
+    <view class="section">
+        <yycalendar show='{{isShow}}' beginTime="{{beginTime}}" endTime="{{endTime}}" timeGap="{{timeGap}}" themeColor="{{themeColor}}" showOverdue="{{showOverdue}}" calendarType="{{calendarType}}" title="预约时间" timeSlotList="{{timeSlotList}}" monthCount="1" bind:yybindchange="_yybindchange" bind:yybindhide="_yybindhide" />
+    </view>
 </view>

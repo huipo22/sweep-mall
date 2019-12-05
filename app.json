@@ -11,8 +11,7 @@
     "pages/mycoupon/mycoupon",
     "pages/address/address",
     "pages/category/category",
-    "pages/search/search",
-    "pages/orderTime/orderTime"
+    "pages/search/search"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -63,6 +62,11 @@
     "scope.userLocation": {
       "desc": "你的位置信息将用于小程序位置接口的效果展示"
     }
+  },
+  "plugins": {
+    "myPlugin": {
+      "version": "2.1.1",
+      "provider": "wx6b6cb15df2836ebe"
+    }
   }
-  
 }

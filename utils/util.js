@@ -45,11 +45,21 @@ const errorTip=()=>{
   });
 
 }
+// 删除指定数据
+const arrayRemoveItem = (arr, delVal) => {
+  if (arr instanceof Array) {
+    var index = arr.indexOf(delVal);
+    if (index > -1) {
+      return arr.splice(index, 1);
+    }
+  }
+}
 // 页面参数获取 小程序自带  onLoad(options)
 
 module.exports = {
   formatTime: formatTime,
   navigateTo: navigateTo,
   showToastSuccess: showToastSuccess,
-  errorTip:errorTip
+  errorTip:errorTip,
+  arrayRemoveItem:arrayRemoveItem
 }

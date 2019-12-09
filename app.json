@@ -11,7 +11,8 @@
     "pages/mycoupon/mycoupon",
     "pages/address/address",
     "pages/category/category",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/orderConfirm/orderConfirm"
   ],
   "window": {
     "backgroundTextStyle": "light",

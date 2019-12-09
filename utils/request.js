@@ -98,6 +98,24 @@ let createPrice = (data, header) => {
         resolve(apiRequest(apiList.createPrice, 'post', data, header))
     })
 }
+// 预约商家信息及餐桌列表
+let subscribeIndex = (data) => {
+    return new Promise((resolve, reject) => {
+        resolve(apiRequest(apiList.subscribeIndex, 'get', data))
+    })
+}
+// 断时间段是否在预约中
+let subscribeTime = (data) => {
+    return new Promise((resolve, reject) => {
+        resolve(apiRequest(apiList.subscribeTime, 'get', data))
+    })
+}
+// 预约动作
+let subscribeAction = (data, header) => {
+    return new Promise((resolve, reject) => {
+        resolve(apiRequest(apiList.subscribeAction, 'post', data, header))
+    })
+}
 //最后需要将具体调用的函数暴露出，给具体业务调用
 export default {
     login: login,
@@ -112,5 +130,8 @@ export default {
     addShop: addShop,
     actionShop: actionShop,
     getShop: getShop,
-    createPrice:createPrice,
+    createPrice: createPrice,
+    subscribeIndex: subscribeIndex,
+    subscribeTime: subscribeTime,
+    subscribeAction:subscribeAction
 }

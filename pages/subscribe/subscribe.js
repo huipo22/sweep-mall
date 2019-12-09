@@ -1,53 +1,104 @@
 // pages/subscribe/subscribe.js
+const app = getApp()
 import util from '../../utils/util'
+let api = require('../../utils/request').default;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    subscribeIndexData: null,
+    resourse: app.globalData.imgAddress,
     isShow: false,          // 默认不显示插件
-    beginTime: '8:30',
-    endTime: '22:00',
-    timeGap: 60,
+    beginTime: '',
+    endTime: '',
+    timeGap: null,
     themeColor: '#ffd00a',
-    showOverdue: true,      // 默认显示过期时刻，false则隐藏已过期时刻
+    showOverdue: false,      // 默认显示过期时刻，false则隐藏已过期时刻
     calendarType: 'yytime',
-    timeSlotList: [{
-      timeStamp: '1575534600000',
-      state:0
-    }
-    ]
+    timeSlotList: [],
+    Ttid: null,
+    selectItem: null,
   },
   // 点击显示插件
-  btnClick: function () {
+  btnClick: function (e) {
+    const Tid = e.currentTarget.dataset.tid;
     this.setData({
-      isShow: true,
+      Ttid: Tid,
+      selectItem: e.currentTarget.dataset.item
+    })
+    //未来时间段
+    api.subscribeTime({ shop_id: app.globalData.shopId, tid: Tid }).then(res => {
+      if (res.data.code == 1) {
+        console.log(res)
+        let resultArr = [];
+        const subResult = res.data.data
+        for (let i in subResult) {
+          let obj = {}
+          obj.timeStamp = subResult[i] + "000"
+          obj.state = 0
+          resultArr.push(obj)
+        }
+        this.setData({
+          timeSlotList: resultArr,
+          isShow: true,
+        })
+      }
     })
   },
-
+  __binddaychange() {
+    const Tid = this.data.Ttid
+    //未来时间段
+    api.subscribeTime({ shop_id: app.globalData.shopId, tid: Tid }).then(res => {
+      if (res.data.code == 1) {
+        console.log(res)
+        let resultArr = [];
+        const subResult = res.data.data
+        for (let i in subResult) {
+          let obj = {}
+          obj.timeStamp = subResult[i] + "000"
+          obj.state = 0
+          resultArr.push(obj)
+        }
+        this.setData({
+          timeSlotList: resultArr,
+        })
+      }
+    })
+  },
   _yybindchange: function (e) {
     var data = e.detail
     console.log(data)
+    util.navigateTo('../orderConfirm/orderConfirm?date=' + data.date + "&item=" + JSON.stringify(this.data.selectItem))
   },
 
   _yybindhide: function () {
     console.log('隐藏')
   },
-  subscribe() {
-    util.navigateTo('../orderTime/orderTime')
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onReady: function (options) {
+    // 预约商家信息及餐桌列表 接口
+    api.subscribeIndex({ shop_id: app.globalData.shopId }).then(res => {
+      if (res.data.code == 1) {
+        this.setData({
+          beginTime: res.data.data.shop_info.start_time,
+          endTime: res.data.data.shop_info.end_time,
+          timeGap: res.data.data.shop_info.min,
+          subscribeIndexData: res.data.data,
+          showOverdue: true,
+        })
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onLoad: function () {
 
   },
 

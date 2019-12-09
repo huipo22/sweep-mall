@@ -84,7 +84,7 @@ Page({
           util.arrayRemoveItem(cartData, cartData[i])
         }
       }
-      // 删除接口
+      // 删除接口 价格=0
       api.actionShop({
         id: goodId,
         type: 3,
@@ -96,7 +96,8 @@ Page({
       }).then((res) => {
         if (res.data.code == 1) {
           this.setData({
-            cartList: cartData
+            cartList: cartData,
+            totalPrice: 0
           })
         }
       })

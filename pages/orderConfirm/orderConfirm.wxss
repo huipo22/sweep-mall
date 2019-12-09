@@ -1,0 +1,26 @@
+/* pages/orderConfirm/orderConfirm.wxss */
+
+.Box {
+    background: #fff;
+    border-top: 1rpx solid #ccc;
+    border-bottom: 1rpx solid #ccc;
+    padding: 10rpx 20rpx;
+    box-sizing: border-box;
+}
+
+.subInfo {
+    display: flex;
+    flex-direction: column;
+    height: 80px;
+    justify-content: space-between;
+}
+
+.Box_mar_b {
+    margin: 0 0 10rpx 0;
+    width: 100%;
+}
+
+.Box_mar {
+    margin: 10rpx 0;
+    width: 100%;
+}

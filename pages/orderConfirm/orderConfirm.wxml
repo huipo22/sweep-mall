@@ -1,0 +1,32 @@
+<!-- pages/orderConfirm/orderConfirm.wxml -->
+<view class="container">
+    <view class="Box">
+        <van-card title="{{Item.table_name}}" thumb="{{resourse+Item.thumbnail}}" desc="{{Item.lable}}">
+            <view slot="tags">
+                <van-tag plain type="danger">{{Item.category_name}}</van-tag>
+            </view>
+            <view slot="bottom">
+                <van-row>
+                    <van-col span="6">{{'¥'+Item.reserve_money}}</van-col>
+                    <van-col span="12">最多就餐人数:{{Item.number}}</van-col>
+                    <van-col span="6"></van-col>
+                </van-row>
+            </view>
+        </van-card>
+    </view>
+    <view class="Box_mar_b">
+        <van-field value="{{ remark }}" placeholder="给商家留言" border="{{ false }}" bind:blur="remarkChange" />
+    </view>
+    <view class="Box_mar">
+        <van-field value="{{ sub_time }}" clearable label="预约时间" disabled input-align="right" />
+    </view>
+    <view class="Box_mar">
+        <van-cell-group>
+            <van-field value="{{ sub_name }}" label="预约人" placeholder="请输入姓名" bind:blur="nameChange" />
+            <van-field value="{{ sub_mobile }}" label="联系电话" placeholder="请输入手机号" catch:blur="mobileChange" />
+        </van-cell-group>
+    </view>
+    <view class="Box_mar">
+        <van-field value="{{ '¥'+Item.reserve_money}}" label="应付金额" disabled input-align="right" />
+    </view>
+</view>

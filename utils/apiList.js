@@ -14,6 +14,9 @@ let apiList = {
     actionShop: host + "/api/goods/goods/action_shopcar",//购物车 增加  减少  删除  
     getShop: host + "/api/goods/goods/shopcar",//购物车查询
     createPrice: host + "/api/goods/order/create_price",// 购物车计算价格
+    subscribeIndex: host + "/api/goods/reserve",//预约商家信息及餐桌列表
+    subscribeTime: host + "/api/goods/reserve/isset_reserve_time",//断时间段是否在预约中
+    subscribeAction: host + "/api/goods/reserve/do_reserve",//预约动作
 }
 
 module.exports = apiList;    //暴露出来

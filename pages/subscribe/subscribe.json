@@ -5,6 +5,7 @@
     "van-row": "../../dist/vant/row/index",
     "van-col": "../../dist/vant/col/index",
     "van-button": "../../dist/vant/button/index",
+    "van-tag": "../../dist/vant/tag/index",
     "yycalendar": "plugin://myPlugin/yycalendar"
   },
   "navigationBarTitleText": "预约"

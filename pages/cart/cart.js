@@ -97,7 +97,7 @@ Page({
         if (res.data.code == 1) {
           this.setData({
             cartList: cartData,
-            totalPrice: 0
+            totalPrice: 0,
           })
         }
       })

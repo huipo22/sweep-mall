@@ -15,7 +15,7 @@ Page({
     duration: 500,
     indexRich: null,
     shopInfo: null,
-    couponInfo:[],
+    couponInfo: [],
     // show: true,//遮罩控制器
   },
   // 图片加载失败
@@ -48,7 +48,35 @@ Page({
       }
     })
   },
-
+  // 领取优惠券
+  getCoupon(e) {
+    console.log(e)
+    const couponId = e.currentTarget.dataset.cid
+    api.doCoupon({ shop_id: app.globalData.shopId, coupon_id: couponId }, {
+      Token: wx.getStorageSync('token'),
+      "Device-Type": 'wxapp',
+    }).then(res => {
+      if (res.data.code == 1) {
+        util.showToastSuccess('领取成功')
+        this.loadCoupon()
+      } else {
+        util.errorTip('领取失败')
+      }
+    })
+  },
+  loadCoupon() {
+    // 获取优惠券
+    api.getCoupon({ shop_id: app.globalData.shopId }, {
+      Token: wx.getStorageSync('token'),
+      "Device-Type": 'wxapp',
+    }).then(res => {
+      if (res.data.code == 1) {
+        this.setData({
+          couponInfo: res.data.data
+        })
+      }
+    })
+  },
   onReady: function () {
     //小程序是否授权
     wx.getSetting({
@@ -90,15 +118,6 @@ Page({
       }
     })
     // 获取优惠券
-    api.getCoupon({ shop_id: app.globalData.shopId }, {
-      Token: wx.getStorageSync('token'),
-      "Device-Type": 'wxapp',
-    }).then(res => {
-      if (res.data.code == 1) {
-        this.setData({
-          couponInfo: res.data.data
-        })
-      }
-    })
+    this.loadCoupon()
   }
 })

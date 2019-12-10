@@ -1,0 +1,9 @@
+var filter = {
+    // 优惠券日期截取
+    couponDateFilter: function (value) {
+        return value.split(' ')[0].split('-').join('/')
+    }
+}
+module.exports = {
+    couponDateFilter: filter.couponDateFilter
+}

@@ -1,4 +1,5 @@
 <!-- index.wxml -->
+<wxs module="filter" src="../../utils/common.wxs"></wxs>
 <view class="container">
   <!-- <van-overlay show="{{show}}"></van-overlay> -->
   <!-- 轮播 -->
@@ -26,10 +27,14 @@
       </view>
       <view class="center">
         <view class="top">{{coupon.coupon_name}}</view>
-        <view class="bottom`">有效期:{{coupon.coupon_start_time+"-"+ coupon.coupon_end_time}}</view>
+        <view class="bottom`">
+          有效期:{{filter.couponDateFilter(coupon.coupon_start_time)+"-"+ filter.couponDateFilter(coupon.coupon_end_time)}}
+        </view>
       </view>
       <view class="right">
-        <view class="top">{{coupon.is_get==0?"领取":"已领取"}}</view>
+        <view class="top" data-Cid="{{coupon.id}}" bind:tap="{{coupon.is_get==0?'getCoupon':''}}">
+          {{coupon.is_get==0?"领取":"已领取"}}
+        </view>
       </view>
     </view>
   </view>

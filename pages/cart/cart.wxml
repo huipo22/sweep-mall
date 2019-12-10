@@ -30,7 +30,7 @@
             </view>
         </view>
     </view>
-    <van-submit-bar price="{{ totalPrice }}" button-text="提交订单" bind:submit="onClickButton" tip="{{ true }}">
+    <van-submit-bar price="{{ totalPrice }}" button-text="提交订单" bind:submit="onClickButton" tip="{{ true }}" wx:if="{{cartList!==null}}">
         <van-checkbox value="{{checkedAll}}" bind:change="allSelectChange">全选</van-checkbox>
     </van-submit-bar>
 </view>

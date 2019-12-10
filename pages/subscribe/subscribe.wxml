@@ -1,5 +1,6 @@
 <!-- pages/subscribe/subscribe.wxml -->
 <view class="container">
+    <van-toast id="van-toast"/>
     <van-image class="Box" width="100%" height="160px" fit="cover" src="{{resourse+subscribeIndexData.head_photo.head_photo}}" />
     <van-card title="{{item.table_name}}" thumb="{{resourse+item.thumbnail}}" desc="{{item.lable}}" class="Box" wx:for="{{subscribeIndexData.list}}" wx:for-item="item" wx:key="unique">
         <view slot="tags">
@@ -10,9 +11,7 @@
                 <van-col span="6">{{'¥'+item.reserve_money}}</van-col>
                 <van-col span="12">最多就餐人数:{{item.number}}</van-col>
                 <van-col span="6">
-                    <view bind:tap="btnClick" 
-                    data-item="{{item}}"
-                    data-tid="{{item.id}}">预约</view>
+                    <view bind:tap="btnClick" data-item="{{item}}" data-tid="{{item.id}}">预约</view>
                 </van-col>
             </van-row>
         </view>

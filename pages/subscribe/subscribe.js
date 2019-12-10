@@ -2,6 +2,7 @@
 const app = getApp()
 import util from '../../utils/util'
 let api = require('../../utils/request').default;
+import Toast from '../../dist/vant/toast/toast';
 Page({
 
   /**
@@ -70,9 +71,12 @@ Page({
   _yybindchange: function (e) {
     var data = e.detail
     console.log(data)
+    if (data.time == "") {
+      Toast('请选择时刻');
+      return
+    }
     util.navigateTo('../orderConfirm/orderConfirm?date=' + data.date + "&item=" + JSON.stringify(this.data.selectItem))
   },
-
   _yybindhide: function () {
     console.log('隐藏')
   },

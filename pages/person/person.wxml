@@ -14,10 +14,11 @@
   </view>
   <!-- 个人中心列表 -->
   <van-cell-group class="Box">
-    <van-cell title="我的预约" icon="location-o" />
-    <van-cell title="我的优惠券" icon="location-o" />
-    <van-cell title="我的订单" icon="location-o" />
-    <van-cell title="我的积分" icon="location-o" />
-    <van-cell title="联系开发小程序" icon="location-o" />
+    <van-cell title="我的预约" icon="location-o" is-link url="../mySubscribe/mySubscribe" />
+    <van-cell title="我的优惠券" icon="location-o" is-link url="../mycoupon/mycoupon"/>
+    <van-cell title="我的订单" icon="location-o" is-link 
+    url="../myorder/myorder"/>
+    <van-cell title="我的积分" icon="location-o" is-link />
+    <van-cell title="联系开发小程序" icon="location-o" is-link />
   </van-cell-group>
 </view>

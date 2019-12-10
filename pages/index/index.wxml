@@ -17,6 +17,22 @@
   <view class="Box">
     <van-cell title="{{shopInfo.user_address}}" icon="location-o" bindtap="getLocation" is-link />
   </view>
+  <!-- 优惠券 -->
+  <view class="Box" style="height:200rpx" wx:for="{{couponInfo}}" wx:for-item="coupon" wx:key="{{coupon.id}}">
+    <view class="wrapper">
+      <view class="left">
+        <view class="top">{{'¥'+coupon.coupon_money}}</view>
+        <view class="bottom">满{{coupon.coupon_minimums}}可用</view>
+      </view>
+      <view class="center">
+        <view class="top">{{coupon.coupon_name}}</view>
+        <view class="bottom`">有效期:{{coupon.coupon_start_time+"-"+ coupon.coupon_end_time}}</view>
+      </view>
+      <view class="right">
+        <view class="top">{{coupon.is_get==0?"领取":"已领取"}}</view>
+      </view>
+    </view>
+  </view>
   <!-- 精品推荐 -->
   <view class="Box pageSetting Boxtop">
     <view class="recommend">
@@ -26,7 +42,7 @@
       <view class="food" wx:for="{{recommendList}}" wx:key="unique" wx:for-item="item">
         <image src="{{resourse+item.goods_img}}" style="height:120px" />
         <view class="title">{{item.goods_name}}</view>
-        <view class="title price">{{item.present_price}}</view>
+        <view class="title price">{{'¥'+item.present_price}}</view>
       </view>
     </view>
   </view>

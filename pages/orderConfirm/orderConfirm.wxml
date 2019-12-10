@@ -1,5 +1,6 @@
 <!-- pages/orderConfirm/orderConfirm.wxml -->
 <view class="container">
+    <van-toast id="van-toast" />
     <view class="Box">
         <van-card title="{{Item.table_name}}" thumb="{{resourse+Item.thumbnail}}" desc="{{Item.lable}}">
             <view slot="tags">
@@ -23,10 +24,14 @@
     <view class="Box_mar">
         <van-cell-group>
             <van-field value="{{ sub_name }}" label="预约人" placeholder="请输入姓名" bind:blur="nameChange" />
-            <van-field value="{{ sub_mobile }}" label="联系电话" placeholder="请输入手机号" catch:blur="mobileChange" />
+            <van-field value="{{ sub_mobile }}" label="联系电话" placeholder="请输入手机号" catch:blur="mobileChange" type="number" maxlength="11" />
         </van-cell-group>
     </view>
     <view class="Box_mar">
         <van-field value="{{ '¥'+Item.reserve_money}}" label="应付金额" disabled input-align="right" />
     </view>
+    <van-goods-action>
+        <van-goods-action-icon icon="chat-o" text="客服" bind:click="onClickIcon" />
+        <van-goods-action-button text="立即预约¥0" bind:click="submitSubscribe" />
+    </van-goods-action>
 </view>

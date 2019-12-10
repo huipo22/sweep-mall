@@ -116,6 +116,12 @@ let subscribeAction = (data, header) => {
         resolve(apiRequest(apiList.subscribeAction, 'post', data, header))
     })
 }
+// 获取优惠券
+let getCoupon = (data, header) => {
+    return new Promise((resolve, reject) => {
+        resolve(apiRequest(apiList.getCoupon, 'get', data, header))
+    })
+}
 //最后需要将具体调用的函数暴露出，给具体业务调用
 export default {
     login: login,
@@ -133,5 +139,6 @@ export default {
     createPrice: createPrice,
     subscribeIndex: subscribeIndex,
     subscribeTime: subscribeTime,
-    subscribeAction:subscribeAction
+    subscribeAction: subscribeAction,
+    getCoupon:getCoupon,
 }

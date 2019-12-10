@@ -3,5 +3,5 @@
     "van-tab": "../../dist/vant/tab/index",
     "van-tabs": "../../dist/vant/tabs/index"
   },
-  "navigationBarTitleText": "我的优惠券"
+  "navigationBarTitleText": "我的预约"
 }

@@ -12,7 +12,8 @@
     "pages/address/address",
     "pages/category/category",
     "pages/search/search",
-    "pages/orderConfirm/orderConfirm"
+    "pages/orderConfirm/orderConfirm",
+    "pages/mySubscribe/mySubscribe"
   ],
   "window": {
     "backgroundTextStyle": "light",

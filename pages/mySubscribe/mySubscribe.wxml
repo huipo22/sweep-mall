@@ -1,4 +1,4 @@
-<!-- pages/myorder/myorder.wxml -->
+<!-- pages/mySubscribe/mySubscribe.wxml -->
 <view class="container">
     <view class="Box">
         <van-tabs active="{{ active }}" bind:change="onChange">

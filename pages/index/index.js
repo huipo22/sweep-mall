@@ -14,7 +14,8 @@ Page({
     interval: 2000,
     duration: 500,
     indexRich: null,
-    shopInfo:null,
+    shopInfo: null,
+    couponInfo:[],
     // show: true,//遮罩控制器
   },
   // 图片加载失败
@@ -85,6 +86,17 @@ Page({
       if (res.data.code == 1) {
         this.setData({
           shopInfo: res.data.data
+        })
+      }
+    })
+    // 获取优惠券
+    api.getCoupon({ shop_id: app.globalData.shopId }, {
+      Token: wx.getStorageSync('token'),
+      "Device-Type": 'wxapp',
+    }).then(res => {
+      if (res.data.code == 1) {
+        this.setData({
+          couponInfo: res.data.data
         })
       }
     })

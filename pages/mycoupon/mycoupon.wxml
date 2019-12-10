@@ -1,2 +1,10 @@
-<!--pages/mycoupon/mycoupon.wxml-->
-<text>pages/mycoupon/mycoupon.wxml</text>
+<!-- pages/mycoupon/mycoupon.wxml -->
+<view class="container">
+    <view class="Box">
+        <van-tabs active="{{ 1 }}" bind:change="onChange">
+            <van-tab title="未使用">内容 1</van-tab>
+            <van-tab title="使用记录">内容 2</van-tab>
+            <van-tab title="已过期">内容 3</van-tab>
+        </van-tabs>
+    </view>
+</view>

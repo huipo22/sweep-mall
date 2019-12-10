@@ -17,6 +17,7 @@ let apiList = {
     subscribeIndex: host + "/api/goods/reserve",//预约商家信息及餐桌列表
     subscribeTime: host + "/api/goods/reserve/isset_reserve_time",//断时间段是否在预约中
     subscribeAction: host + "/api/goods/reserve/do_reserve",//预约动作
+    getCoupon: host+ "/api/goods/coupon",//获取优惠券
 }
 
 module.exports = apiList;    //暴露出来

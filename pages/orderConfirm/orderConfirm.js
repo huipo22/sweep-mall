@@ -2,6 +2,7 @@
 const app = getApp()
 import util from '../../utils/util'
 let api = require('../../utils/request').default;
+import Toast from '../../dist/vant/toast/toast';
 Page({
 
   /**
@@ -50,24 +51,30 @@ Page({
   // 提交事件
   submitSubscribe() {
     const data = this.data;
-    const params = {
-      shop_id: app.globalData.shopId,
-      reserve_price: data.Item.reserve_price,
-      ramark: data.remark,
-      reserve_name: data.Item.reserve_name,
-      reserve_mobile: data.sub_mobile,
-      reserve_time: data.date,
-      tid: data.Item.id,
-    }
-    // 预约动作接口
-    api.subscribeAction(params, {
-      Token: wx.getStorageSync('token'),
-      "Device-Type": 'wxapp',
-    }).then((res) => {
-      if (res.data.code == 1) {
-        return
+    if (data.sub_name == "") {
+      Toast("请输入预约人姓名")
+    } else if (data.sub_mobile == "") {
+      Toast("请输入预约人联系电话")
+    } else {
+      const params = {
+        shop_id: app.globalData.shopId,
+        reserve_price: data.Item.reserve_money,
+        ramark: data.remark,
+        reserve_name: data.sub_name,
+        reserve_mobile: data.sub_mobile,
+        reserve_time: new Date(data.sub_time).getTime()/1000,
+        tid: data.Item.id,
       }
-    })
+      // 预约动作接口
+      api.subscribeAction(params, {
+        Token: wx.getStorageSync('token'),
+        "Device-Type": 'wxapp',
+      }).then((res) => {
+        if (res.data.code == 1) {
+          util.navigateTo("../mySubscribe/mySubscribe")
+        }
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

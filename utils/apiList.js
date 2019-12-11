@@ -19,6 +19,7 @@ let apiList = {
     subscribeAction: host + "/api/goods/reserve/do_reserve",//预约动作
     getCoupon: host + "/api/goods/coupon",//获取优惠券
     doCoupon: host + "/api/goods/coupon/do_coupon",// 领取优惠券
+    myCoupon: host + "/api/goods/coupon/my_coupon",// 我的优惠券
 }
 
 module.exports = apiList;    //暴露出来

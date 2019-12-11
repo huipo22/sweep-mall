@@ -128,6 +128,13 @@ let doCoupon = (data, header) => {
         resolve(apiRequest(apiList.doCoupon, 'post', data, header))
     })
 }
+// 我的优惠券
+
+let myCoupon = (data, header) => {
+    return new Promise((resolve, reject) => {
+        resolve(apiRequest(apiList.myCoupon, 'post', data, header))
+    })
+}
 //最后需要将具体调用的函数暴露出，给具体业务调用
 export default {
     login: login,
@@ -147,5 +154,6 @@ export default {
     subscribeTime: subscribeTime,
     subscribeAction: subscribeAction,
     getCoupon: getCoupon,
-    doCoupon:doCoupon,
+    doCoupon: doCoupon,
+    myCoupon:myCoupon,
 }

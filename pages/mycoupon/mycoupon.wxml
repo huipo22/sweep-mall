@@ -1,10 +1,24 @@
 <!-- pages/mycoupon/mycoupon.wxml -->
 <view class="container">
     <view class="Box">
-        <van-tabs active="{{ 1 }}" bind:change="onChange">
-            <van-tab title="未使用">内容 1</van-tab>
-            <van-tab title="使用记录">内容 2</van-tab>
-            <van-tab title="已过期">内容 3</van-tab>
+        <van-tabs active="{{ couponActive }}" bind:change="couponChange">
+            <van-tab title="{{item.title}}" name="{{item.name}}" wx:for="{{couponList}}" wx:for-item="item" wx:key="unique">
+                <!-- 优惠券 -->
+                <view class="Box" style="height:200rpx" wx:for="{{couponData}}" wx:for-item="coupon" wx:key="{{coupon.id}}">
+                    <view class="wrapper">
+                        <view class="left">
+                            <view class="top">{{'¥'+coupon.coupon_money}}</view>
+                            <view class="bottom">满{{coupon.coupon_minimums}}可用</view>
+                        </view>
+                        <view class="center">
+                            <view class="top">{{coupon.coupon_name}}</view>
+                        </view>
+                        <view class="right">
+                            <view class="top" data-Cid="{{coupon.id}}">未使用</view>
+                        </view>
+                    </view>
+                </view>
+            </van-tab>
         </van-tabs>
     </view>
 </view>

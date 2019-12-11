@@ -2,7 +2,7 @@
 <view class="container">
     <van-toast id="van-toast"/>
     <van-image class="Box" width="100%" height="160px" fit="cover" src="{{resourse+subscribeIndexData.shop_info.head_photo}}" />
-    <van-card title="{{item.table_name}}" thumb="{{resourse+item.thumbnail}}" desc="{{item.lable}}" class="Box" wx:for="{{subscribeIndexData.list}}" wx:for-item="item" wx:key="unique">
+    <van-card title="{{item.table_name}}" thumb="{{resourse+item.thumbnail}}" desc="{{item.lable}}" thumb-mode="aspectFill" class="Box" wx:for="{{subscribeIndexData.list}}" wx:for-item="item" wx:key="unique">
         <view slot="tags">
             <van-tag plain type="danger">{{item.category_name}}</van-tag>
         </view>

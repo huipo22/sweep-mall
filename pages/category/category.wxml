@@ -9,13 +9,13 @@
     </van-sidebar>
     <!-- 分类 right -->
     <view class="Box">
-        <van-card title="{{good.goods_name}}" thumb="{{resourse+good.goods_img}}" wx:for="{{goodsList}}" wx:for-item="good" wx:key="unique" bind:tap="detailPage" data-goodId="{{good.id}}">
+        <van-card title="{{good.goods_name}}" thumb="{{resourse+good.goods_img}}" wx:for="{{goodsList}}" thumb-mode="aspectFill" wx:for-item="good" wx:key="unique" bind:tap="detailPage" data-goodId="{{good.id}}">
             <view slot="bottom" class="goodContent">
                 <view class="left">
                     <text class="">{{'¥'+good.present_price}}</text>
                 </view>
                 <view class="right">
-                    <image src="../../dist/icon/cart-select.png" mode="aspectFit" style="width:15px" catch:tap="showPopup" data-item="{{good}}"/>
+                    <image src="../../dist/icon/cart-select.png" mode="aspectFit" style="width:15px" catch:tap="showPopup" data-item="{{good}}" />
                 </view>
             </view>
         </van-card>
@@ -31,7 +31,7 @@
         <view class="popup">
             <view class="popup-title">数量</view>
             <view class="stepper">
-                <van-stepper value="{{ goodNum }}" min="1" async-change bind:change="goodNumChange"/>
+                <van-stepper value="{{ goodNum }}" min="1" async-change bind:change="goodNumChange" />
             </view>
         </view>
         <view class="popup">

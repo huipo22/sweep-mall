@@ -5,7 +5,28 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    orderListTab: [
+      {
+        name: "1",
+        title: "代付款"
+      },
+      {
+        name: "2",
+        title: "待确认"
+      },
+      {
+        name: "3",
+        title: "已完成"
+      },
+      {
+        name: "4",
+        title: "已关闭"
+      },
+      {
+        name: "5",
+        title: "已退款"
+      },
+    ]
   },
 
   /**

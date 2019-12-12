@@ -13,7 +13,7 @@ Page({
     checkedAll: true,
     recommendList: null,
     resourse: app.globalData.imgAddress,
-    cartList: null,
+    cartList: [],
     totalPrice: 0
   },
   // check 事件
@@ -35,24 +35,38 @@ Page({
         objData.goods_id = obj[0]
         objData.original_price = obj[1]
         objData.num = obj[2]
+        objData.id = obj[3]
         resultArr.push(objData)
-        // 计算价格接口
-        api.createPrice(resultArr, {
-          Token: wx.getStorageSync('token'),
-          "Device-Type": 'wxapp',
-        }).then((res) => {
-          if (res.data.code == 1) {
-            this.setData({
-              totalPrice: res.data.data.price * 100
-            })
-          }
-        })
+        this.countPrice(resultArr)
       }
     }
     this.setData({
       selectList: resultArr,
     })
 
+  },
+  // 计算价格事件
+  countPrice(resultArr) {
+    console.log(resultArr)
+    // 计算价格接口
+    if (resultArr == 0) {
+      this.setData({
+        totalPrice: 0 * 100
+      })
+      console.log(123)
+    } else {
+      console.log(456)
+      api.createPrice(resultArr, {
+        Token: wx.getStorageSync('token'),
+        "Device-Type": 'wxapp',
+      }).then((res) => {
+        if (res.data.code == 1) {
+          this.setData({
+            totalPrice: res.data.data.price * 100
+          })
+        }
+      })
+    }
   },
   // 全选事件更改
   allSelectChange(event) {
@@ -73,6 +87,7 @@ Page({
   goodChange(target) {
     const goodId = target.currentTarget.dataset.goodid
     const cartData = this.data.cartList
+    const selectData = this.data.selectList;
     for (let i in cartData) {
       if (cartData[i].id == goodId) {
         cartData[i].num = target.detail
@@ -84,7 +99,12 @@ Page({
           util.arrayRemoveItem(cartData, cartData[i])
         }
       }
-      // 删除接口 价格=0
+      for (let j in selectData) {
+        if (selectData[j].id == goodId) {
+          util.arrayRemoveItem(selectData, selectData[j])
+        }
+      }
+      // 删除接口 重新计算价格
       api.actionShop({
         id: goodId,
         type: 3,
@@ -97,8 +117,9 @@ Page({
         if (res.data.code == 1) {
           this.setData({
             cartList: cartData,
-            totalPrice: 0,
+            selectList: selectData
           })
+          this.countPrice(selectData)
         }
       })
     } else {
@@ -133,6 +154,7 @@ Page({
   onReady: function () {
 
   },
+  // 加载计算价格
   loadPrice() {
     // 全选
     const resultData = this.data.cartList;
@@ -144,21 +166,13 @@ Page({
       objData.goods_id = resultData[i].goods_id
       objData.original_price = resultData[i].original_price
       objData.num = resultData[i].num
+      objData.id = resultData[i].id
       resultArr.push(objData)
-      defaultObj = resultData[i].goods_id + '-' + resultData[i].original_price + '-' + resultData[i].num
+      defaultObj = resultData[i].goods_id + '-' + resultData[i].original_price + '-' + resultData[i].num + '-' + resultData[i].id
       resultDefault.push(defaultObj)
     }
     // 计算价格接口
-    api.createPrice(resultArr, {
-      Token: wx.getStorageSync('token'),
-      "Device-Type": 'wxapp',
-    }).then((res) => {
-      if (res.data.code == 1) {
-        this.setData({
-          totalPrice: res.data.data.price * 100
-        })
-      }
-    })
+    this.countPrice(resultArr)
     this.setData({
       result: resultDefault,
       selectList: resultArr

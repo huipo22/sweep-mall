@@ -1,8 +1,8 @@
 <!-- pages/cart/cart.wxml -->
 <view class="container">
-    <van-checkbox-group value="{{ result }}" catch:change="onChange" class="Box" wx:if="{{cartList!==null}}">
+    <van-checkbox-group value="{{ result }}" catch:change="onChange" class="Box" wx:if="{{cartList.length!==0}}">
         <view wx:for="{{cartList}}" wx:for-item="item" wx:key="unique" class="checkBox">
-            <van-checkbox name="{{item.goods_id}}-{{item.original_price}}-{{item.num}}"></van-checkbox>
+            <van-checkbox name="{{item.goods_id}}-{{item.original_price}}-{{item.num}}-{{item.id}}"></van-checkbox>
             <van-card title="{{item.goods_name}}" thumb="{{resourse+item.goods_img}}" style="flex:1">
                 <view slot="bottom" class="goodContent">
                     <view class="left">
@@ -30,7 +30,7 @@
             </view>
         </view>
     </view>
-    <van-submit-bar price="{{ totalPrice }}" button-text="提交订单" bind:submit="onClickButton" tip="{{ true }}" wx:if="{{cartList!==null}}">
+    <van-submit-bar style="{{cartList.length==0?'display:none':''}}" price="{{ totalPrice }}" button-text="提交订单" bind:submit="onClickButton" tip="{{ true }}" wx:if="{{cartList!==null}}">
         <van-checkbox value="{{checkedAll}}" bind:change="allSelectChange">全选</van-checkbox>
     </van-submit-bar>
 </view>

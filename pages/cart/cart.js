@@ -141,6 +141,10 @@ Page({
       })
     }
   },
+  // 创建订单事件 --> 跳转订单页orderConfirm   s/''
+  onSubmitPage() {
+    util.navigateTo('../orderConfirms/orderConfirms')
+  },
   /**
    * 生命周期函数--监听页面加载
    */

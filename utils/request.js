@@ -135,6 +135,12 @@ let myCoupon = (data, header) => {
         resolve(apiRequest(apiList.myCoupon, 'post', data, header))
     })
 }
+// 订单页 生成订单
+let orderCreat = (data, header) => {
+    return new Promise((resolve, reject) => {
+        resolve(apiRequest(apiList.orderCreat, 'post', data, header))
+    })
+}
 //最后需要将具体调用的函数暴露出，给具体业务调用
 export default {
     login: login,
@@ -155,5 +161,6 @@ export default {
     subscribeAction: subscribeAction,
     getCoupon: getCoupon,
     doCoupon: doCoupon,
-    myCoupon:myCoupon,
+    myCoupon: myCoupon,
+    orderCreat:orderCreat,
 }

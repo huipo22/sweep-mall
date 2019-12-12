@@ -20,6 +20,7 @@ let apiList = {
     getCoupon: host + "/api/goods/coupon",//获取优惠券
     doCoupon: host + "/api/goods/coupon/do_coupon",// 领取优惠券
     myCoupon: host + "/api/goods/coupon/my_coupon",// 我的优惠券
+    orderCreat: host + "/api/goods/order/create_order",// 订单页 生成订单
 }
 
 module.exports = apiList;    //暴露出来

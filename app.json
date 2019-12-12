@@ -13,6 +13,7 @@
     "pages/category/category",
     "pages/search/search",
     "pages/orderConfirm/orderConfirm",
+    "pages/orderConfirms/orderConfirms",
     "pages/mySubscribe/mySubscribe"
   ],
   "window": {

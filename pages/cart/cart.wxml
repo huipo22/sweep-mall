@@ -2,11 +2,11 @@
 <view class="container">
     <van-checkbox-group value="{{ result }}" catch:change="onChange" class="Box" wx:if="{{cartList.length!==0}}">
         <view wx:for="{{cartList}}" wx:for-item="item" wx:key="unique" class="checkBox">
-            <van-checkbox name="{{item.goods_id}}-{{item.original_price}}-{{item.num}}-{{item.id}}"></van-checkbox>
+            <van-checkbox name="{{item.goods_id}}-{{item.present_price}}-{{item.num}}-{{item.id}}"></van-checkbox>
             <van-card title="{{item.goods_name}}" thumb="{{resourse+item.goods_img}}" style="flex:1">
                 <view slot="bottom" class="goodContent">
                     <view class="left">
-                        <text class="">{{'¥'+item.original_price}}</text>
+                        <text class="">{{'¥'+item.present_price}}</text>
                     </view>
                     <view class="right">
                         <view class="stepper">

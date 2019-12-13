@@ -1,5 +1,7 @@
 
 let host = 'https://saoma.jishanhengrui.com'   // 设置API接口的ip地址和端口
+const app = getApp()
+console.log(app)
 let apiList = {
     login: host + '/api/wxapp/public/login',     //用户登录的API
     wheels: host + "/api/goods/shop/wheels_content",//轮播图和商家介绍
@@ -20,7 +22,8 @@ let apiList = {
     getCoupon: host + "/api/goods/coupon",//获取优惠券
     doCoupon: host + "/api/goods/coupon/do_coupon",// 领取优惠券
     myCoupon: host + "/api/goods/coupon/my_coupon",// 我的优惠券
-    orderCreat: host + "/api/goods/order/create_order",// 订单页 生成订单
+    orderCreat: host + "/api/goods/order/create_order?shop_id=" + app.globalData.shopId + "&table_id=" + app.globalData.tableId,// 订单页 预约支付生成订单
+    orderPay: host + "/api/goods/order/order_pay",//订单页 线上支付生成订单
 }
 
 module.exports = apiList;    //暴露出来

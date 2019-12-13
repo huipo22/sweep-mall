@@ -33,7 +33,7 @@ Page({
         let obj = resultData[i].split('-');
         let objData = {}
         objData.goods_id = obj[0]
-        objData.original_price = obj[1]
+        objData.present_price = obj[1]
         objData.num = obj[2]
         objData.id = obj[3]
         resultArr.push(objData)
@@ -143,7 +143,14 @@ Page({
   },
   // 创建订单事件 --> 跳转订单页orderConfirm   s/''
   onSubmitPage() {
-    util.navigateTo('../orderConfirms/orderConfirms')
+    const select=this.data.selectList.map((obj)=>{
+      return {
+        goods_id:obj.goods_id,
+        present_price:obj.present_price,
+        num:obj.num
+      }
+    })
+    util.navigateTo('../orderConfirms/orderConfirms?orderList='+JSON.stringify(select))
   },
   /**
    * 生命周期函数--监听页面加载
@@ -168,11 +175,11 @@ Page({
       let objData = {};
       let defaultObj = {}
       objData.goods_id = resultData[i].goods_id
-      objData.original_price = resultData[i].original_price
+      objData.present_price = resultData[i].present_price
       objData.num = resultData[i].num
       objData.id = resultData[i].id
       resultArr.push(objData)
-      defaultObj = resultData[i].goods_id + '-' + resultData[i].original_price + '-' + resultData[i].num + '-' + resultData[i].id
+      defaultObj = resultData[i].goods_id + '-' + resultData[i].present_price + '-' + resultData[i].num + '-' + resultData[i].id
       resultDefault.push(defaultObj)
     }
     // 计算价格接口

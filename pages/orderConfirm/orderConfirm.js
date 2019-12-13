@@ -1,6 +1,7 @@
 // pages/orderConfirm/orderConfirm.js
 const app = getApp()
 import util from '../../utils/util'
+import md5 from '../../utils/md5.js';
 let api = require('../../utils/request').default;
 import Toast from '../../dist/vant/toast/toast';
 Page({
@@ -62,7 +63,7 @@ Page({
         ramark: data.remark,
         reserve_name: data.sub_name,
         reserve_mobile: data.sub_mobile,
-        reserve_time: new Date(data.sub_time).getTime()/1000,
+        reserve_time: new Date(data.sub_time).getTime() / 1000,
         tid: data.Item.id,
       }
       // 预约动作接口
@@ -70,8 +71,26 @@ Page({
         Token: wx.getStorageSync('token'),
         "Device-Type": 'wxapp',
       }).then((res) => {
-        if (res.data.code == 1) {
-          util.navigateTo("../mySubscribe/mySubscribe")
+        if (res.data.code == 0) {
+          // util.navigateTo("../mySubscribe/mySubscribe")
+          const subscribePay = res.data.data;//预约统一下单数据
+          let paySign = md5.hexMD5('appId=' + subscribePay.appid + '&nonceStr=' + subscribePay.nonce_str + '&package=' + subscribePay.prepay_id + '&signType=MD5&timeStamp=' + subscribePay.timeStamp + "&key=z6TBQUbGKzmO8ligVMteboqs4kUSy49d").toUpperCase();
+          // 预约支付
+          wx.requestPayment({
+            'timeStamp': subscribePay.timeStamp + "",
+            'nonceStr': subscribePay.nonce_str,
+            'package': subscribePay.prepay_id,
+            'signType': 'MD5',
+            'paySign': paySign,
+            success(res) {
+              console.log('调用支付接口成功', res)
+              util.navigateTo('../mySubscribe/mySubscribe')
+            },
+            fail(res) {
+              console.log('调用支付接口fail', res)
+              util.navigateTo('../mySubscribe/mySubscribe')
+            }
+          })
         }
       })
     }

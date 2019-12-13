@@ -135,10 +135,16 @@ let myCoupon = (data, header) => {
         resolve(apiRequest(apiList.myCoupon, 'post', data, header))
     })
 }
-// 订单页 生成订单
+// 订单页 预约生成订单
 let orderCreat = (data, header) => {
     return new Promise((resolve, reject) => {
         resolve(apiRequest(apiList.orderCreat, 'post', data, header))
+    })
+}
+// 订单页 线上支付生成订单
+let orderPay=(data, header) => {
+    return new Promise((resolve, reject) => {
+        resolve(apiRequest(apiList.orderPay, 'post', data, header))
     })
 }
 //最后需要将具体调用的函数暴露出，给具体业务调用
@@ -163,4 +169,5 @@ export default {
     doCoupon: doCoupon,
     myCoupon: myCoupon,
     orderCreat:orderCreat,
+    orderPay:orderPay,
 }

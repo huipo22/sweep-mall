@@ -5,13 +5,34 @@ Page({
    * 页面的初始数据
    */
   data: {
-    active: 1
+    subscribeListTab: [
+      {
+        name: "1",
+        title: "代付款"
+      },
+      {
+        name: "2",
+        title: "待确认"
+      },
+      {
+        name: "3",
+        title: "已完成"
+      },
+      {
+        name: "4",
+        title: "已关闭"
+      },
+      {
+        name: "5",
+        title: "已退款"
+      },
+    ]
   },
-  nChange(event) {
-    wx.showToast({
-      title: `切换到标签 ${event.detail.name}`,
-      icon: 'none'
-    })
+  // 预约页面状态更改
+  subscribeChange(event) {
+    console.log(event)
+    const statusName = event.detail.name
+    // this.loadCouponData(statusName)
   },
   /**
    * 生命周期函数--监听页面加载

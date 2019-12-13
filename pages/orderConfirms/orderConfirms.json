@@ -1,4 +1,14 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "van-row": "../../dist/vant/row/index",
+    "van-col": "../../dist/vant/col/index",
+    "van-image": "../../dist/vant/image/index",
+    "van-cell": "../../dist/vant/cell/index",
+    "van-tag": "../../dist/vant/tag/index",
+    "van-goods-action": "../../dist/vant/goods-action/index",
+    "van-goods-action-icon": "../../dist/vant/goods-action-icon/index",
+    "van-goods-action-button": "../../dist/vant/goods-action-button/index",
+    "van-field": "../../dist/vant/field/index"
+  },
   "navigationBarTitleText": "订单确认"
 }

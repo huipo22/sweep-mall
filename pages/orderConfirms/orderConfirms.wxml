@@ -1,2 +1,60 @@
-<!--pages/orderConfirms/orderConfirms.wxml-->
-<text>pages/orderConfirms/orderConfirms.wxml</text>
+<!-- pages/orderConfirms/orderConfirms.wxml -->
+<view class="container">
+    <!-- 商品列表 -->
+    <view class="Box subscrbeFont">
+        <van-row wx:for="{{orderConfirmData.goods_info}}" wx:for-item="item" wx:key="unique">
+            <van-col span="6">
+                <view class="subscrbeImg">
+                    <van-image width="50" height="50" src="{{resourse+item.goods_img}}"></van-image>
+                </view>
+            </van-col>
+            <van-col span="18">
+                <view class="Box goodInfo">
+                    <view class="left">{{item.goods_name}}</view>
+                    <view class="right">{{item.goods_price}}</view>
+                </view>
+                <view class="Box goodInfoNum">{{item.goods_num}}</view>
+            </van-col>
+        </van-row>
+    </view>
+    <!-- 总价格 -->
+    <view class="Box Boxtop">
+        <van-cell title="总价" value="{{orderConfirmData.sum_price}}" />
+    </view>
+    <!-- 优惠信息 -->
+    <view class="Box Boxtop Boxpadding subscrbeFont">
+        <van-row wx:if="{{orderConfirmData.coupon_id}}">
+            <van-col span="12">
+                <van-tag type="danger" size="medium" plain>优惠券抵扣</van-tag>
+            </van-col>
+            <van-col span="12">
+                <view class="redPrice">{{"-"+orderConfirmData.coupon_price}}</view>
+            </van-col>
+        </van-row>
+        <van-row wx:if="{{orderConfirmData.reserve_id}}" custom-class="Boxtop">
+            <van-col span="12">
+                <van-tag type="danger" size="medium" plain>预约抵扣</van-tag>
+            </van-col>
+            <van-col span="12">
+                <view class="redPrice">{{"-"+orderConfirmData.reserve_price}}</view>
+            </van-col>
+        </van-row>
+        <van-row custom-class="Boxtop">
+            <van-col span="12">
+                <van-tag type="danger" size="medium" plain>积分抵扣</van-tag>
+            </van-col>
+            <van-col span="12">
+                <view class="redPrice">{{"-"+orderConfirmData.score_price}}</view>
+            </van-col>
+        </van-row>
+    </view>
+    <!-- 应付价格 -->
+    <view class="Box Boxtop">
+        <van-cell title="应付" value="{{orderConfirmData.price}}" />
+        <van-field value="{{ remark }}" placeholder="备注留言" border="{{ false }}" bind:blur="remarkChange" />
+    </view>
+    <van-goods-action>
+        <van-goods-action-button text="线下支付" bind:click="submitUnderline" />
+        <van-goods-action-button text="线上支付" bind:click="submitOnline" />
+    </van-goods-action>
+</view>

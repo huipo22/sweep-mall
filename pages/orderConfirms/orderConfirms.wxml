@@ -3,12 +3,12 @@
     <!-- 商品列表 -->
     <view class="Box subscrbeFont">
         <van-row wx:for="{{orderConfirmData.goods_info}}" wx:for-item="item" wx:key="unique">
-            <van-col span="6">
+            <van-col span="5">
                 <view class="subscrbeImg">
                     <van-image width="50" height="50" src="{{resourse+item.goods_img}}"></van-image>
                 </view>
             </van-col>
-            <van-col span="18">
+            <van-col span="19">
                 <view class="Box goodInfo">
                     <view class="left">{{item.goods_name}}</view>
                     <view class="right">{{item.goods_price}}</view>
@@ -53,8 +53,8 @@
         <van-cell title="应付" value="{{orderConfirmData.price}}" />
         <van-field value="{{ remark }}" placeholder="备注留言" border="{{ false }}" bind:blur="remarkChange" />
     </view>
-    <van-goods-action>
+    <van-goods-action custom-class="actionBtn">
         <van-goods-action-button text="线下支付" bind:click="submitUnderline" />
-        <van-goods-action-button text="线上支付" bind:click="submitOnline" />
+        <van-goods-action-button square text="线上支付" bind:click="submitOnline" />
     </van-goods-action>
 </view>

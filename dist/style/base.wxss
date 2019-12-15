@@ -4,15 +4,15 @@ page {
 }
 
 .van-tree-select {
-  height: 100%!important;
+  height: 100% !important;
 }
 
 .van-tree-select__nav {
-  background: #fff!important
+  background: #fff !important;
 }
 
 .van-checkbox__label {
-  width: 100%!important;
+  width: 100% !important;
 }
 
 .van-checkbox {
@@ -20,10 +20,9 @@ page {
 }
 
 .van-card {
-  background: #fff!important;
-  padding: 0 !important;
+  background: #fff !important;
+  padding: 0 20rpx !important;
 }
-
 /* .van-card__content {
   margin: 15rpx 0!important;
 } */

@@ -38,8 +38,8 @@
       {
         "pagePath": "pages/category/category",
         "text": "点餐",
-        "iconPath": "./dist/icon/home.png",
-        "selectedIconPath": "./dist/icon/home-select.png"
+        "iconPath": "./dist/icon/food.png",
+        "selectedIconPath": "./dist/icon/food-select.png"
       },
       {
         "pagePath": "pages/subscribe/subscribe",

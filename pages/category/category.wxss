@@ -9,7 +9,8 @@
 .goodContent {
   display: flex;
   flex-direction: row;
-  margin-top: 70rpx;
+  margin-top: 90rpx;
+  padding: 0 20rpx 0 0;
 }
 
 .goodContent>.left, .right {

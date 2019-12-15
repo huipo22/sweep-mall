@@ -1,43 +1,47 @@
 /* pages/orderConfirms/orderConfirms.wxss */
 
 .Box {
-    background: #fff;
+  background: #fff;
 }
 
 .goodInfo {
-    display: flex;
+  display: flex;
 }
 
 .goodInfo>.left {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: left;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: left;
 }
 
 .goodInfo>.right {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .goodInfoNum {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .redPrice {
-    display: flex;
-    justify-content: flex-end;
-    color: red;
+  display: flex;
+  justify-content: flex-end;
+  color: red;
 }
-.subscrbeImg{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+.subscrbeImg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.subscrbeFont{
-    font-size: .875rem;
+
+.subscrbeFont {
+  font-size: 0.875rem;
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
 }

@@ -15,7 +15,7 @@
                     <text class="">{{'¥'+good.present_price}}</text>
                 </view>
                 <view class="right">
-                    <image src="../../dist/icon/cart-select.png" mode="aspectFit" style="width:15px" catch:tap="showPopup" data-item="{{good}}" />
+                    <image src="../../dist/icon/cart-select.png" mode="aspectFit" style="width:18px" catch:tap="showPopup" data-item="{{good}}" />
                 </view>
             </view>
         </van-card>

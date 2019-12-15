@@ -60,8 +60,8 @@
       <rich-text class="" nodes="{{indexRich}}"></rich-text>
     </view>
   </view>
-  <!-- 商家电话 -->
+  <!-- 呼叫店小二 -->
   <view bindtap='call' data-id="{{shopInfo.user_phone}}" class="phoneIcon">
-    <image class="" src="../../dist/icon/phone.png" mode="aspectFit" />
+    <image class="" src="../../dist/icon/xiaoer.png" mode="aspectFit" />
   </view>
 </view>

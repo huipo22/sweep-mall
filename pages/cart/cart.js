@@ -16,6 +16,11 @@ Page({
     cartList: [],
     totalPrice: 0
   },
+  // 商品详情
+  detailPage(e) {
+    const goodId = e.currentTarget.dataset.goodid
+    util.navigateTo('../detail/detail?goodId=' + goodId)
+  },
   // check 事件
   onChange(event) {
     this.setData({
@@ -143,14 +148,14 @@ Page({
   },
   // 创建订单事件 --> 跳转订单页orderConfirm   s/''
   onSubmitPage() {
-    const select=this.data.selectList.map((obj)=>{
+    const select = this.data.selectList.map((obj) => {
       return {
-        goods_id:obj.goods_id,
-        present_price:obj.present_price,
-        num:obj.num
+        goods_id: obj.goods_id,
+        present_price: obj.present_price,
+        num: obj.num
       }
     })
-    util.navigateTo('../orderConfirms/orderConfirms?orderList='+JSON.stringify(select))
+    util.navigateTo('../orderConfirms/orderConfirms?orderList=' + JSON.stringify(select))
   },
   /**
    * 生命周期函数--监听页面加载
@@ -193,18 +198,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // 为你推荐
-    api.guess({
-      shop_id: app.globalData.shopId,
-      type: 4,
-      page: 1
-    }).then((res) => {
-      if (res.data.code == 1) {
-        this.setData({
-          recommendList: res.data.data,
-        })
-      }
-    })
     // 购物车查询
     api.getShop({
       shop_id: app.globalData.shopId,
@@ -213,10 +206,27 @@ Page({
       "Device-Type": 'wxapp',
     }).then((res) => {
       if (res.data.code == 1) {
+        // 有数据
         this.setData({
           cartList: res.data.data,
         })
         this.loadPrice()
+      } else if (res.data.code == 0) {
+        this.setData({
+          cartList: [],
+        })
+        // 无数据 为你推荐
+        api.guess({
+          shop_id: app.globalData.shopId,
+          type: 4,
+          page: 1
+        }).then((res) => {
+          if (res.data.code == 1) {
+            this.setData({
+              recommendList: res.data.data,
+            })
+          }
+        })
       }
     })
   },

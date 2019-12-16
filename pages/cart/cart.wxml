@@ -23,7 +23,7 @@
             <view>猜你喜欢</view>
         </view>
         <view class="Box foodBox">
-            <view class="food" wx:for="{{recommendList}}" wx:key="unique" wx:for-item="item">
+            <view class="food" wx:for="{{recommendList}}" wx:key="unique" wx:for-item="item" bind:tap="detailPage" data-goodId="{{item.id}}">
                 <image src="{{resourse+item.goods_img}}" style="height:120px" />
                 <view class="title">{{item.goods_name}}</view>
                 <view class="title price">{{item.present_price}}</view>

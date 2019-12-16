@@ -22,6 +22,11 @@ Page({
   imageError(e) {
     console.log('轮播图发生error事件，携带值为', e.detail.errMsg)
   },
+  // 商品详情
+  detailPage(e) {
+    const goodId = e.currentTarget.dataset.goodid
+    util.navigateTo('../detail/detail?goodId=' + goodId)
+  },
   // 地图=>商家
   getLocation: function () {
     wx.getLocation({
@@ -90,7 +95,7 @@ Page({
       }
     })
   },
-  onLoad() {
+  onShow() {
     // 轮播图 商家接口
     api.wheels({ shop_id: app.globalData.shopId }).then(res => {
       if (res.data.code == 1) {

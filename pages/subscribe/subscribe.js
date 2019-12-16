@@ -85,6 +85,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onReady: function (options) {
+    util.showLoading()
     // 预约商家信息及餐桌列表 接口
     api.subscribeIndex({ shop_id: app.globalData.shopId }).then(res => {
       if (res.data.code == 1) {
@@ -95,6 +96,7 @@ Page({
           subscribeIndexData: res.data.data,
           showOverdue: true,
         })
+        wx.hideLoading();
       }
     })
   },

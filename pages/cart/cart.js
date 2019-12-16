@@ -198,6 +198,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    util.showLoading()
     // 购物车查询
     api.getShop({
       shop_id: app.globalData.shopId,
@@ -229,6 +230,7 @@ Page({
         })
       }
     })
+    wx.hideLoading();
   },
 
   /**

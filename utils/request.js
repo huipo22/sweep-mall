@@ -142,9 +142,15 @@ let orderCreat = (data, header) => {
     })
 }
 // 订单页 线上支付生成订单
-let orderPay=(data, header) => {
+let orderPay = (data, header) => {
     return new Promise((resolve, reject) => {
         resolve(apiRequest(apiList.orderPay, 'post', data, header))
+    })
+}
+// 订单状态
+let orderStatus = (data, header) => {
+    return new Promise((resolve, reject) => {
+        resolve(apiRequest(apiList.orderStatus, 'get', data, header))
     })
 }
 //最后需要将具体调用的函数暴露出，给具体业务调用
@@ -168,6 +174,7 @@ export default {
     getCoupon: getCoupon,
     doCoupon: doCoupon,
     myCoupon: myCoupon,
-    orderCreat:orderCreat,
-    orderPay:orderPay,
+    orderCreat: orderCreat,
+    orderPay: orderPay,
+    orderStatus:orderStatus,
 }

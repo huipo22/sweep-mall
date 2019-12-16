@@ -31,7 +31,7 @@
         <view class="popup">
             <view class="popup-title">数量</view>
             <view class="stepper">
-                <van-stepper value="{{ goodNum }}" min="1" async-change bind:change="goodNumChange" />
+                <van-stepper value="{{ activeItem.goodNum }}" min="1" async-change bind:change="goodNumChange" />
             </view>
         </view>
         <view class="popup">

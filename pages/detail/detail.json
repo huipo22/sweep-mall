@@ -3,7 +3,11 @@
     "van-image": "../../dist/vant/image/index",
     "van-goods-action": "../../dist/vant/goods-action/index",
     "van-goods-action-icon": "../../dist/vant/goods-action-icon/index",
-    "van-goods-action-button": "../../dist/vant/goods-action-button/index"
+    "van-goods-action-button": "../../dist/vant/goods-action-button/index",
+    "van-popup": "../../dist/vant/popup/index",
+    "van-sidebar": "../../dist/vant/sidebar/index",
+    "van-sidebar-item": "../../dist/vant/sidebar-item/index",
+    "van-stepper": "../../dist/vant/stepper/index"
   },
   "navigationBarTitleText": "详情"
 }

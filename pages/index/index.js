@@ -96,6 +96,7 @@ Page({
     })
   },
   onShow() {
+    util.showLoading()
     // 轮播图 商家接口
     api.wheels({ shop_id: app.globalData.shopId }).then(res => {
       if (res.data.code == 1) {
@@ -105,24 +106,28 @@ Page({
           indexRich: rich
         })
       }
+    }).then(() => {
+      // 精品推荐
+      api.recommend({ shop_id: app.globalData.shopId }).then(res => {
+        if (res.data.code == 1) {
+          this.setData({
+            recommendList: res.data.data
+          })
+        }
+      })
+    }).then(() => {
+      // 商家信息
+      api.shopInfo({ shop_id: 8 }).then(res => {
+        if (res.data.code == 1) {
+          this.setData({
+            shopInfo: res.data.data
+          })
+        }
+      })
+    }).then(() => {
+      // 获取优惠券
+      this.loadCoupon()
     })
-    // 精品推荐
-    api.recommend({ shop_id: app.globalData.shopId }).then(res => {
-      if (res.data.code == 1) {
-        this.setData({
-          recommendList: res.data.data
-        })
-      }
-    })
-    // 商家信息
-    api.shopInfo({ shop_id: 8 }).then(res => {
-      if (res.data.code == 1) {
-        this.setData({
-          shopInfo: res.data.data
-        })
-      }
-    })
-    // 获取优惠券
-    this.loadCoupon()
+    wx.hideLoading()
   }
 })

@@ -45,11 +45,11 @@ Page({
           'paySign': paySign,
           success(res) {
             console.log('调用支付接口成功', res)
-            util.navigateTo('../myorder/myorder')
+            util.navigateTo('../myorder/myorder?active=1')
           },
           fail(res) {
             console.log('调用支付接口fail', res)
-            util.navigateTo('../myorder/myorder')
+            util.navigateTo('../myorder/myorder?active=1')
           }
         })
       }

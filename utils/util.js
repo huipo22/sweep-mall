@@ -45,6 +45,13 @@ const errorTip=()=>{
   });
 
 }
+// 加载中
+const showLoading=()=>{
+  wx.showLoading({
+    title: '加载中',
+    mask:true,
+  })
+}
 // 删除指定数据
 const arrayRemoveItem = (arr, delVal) => {
   if (arr instanceof Array) {
@@ -61,5 +68,6 @@ module.exports = {
   navigateTo: navigateTo,
   showToastSuccess: showToastSuccess,
   errorTip:errorTip,
-  arrayRemoveItem:arrayRemoveItem
+  arrayRemoveItem:arrayRemoveItem,
+  showLoading:showLoading
 }

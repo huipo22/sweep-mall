@@ -14,7 +14,9 @@
                             <view class="top">{{coupon.coupon_name}}</view>
                         </view>
                         <view class="right">
-                            <view class="top" data-Cid="{{coupon.id}}">未使用</view>
+                            <view class="top" wx:if="{{couponActive==1}}">未使用</view>
+                            <view class="top" wx:elif="{{couponActive==2}}">已使用</view>
+                            <view class="top" wx:elif="{{couponActive==3}}">已过期</view>
                         </view>
                     </view>
                 </view>

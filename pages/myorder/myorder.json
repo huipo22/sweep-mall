@@ -1,7 +1,11 @@
 {
   "usingComponents": {
     "van-tab": "../../dist/vant/tab/index",
-    "van-tabs": "../../dist/vant/tabs/index"
+    "van-tabs": "../../dist/vant/tabs/index",
+    "van-card": "../../dist/vant/card/index",
+    "van-row": "../../dist/vant/row/index",
+    "van-col": "../../dist/vant/col/index",
+    "van-image": "../../dist/vant/image/index"
   },
   "navigationBarTitleText": "我的订单"
 }

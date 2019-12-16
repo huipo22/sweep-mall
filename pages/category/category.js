@@ -14,7 +14,7 @@ Page({
     active: 0,
     activeItem: {},
     resourse: app.globalData.imgAddress,
-    goodNum: 1,//默认商品数量
+    // goodNum: 1,
   },
   // 搜索事件=>跳转页面
   searchTap() {
@@ -34,9 +34,11 @@ Page({
   // 商品弹框
   showPopup(e) {
     console.log(e)
+    const dataObj = e.currentTarget.dataset.item
+    dataObj.goodNum = 1;//默认商品数量
     this.setData({
       popupShow: true,
-      activeItem: e.currentTarget.dataset.item
+      activeItem: dataObj
     })
   },
   // 关闭商品导航
@@ -47,8 +49,10 @@ Page({
   },
   // 商品数量改变
   goodNumChange(target) {
+    const goodData = this.data.activeItem;
+    goodData.goodNum = target.detail
     setTimeout(() => {
-      this.setData({ goodNum: target.detail });
+      this.setData({ activeItem: goodData });
     }, 0);
   },
   // 添加购物车事件
@@ -59,7 +63,7 @@ Page({
       'content-type': 'application/x-www-form-urlencoded'
     }
     let data = {
-      num: this.data.goodNum,
+      num: this.data.activeItem.goodNum,
       shop_id: app.globalData.shopId,
       goods_id: this.data.activeItem.id
     }
@@ -76,6 +80,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    util.showLoading()
     // 总分类
     api.category({ shop_id: 1 }).then(res => {
       console.log(res)
@@ -86,6 +91,7 @@ Page({
         this.setData({
           categoryList: res.data.data
         })
+        wx.hideLoading();
       }
     })
   },

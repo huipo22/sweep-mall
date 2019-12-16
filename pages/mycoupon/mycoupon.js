@@ -29,6 +29,9 @@ Page({
   couponChange(event) {
     console.log(event)
     const statusName = event.detail.name
+    this.setData({
+      couponActive:event.detail.name
+    })
     this.loadCouponData(statusName)
   },
   /**

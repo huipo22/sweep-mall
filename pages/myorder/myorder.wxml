@@ -1,9 +1,57 @@
 <!-- pages/myorder/myorder.wxml -->
 <view class="container">
     <view class="Box">
-        <van-tabs active="{{ active }}" bind:change="onChange">
-            <van-tab title="{{item.title}}" wx:for="{{orderListTab}}" wx:for-item="item" wx:key="unique" name="item.name">
-                {{item.title}}
+        <van-tabs active="{{ orderActive }}" bind:change="orderChange">
+            <van-tab title="{{item.title}}" wx:for="{{orderListTab}}" wx:for-item="item" wx:key="unique" name="{{item.name}}">
+                <view class="Box" wx:for="{{orderListData}}" wx:for-item="order" wx:key="unique">
+                    <!-- 订单号 -->
+                    <view class="Box orderInfo">
+                        <view class="order-num">{{order.order_number}}</view>
+                        <view class="order-datetime">{{order.add_time}}</view>
+                    </view>
+                    <!-- 详情列表 -->
+                    <view class="Box subscrbeFont">
+                        <van-row wx:for="{{order.goods_info}}" wx:for-item="orderDetail" wx:key="unique">
+                            <van-col span="5">
+                                <view class="subscrbeImg">
+                                    <van-image width="50" height="50" src="{{resourse+orderDetail.goods_img}}"></van-image>
+                                </view>
+                            </van-col>
+                            <van-col span="19">
+                                <view class="Box goodInfo">
+                                    <view class="left">{{orderDetail.goods_name}}</view>
+                                    <view class="right">{{orderDetail.goods_price}}</view>
+                                </view>
+                                <view class="Box goodInfoNum">{{orderDetail.goods_num}}</view>
+                            </van-col>
+                        </van-row>
+                        <view class="status" wx:if="{{orderActive==1}}">
+                            {{order.status==1?"未支付":"已支付"}}
+                        </view>
+                    </view>
+                    <!-- 总计 详情 -->
+                    <view class="Box orderSum">
+                        <view class="Box priceBox">
+                            <view class="pprice">
+                                总价:
+                                <text class="redColor">{{order.sum_price}}</text>
+                            </view>
+                            <view class="pprice">
+                                优惠抵扣:
+                                <text class="redColor">{{'-'+order.coupon_price}}</text>
+                            </view>
+                            <view class="pprice">
+                                预约抵扣:
+                                <text class="redColor">{{'-'+order.reserve_price}}</text>
+                            </view>
+                            <view class="pprice">
+                                积分抵扣:
+                                <text class="redColor">{{'-'+order.score_price}}</text>
+                            </view>
+                        </view>
+                        <view class="sumPri">应付:{{'¥'+order.pay_price}}</view>
+                    </view>
+                </view>
             </van-tab>
         </van-tabs>
     </view>

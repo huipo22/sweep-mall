@@ -1,1 +1,107 @@
 /* pages/myorder/myorder.wxss */
+
+.subscrbeFont {
+    font-size: 0.5rem;
+    padding: 20rpx 30rpx;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.Box {
+    background: #fff;
+}
+
+.goodInfo {
+    display: flex;
+}
+
+.orderInfo {
+    display: flex;
+    flex-direction: row;
+    font-size: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20rpx 30rpx;
+    box-sizing: border-box;
+}
+
+.priceBox {
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    padding: 20rpx 30rpx;
+    font-size: 22rpx;
+}
+
+.pprice {
+    flex: 1;
+}
+
+.sumPri {
+    padding: 20rpx 30rpx;
+    font-size: 0.5rem;
+}
+
+.orderInfo>.order-num {
+    display: flex;
+    flex: 1;
+    justify-content: flex-start;
+}
+
+.orderInfo>.order-datetime {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.goodInfo>.left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.goodInfo>.right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.goodInfoNum {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.redColor {
+    color: red;
+}
+
+.redPrice {
+    display: flex;
+    justify-content: flex-end;
+    color: red;
+}
+
+.subscrbeImg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.status {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid#ccc;
+    transform: rotate(-20deg);
+    position: absolute;
+    right: 13%;
+    top: 23%;
+    color:red;
+    background: transparent;
+}

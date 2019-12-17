@@ -153,6 +153,12 @@ let orderStatus = (data, header) => {
         resolve(apiRequest(apiList.orderStatus, 'get', data, header))
     })
 }
+// 预约状态
+let myReserve=(data, header) => {
+    return new Promise((resolve, reject) => {
+        resolve(apiRequest(apiList.myReserve, 'get', data, header))
+    })
+}
 //最后需要将具体调用的函数暴露出，给具体业务调用
 export default {
     login: login,
@@ -177,4 +183,5 @@ export default {
     orderCreat: orderCreat,
     orderPay: orderPay,
     orderStatus:orderStatus,
+    myReserve:myReserve,
 }

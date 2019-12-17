@@ -1,4 +1,7 @@
 // pages/mySubscribe/mySubscribe.js
+const app = getApp()
+import util from '../../utils/util'
+let api = require('../../utils/request').default;
 Page({
 
   /**
@@ -8,25 +11,14 @@ Page({
     subscribeListTab: [
       {
         name: "1",
-        title: "代付款"
+        title: "已预约"
       },
       {
         name: "2",
-        title: "待确认"
+        title: "已消费"
       },
-      {
-        name: "3",
-        title: "已完成"
-      },
-      {
-        name: "4",
-        title: "已关闭"
-      },
-      {
-        name: "5",
-        title: "已退款"
-      },
-    ]
+    ],
+    reserveList: [],
   },
   // 预约页面状态更改
   subscribeChange(event) {
@@ -38,9 +30,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.reserveList()
   },
-
+  // 预约列表
+  reserveList() {
+    api.myReserve({
+      shop_id: app.globalData.shopId,
+    }, {
+      Token: wx.getStorageSync('token'),
+      "Device-Type": 'wxapp',
+    }).then((res) => {
+      if (res.data.code == 1) {
+        this.setData({
+          reserveList: res.data.data
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

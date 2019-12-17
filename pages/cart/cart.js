@@ -211,6 +211,7 @@ Page({
         this.setData({
           cartList: res.data.data,
         })
+        wx.hideLoading();
         this.loadPrice()
       } else if (res.data.code == 0) {
         this.setData({
@@ -226,11 +227,11 @@ Page({
             this.setData({
               recommendList: res.data.data,
             })
+            wx.hideLoading();
           }
         })
       }
     })
-    wx.hideLoading();
   },
 
   /**

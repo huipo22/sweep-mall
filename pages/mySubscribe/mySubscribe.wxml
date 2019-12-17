@@ -1,8 +1,10 @@
 <view class="container">
     <view class="Box">
         <van-tabs active="{{ active }}" bind:change="subscribeChange">
-            <van-tab title="{{item.title}}" wx:for="{{subscribeListTab}}" wx:for-item="item" wx:key="unique" name="item.name">
-                {{item.title}}
+            <van-tab title="{{item.title}}" wx:for="{{subscribeListTab}}" wx:for-item="item" wx:key="unique" name="{{item.name}}">
+                <view class="Box" wx:for="{{reserveList}}" wx:for-item="reserve" wx:key="unique">
+                    {{reserve.status}}
+                </view>
             </van-tab>
         </van-tabs>
     </view>

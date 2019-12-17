@@ -25,6 +25,7 @@ let apiList = {
     orderCreat: host + "/api/goods/order/create_order?shop_id=" + app.globalData.shopId + "&table_id=" + app.globalData.tableId,// 订单页 预约支付生成订单
     orderPay: host + "/api/goods/order/order_pay",//订单页 线上支付生成订单
     orderStatus: host + "/api/goods/order/order_status",//订单状态
+    myReserve: host + "/api/goods/reserve/my_reserve",//预约状态
 }
 
 module.exports = apiList;    //暴露出来

@@ -5,7 +5,8 @@
     "van-card": "../../dist/vant/card/index",
     "van-row": "../../dist/vant/row/index",
     "van-col": "../../dist/vant/col/index",
-    "van-image": "../../dist/vant/image/index"
+    "van-image": "../../dist/vant/image/index",
+    "van-button": "../../dist/vant/button/index"
   },
   "navigationBarTitleText": "我的订单"
 }

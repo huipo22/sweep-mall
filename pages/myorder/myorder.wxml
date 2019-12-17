@@ -32,24 +32,24 @@
                     <!-- 总计 详情 -->
                     <view class="Box orderSum">
                         <view class="Box priceBox">
-                            <view class="pprice">
-                                总价:
-                                <text class="redColor">{{order.sum_price}}</text>
-                            </view>
-                            <view class="pprice">
-                                优惠抵扣:
-                                <text class="redColor">{{'-'+order.coupon_price}}</text>
-                            </view>
-                            <view class="pprice">
-                                预约抵扣:
-                                <text class="redColor">{{'-'+order.reserve_price}}</text>
-                            </view>
-                            <view class="pprice">
-                                积分抵扣:
-                                <text class="redColor">{{'-'+order.score_price}}</text>
-                            </view>
+                            <view class="pprice to">总价</view>
+                            <view class="pprice to">优惠抵扣</view>
+                            <view class="pprice to">预约抵扣</view>
+                            <view class="pprice to">积分抵扣</view>
+                            <view class="pprice to">应付</view>
                         </view>
-                        <view class="sumPri">应付:{{'¥'+order.pay_price}}</view>
+                        <view class="Box priceBox">
+                            <view class="pprice">{{order.sum_price}}</view>
+                            <view class="pprice">{{'-'+order.coupon_price}}</view>
+                            <view class="pprice">{{'-'+order.reserve_price}}</view>
+                            <view class="pprice">{{'-'+order.score_price}}</view>
+                            <view class="pprice">{{'¥'+order.pay_price}}</view>
+                        </view>
+                    </view>
+                    <view class="Box btnStatus" wx:if="{{orderActive==1}}">
+                        <van-button type="warning" size="small">
+                            {{order.status==1?"支付":""}}
+                        </van-button>
                     </view>
                 </view>
             </van-tab>

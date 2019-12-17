@@ -39,5 +39,6 @@ App({
     page: 1,//分页默认
     shopId: 1,//商家id,
     tableId:1,//餐桌id
+    wxData:null,//微信数据
   }
 })

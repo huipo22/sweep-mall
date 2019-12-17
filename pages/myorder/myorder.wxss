@@ -29,12 +29,22 @@
     display: flex;
     flex-direction: row;
     box-sizing: border-box;
-    padding: 20rpx 30rpx;
+    /* padding: 10rpx 30rpx; */
     font-size: 22rpx;
+    height: 45rpx;
 }
 
 .pprice {
     flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1rpx solid #ddd;
+    border-bottom: 1rpx solid #ddd;
+}
+
+.to {
+    border-top: 1rpx solid #ddd;
 }
 
 .sumPri {
@@ -101,7 +111,12 @@
     transform: rotate(-20deg);
     position: absolute;
     right: 13%;
-    top: 23%;
-    color:red;
+    top: 50%;
+    transform: translate(-13%, -50%);
+    color: red;
     background: transparent;
+}
+.btnStatus{
+    display: flex;
+    justify-content: flex-end;
 }

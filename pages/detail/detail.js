@@ -12,6 +12,7 @@ Page({
     resourse: app.globalData.imgAddress,
     popupShow: false,//底部弹框
     activeItem: {},
+    type: null,//事件类型
   },
 
   /**
@@ -33,12 +34,13 @@ Page({
   },
   // 商品弹框
   showPopup(e) {
-    console.log(e)
+    const type = e.currentTarget.dataset.sub
     const dataObj = e.currentTarget.dataset.item
     dataObj.goodNum = 1;//默认商品数量
     this.setData({
       popupShow: true,
-      activeItem: dataObj
+      activeItem: dataObj,
+      type: type,
     })
   },
   // 关闭商品导航
@@ -57,6 +59,17 @@ Page({
   },
   // 添加购物车事件
   addShopEvent() {
+    const type = this.data.type;
+    console.log(type)
+    if (type == "submit") {
+      this.onSubmitPage()
+    } else if (type == 'cart') {
+      this.addCart()
+    }
+
+  },
+  //添加购物车
+  addCart() {
     let header = {
       Token: wx.getStorageSync('token'),
       "Device-Type": 'wxapp',
@@ -79,13 +92,12 @@ Page({
   // 创建订单事件 --> 跳转订单页orderConfirm   s/''
   onSubmitPage() {
     console.log(456454654)
-    const detail=this.data.goodDetail;
-    console.log(detail)
-    const select = {
-        goods_id: detail.id,
-        present_price: detail.present_price,
-        num: detail.num
-    }
+    const detail = this.data.activeItem;
+    const select = [{
+      goods_id: detail.id,
+      present_price: detail.present_price,
+      num: detail.goodNum
+    }]
     util.navigateTo('../orderConfirms/orderConfirms?orderList=' + JSON.stringify(select))
   },
 

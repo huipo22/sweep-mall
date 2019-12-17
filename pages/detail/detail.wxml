@@ -21,8 +21,8 @@
         <!-- <van-goods-action-icon icon="chat-o" text="客服"/> -->
         <van-goods-action-icon icon="cart-o" text="首页" />
         <van-goods-action-icon icon="shop-o" text="购物车" />
-        <van-goods-action-button text="加入购物车" type="warning" custom-class="btn" catch:tap="showPopup" data-item="{{goodDetail}}"/>
-        <van-goods-action-button catch:tap="onSubmitPage" text="立即购买" custom-class="btn" />
+        <van-goods-action-button text="加入购物车" type="warning" custom-class="btn" catch:tap="showPopup" data-item="{{goodDetail}}" data-sub="cart"/>
+        <van-goods-action-button catch:tap="showPopup" data-item="{{goodDetail}}" data-sub="submit" text="立即购买" custom-class="btn" />
     </van-goods-action>
     <!-- 弹出层 -->
     <van-popup show="{{ popupShow }}" closeable position="bottom" custom-style="height: 35%" bind:close="onClose">

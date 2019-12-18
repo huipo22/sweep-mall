@@ -53,8 +53,10 @@
         <van-cell title="应付" value="{{orderConfirmData.price}}" />
         <van-field value="{{ remark }}" placeholder="备注留言" border="{{ false }}" bind:blur="remarkChange" />
     </view>
-    <van-goods-action custom-class="actionBtn">
-        <van-goods-action-button text="线下支付" bind:click="submitUnderline" />
-        <van-goods-action-button square text="线上支付" bind:click="submitOnline" />
-    </van-goods-action>
+    <view class="actionBtn Box">
+        <van-goods-action custom-class="">
+            <van-goods-action-button text="线下支付" bind:click="submitUnderline" />
+            <van-goods-action-button square text="线上支付" bind:click="submitOnline" />
+        </van-goods-action>
+    </view>
 </view>

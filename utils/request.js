@@ -154,9 +154,15 @@ let orderStatus = (data, header) => {
     })
 }
 // 预约状态
-let myReserve=(data, header) => {
+let myReserve = (data, header) => {
     return new Promise((resolve, reject) => {
         resolve(apiRequest(apiList.myReserve, 'get', data, header))
+    })
+}
+// 呼叫店小二
+let ylyCall = (data) => {
+    return new Promise((resolve, reject) => {
+        resolve(apiRequest(apiList.ylyCall, 'get', data))
     })
 }
 //最后需要将具体调用的函数暴露出，给具体业务调用
@@ -182,6 +188,7 @@ export default {
     myCoupon: myCoupon,
     orderCreat: orderCreat,
     orderPay: orderPay,
-    orderStatus:orderStatus,
-    myReserve:myReserve,
+    orderStatus: orderStatus,
+    myReserve: myReserve,
+    ylyCall: ylyCall
 }

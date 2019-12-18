@@ -16,7 +16,8 @@
   </view>
   <!-- 商家地址 -->
   <view class="Box">
-    <van-cell title="{{shopInfo.user_address}}" icon="location-o" bindtap="getLocation" is-link />
+    <van-cell title="{{shopInfo.user_address}}" icon="location-o" />
+    <!--   bindtap="getLocation" is-link  -->
   </view>
   <!-- 优惠券 -->
   <view class="Box" style="height:200rpx" wx:for="{{couponInfo}}" wx:for-item="coupon" wx:key="{{coupon.id}}">
@@ -27,7 +28,7 @@
       </view>
       <view class="center">
         <view class="top">{{coupon.coupon_name}}</view>
-        <view class="bottom`">
+        <view class="bottom">
           有效期:{{filter.couponDateFilter(coupon.coupon_start_time)+"-"+ filter.couponDateFilter(coupon.coupon_end_time)}}
         </view>
       </view>

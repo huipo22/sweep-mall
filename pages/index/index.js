@@ -42,16 +42,19 @@ Page({
     })
   },
   call: function (e) {
-    var id = e.currentTarget.dataset.id;
-    wx.makePhoneCall({
-      phoneNumber: id, //
-      success: function () {
-        console.log("拨打电话成功！")
-      },
-      fail: function () {
-        console.log("拨打电话失败！")
-      }
-    })
+    api.ylyCall({
+      tid: app.globalData.tableId
+    }).then((res) => { console.log(res) })
+    // var id = e.currentTarget.dataset.id;
+    // wx.makePhoneCall({
+    //   phoneNumber: id, //
+    //   success: function () {
+    //     console.log("拨打电话成功！")
+    //   },
+    //   fail: function () {
+    //     console.log("拨打电话失败！")
+    //   }
+    // })
   },
   // 领取优惠券
   getCoupon(e) {

@@ -45,3 +45,8 @@
   padding: 20rpx 30rpx;
   box-sizing: border-box;
 }
+
+.actionBtn {
+  margin-top: 50px;
+  z-index: 9999;
+}

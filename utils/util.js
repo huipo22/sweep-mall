@@ -37,19 +37,25 @@ const showToastSuccess = (successVal) => {
     duration: 2000
   })
 }
-const errorTip=()=>{
+const errorTip = () => {
   wx.showToast({
     title: '无数据',
     duration: 1500,
     mask: false,
   });
-
+}
+const errorTips = (data) => {
+  wx.showToast({
+    title: data,
+    duration: 1500,
+    mask: false,
+  });
 }
 // 加载中
-const showLoading=()=>{
+const showLoading = () => {
   wx.showLoading({
     title: '加载中',
-    mask:true,
+    mask: true,
   })
 }
 // 删除指定数据
@@ -67,7 +73,8 @@ module.exports = {
   formatTime: formatTime,
   navigateTo: navigateTo,
   showToastSuccess: showToastSuccess,
-  errorTip:errorTip,
-  arrayRemoveItem:arrayRemoveItem,
-  showLoading:showLoading
+  errorTip: errorTip,
+  arrayRemoveItem: arrayRemoveItem,
+  showLoading: showLoading,
+  errorTips: errorTips
 }

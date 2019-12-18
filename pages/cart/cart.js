@@ -148,6 +148,7 @@ Page({
   },
   // 创建订单事件 --> 跳转订单页orderConfirm   s/''
   onSubmitPage() {
+
     const select = this.data.selectList.map((obj) => {
       return {
         goods_id: obj.goods_id,
@@ -155,6 +156,10 @@ Page({
         num: obj.num
       }
     })
+    if (this.data.selectList.length == 0) {
+      util.errorTips('请选择勾选商品')
+      return
+    }
     util.navigateTo('../orderConfirms/orderConfirms?orderList=' + JSON.stringify(select))
   },
   /**

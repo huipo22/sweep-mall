@@ -1,6 +1,6 @@
 <!-- pages/cart/cart.wxml -->
 <view class="container">
-    <van-checkbox-group value="{{ result }}" catch:change="onChange" class="Box" wx:if="{{cartList.length!==0}}">
+    <van-checkbox-group value="{{ result }}" catch:change="onChange" class="Box" wx:if="{{cartList.length!==0}}" style="margin-bottom: 50px">
         <view wx:for="{{cartList}}" wx:for-item="item" wx:key="unique" class="checkBox">
             <van-checkbox name="{{item.goods_id}}-{{item.present_price}}-{{item.num}}-{{item.id}}"></van-checkbox>
             <van-card title="{{item.goods_name}}" thumb="{{resourse+item.goods_img}}" style="flex:1">

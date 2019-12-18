@@ -95,6 +95,14 @@ Page({
       }
     })
   },
+  onLoad(options) {
+    if (options.shopId && options.tableId) {
+      app.globalData.shopId = options.shopId
+      app.globalData.tableId = options.tableId
+    } else {
+      console.log('商家id,餐桌id未传')
+    }
+  },
   onShow() {
     util.showLoading()
     // 轮播图 商家接口

@@ -24,18 +24,19 @@ Page({
   subscribeChange(event) {
     console.log(event)
     const statusName = event.detail.name
-    // this.loadCouponData(statusName)
+    this.reserveList(statusName)
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.reserveList()
+    this.reserveList(options.status)
   },
   // 预约列表
-  reserveList() {
+  reserveList(statusName) {
     api.myReserve({
       shop_id: app.globalData.shopId,
+      status:statusName
     }, {
       Token: wx.getStorageSync('token'),
       "Device-Type": 'wxapp',

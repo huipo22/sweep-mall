@@ -2,8 +2,18 @@
     <view class="Box">
         <van-tabs active="{{ active }}" bind:change="subscribeChange">
             <van-tab title="{{item.title}}" wx:for="{{subscribeListTab}}" wx:for-item="item" wx:key="unique" name="{{item.name}}">
-                <view class="Box" wx:for="{{reserveList}}" wx:for-item="reserve" wx:key="unique">
-                    {{reserve.status}}
+                <view class="Box reserveBox" wx:for="{{reserveList}}" wx:for-item="reserve" wx:key="unique">
+                    <!-- 订单号 -->
+                    <view class="Box orderInfo">
+                        <view class="order-num">{{reserve.reserve_sn}}</view>
+                        <view class="order-datetime">{{reserve.reserve_time}}</view>
+                    </view>
+                    <view class="Box reserveInfo">
+                        <view>{{'姓名:'+reserve.reserve_name}}</view>
+                        <view>{{'手机号:'+reserve.reserve_mobile}}</view>
+                        <view>{{'预约价格:'+reserve.reserve_price}}</view>
+                        <view>{{"预约备注:"+reserve.ramark}}</view>
+                    </view>
                 </view>
             </van-tab>
         </van-tabs>

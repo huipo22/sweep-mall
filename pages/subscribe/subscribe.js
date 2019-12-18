@@ -21,6 +21,7 @@ Page({
     timeSlotList: [],
     Ttid: null,
     selectItem: null,
+    subscribeTitle:app.globalData.subscribeTitle
   },
   // 点击显示插件
   btnClick: function (e) {

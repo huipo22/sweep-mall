@@ -34,11 +34,12 @@ App({
     })
   },
   globalData: {
-    userInfo: null,
+    userInfo: null,//微信数据
     imgAddress:'https://saoma.jishanhengrui.com/upload/',
     page: 1,//分页默认
     shopId: 1,//商家id,
     tableId:1,//餐桌id
-    wxData:null,//微信数据
+    wxLogo:"../../dist/icon/logo.png",
+    subscribeTitle:"../../dist/icon/subscribe-title.jpg",
   }
 })

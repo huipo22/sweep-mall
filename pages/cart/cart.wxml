@@ -18,7 +18,7 @@
         </view>
     </van-checkbox-group>
     <!-- 猜你喜欢 -->
-    <view class="Box pageSetting Boxtop" wx:else>
+    <view class="Box pageSetting Boxtop" wx:elif="{{recommendList.length!==0}}">
         <view class="recommend">
             <view>猜你喜欢</view>
         </view>

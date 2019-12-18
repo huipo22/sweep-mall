@@ -1,7 +1,7 @@
 <view wx:if="{{isHide}}">
     <view wx:if="{{canIUse}}">
         <view class='header'>
-            <image src='../../dist/icon/cart.png'></image>
+            <image src='{{wxLogo}}'></image>
         </view>
         <view class='content'>
             <view>申请获取以下权限</view>

@@ -1,1 +1,22 @@
 /* pages/mySubscribe/mySubscribe.wxss */
+
+.orderInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.reserveInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.reserveBox {
+    font-size: 0.5rem;
+    background: #fff;
+    padding: 5rpx 30rpx;
+    margin-bottom: 15rpx;
+    box-sizing: border-box;
+}

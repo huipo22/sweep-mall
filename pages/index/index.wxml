@@ -39,7 +39,7 @@
     </view>
   </view>
   <!-- 精品推荐 -->
-  <view class="Box pageSetting Boxtop">
+  <view class="Box pageSetting Boxtop" wx:if="{{recommendList.length!==0}}">
     <view class="recommend">
       <view>精品推荐</view>
     </view>
@@ -52,7 +52,7 @@
     </view>
   </view>
   <!-- 商家介绍 -->
-  <view class="Box pageSetting Boxtop">
+  <view class="Box pageSetting Boxtop" wx:if="{{indexRich!==null}}">
     <view class="recommend">
       <view>商家介绍</view>
     </view>

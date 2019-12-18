@@ -11,7 +11,7 @@ Page({
     result: [],
     selectList: [],
     checkedAll: true,
-    recommendList: null,
+    recommendList: [],
     resourse: app.globalData.imgAddress,
     cartList: [],
     totalPrice: 0

@@ -4,7 +4,8 @@ Page({
   data: {
     //判断小程序的API，回调，参数，组件等是否在当前版本可用。
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    isHide: false
+    isHide: false,
+    wxLogo:app.globalData.wxLogo
   },
 
   onLoad: function () {
@@ -16,7 +17,7 @@ Page({
           wx.getUserInfo({
             success: function (res) {
               let wxData = res;
-              app.globalData.wxData=wxData.userInfo;
+              app.globalData.userInfo=wxData.userInfo;
               // 用户已经授权过,不需要显示授权页面,所以不需要改变 isHide 的值
               // 根据自己的需求有其他操作再补充
               // 我这里实现的是在用户授权成功后，调用微信的 wx.login 接口，从而获取code

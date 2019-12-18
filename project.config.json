@@ -55,7 +55,15 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": 0,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"query": "shopId=1&tableId=1",
+					"scene": 1011
+				}
+			]
 		}
 	}
 }

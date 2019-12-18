@@ -1,6 +1,7 @@
 // pages/myorder/myorder.js
 const app = getApp()
 import util from '../../utils/util'
+import md5 from '../../utils/md5.js';
 let api = require('../../utils/request').default;
 Page({
 
@@ -46,6 +47,47 @@ Page({
         })
       }
     })
+  },
+  // 封装支付事件
+  pay(payData) {
+    const params = {
+      order_id: payData.id,
+      pay_price: payData.pay_price,
+      pay_type: 1,//type为1线上  type为2线下
+      remark: payData.remark
+    }
+    api.orderPay(params, {
+      Token: wx.getStorageSync('token'),
+      "Device-Type": 'wxapp',
+    }).then((res) => {
+      if (res.data.code == 0) {
+        // util.navigateTo("../mySubscribe/mySubscribe")
+        const subscribePay = res.data.data;//预约统一下单数据
+        let paySign = md5.hexMD5('appId=' + subscribePay.appid + '&nonceStr=' + subscribePay.nonce_str + '&package=' + subscribePay.prepay_id + '&signType=MD5&timeStamp=' + subscribePay.timeStamp + "&key=z6TBQUbGKzmO8ligVMteboqs4kUSy49d").toUpperCase();
+        // 预约支付
+        wx.requestPayment({
+          'timeStamp': subscribePay.timeStamp + "",
+          'nonceStr': subscribePay.nonce_str,
+          'package': subscribePay.prepay_id,
+          'signType': 'MD5',
+          'paySign': paySign,
+          success(res) {
+            console.log('调用支付接口成功', res)
+
+            // util.navigateTo('../myorder/myorder?active=1')
+          },
+          fail(res) {
+            console.log('调用支付接口fail', res)
+            // util.navigateTo('../myorder/myorder?active=1')
+          }
+        })
+      }
+    })
+  },
+  PAY(e) {
+    console.log(e)
+    const payData = e.currentTarget.dataset.item;
+    this.pay(payData)
   },
   /**
    * 生命周期函数--监听页面加载

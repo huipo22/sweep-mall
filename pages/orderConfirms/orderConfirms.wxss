@@ -50,3 +50,7 @@
   margin-top: 50px;
   z-index: 9999;
 }
+.jj{
+  background: #ccc;
+  border-radius: 0;
+}

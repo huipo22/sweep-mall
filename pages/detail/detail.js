@@ -89,6 +89,16 @@ Page({
       }
     })
   },
+  home() {
+    wx.switchTab({
+      url: '../index/index'
+    })
+  },
+  cart() {
+    wx.switchTab({
+      url: '../cart/cart'
+    })
+  },
   // 创建订单事件 --> 跳转订单页orderConfirm   s/''
   onSubmitPage() {
     console.log(456454654)

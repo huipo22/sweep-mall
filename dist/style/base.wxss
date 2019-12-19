@@ -21,14 +21,29 @@ page {
 
 .van-card {
   background: #fff !important;
-  padding: 0 20rpx !important;
+  /* padding: 0 20rpx !important; */
+  padding: 0 20rpx 20rpx 20rpx !important;
 }
+
 /* .van-card__content {
   margin: 15rpx 0!important;
 } */
 
 button:not([size='mini']) {
   /* width: auto!important */
+}
+
+.van-card__content {
+  padding: 0 !important;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  font-size: 30rpx;
+  justify-content: center;
+}
+
+.van-card__title {
+  font-weight: normal!important;
 }
 
 /*全局设置所有页面属性*/
@@ -84,7 +99,7 @@ rich-text {
 }
 
 .foodBox>.food>.title {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .foodBox>.food>.price {
@@ -201,10 +216,16 @@ button[disabled] {
 
 .wrapper>.right>.top {
   border-radius: 50rpx;
-  background: rgb(231, 226, 226);
-  color: rgb(82, 79, 79);
+  /* background: rgb(231, 226, 226); */
+  /* color: rgb(82, 79, 79); */
+  color: #fff;
+  background: #f70;
   height: 50rpx;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.van-card__thumb {
+  height: auto !important;
 }

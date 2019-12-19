@@ -14,7 +14,9 @@
                 <van-col span="6">{{'¥'+item.reserve_money}}</van-col>
                 <van-col span="12">最多就餐人数:{{item.number}}</van-col>
                 <van-col span="6">
-                    <view bind:tap="btnClick" data-item="{{item}}" data-tid="{{item.id}}">预约</view>
+                    <view bind:tap="btnClick" class="btnText" data-item="{{item}}" data-tid="{{item.id}}">
+                        预约
+                    </view>
                 </van-col>
             </van-row>
         </view>

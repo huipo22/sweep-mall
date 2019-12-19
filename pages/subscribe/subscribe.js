@@ -50,6 +50,9 @@ Page({
     })
   },
   __binddaychange() {
+    this.weilai(0)
+  },
+  weilai(status){
     const Tid = this.data.Ttid
     //未来时间段
     api.subscribeTime({ shop_id: app.globalData.shopId, tid: Tid }).then(res => {
@@ -60,7 +63,7 @@ Page({
         for (let i in subResult) {
           let obj = {}
           obj.timeStamp = subResult[i] + "000"
-          obj.state = 0
+          obj.state = status
           resultArr.push(obj)
         }
         this.setData({
@@ -80,6 +83,7 @@ Page({
   },
   _yybindhide: function () {
     console.log('隐藏')
+    this.weilai(1)
   },
 
   /**

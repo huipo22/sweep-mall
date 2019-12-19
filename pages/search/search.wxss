@@ -11,7 +11,7 @@
   /* margin-top: 5%; */
   border: 1rpx solid whitesmoke;
   border-radius: 5rpx;
-  background:#fff;
+  background: #fff;
 }
 
 /* 搜索框提示文字样式 */
@@ -57,9 +57,11 @@
 .good_detail {
   padding: 10rpx;
 }
-.re_title{
+
+.re_title {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
+  background: #fff;
 }

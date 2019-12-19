@@ -15,7 +15,7 @@
                     <text class="">{{'¥'+good.present_price}}</text>
                 </view>
                 <view class="right">
-                    <image src="../../dist/icon/cart-select.png" mode="aspectFit" style="width:18px" catch:tap="showPopup" data-item="{{good}}" />
+                    <text class="btnText" catch:tap="showPopup" data-item="{{good}}">加入菜单</text>
                 </view>
             </view>
         </van-card>
@@ -35,7 +35,7 @@
             </view>
         </view>
         <view class="popup">
-            <button class="popup-btn" type="primary" bind:tap="addShopEvent">确定</button>
+            <button class="popup-btn" bind:tap="addShopEvent" color="#ff7700">确定</button>
         </view>
     </van-popup>
 </view>

@@ -47,8 +47,8 @@
                         </view>
                     </view>
                     <view class="Box btnStatus" wx:if="{{orderActive==1}}">
-                        <van-button type="warning" size="small" catch:tap="PAY" data-item="{{order}}">
-                            {{order.status==1?"支付":""}}
+                        <van-button type="warning" wx:if="{{order.status==1}}" size="small" catch:tap="PAY" data-item="{{order}}">
+                            支付
                         </van-button>
                     </view>
                 </view>

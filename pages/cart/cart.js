@@ -61,10 +61,12 @@ Page({
       console.log(123)
     } else {
       console.log(456)
+      console.log(resultArr)
       api.createPrice(resultArr, {
         Token: wx.getStorageSync('token'),
         "Device-Type": 'wxapp',
       }).then((res) => {
+        console.log(res)
         if (res.data.code == 1) {
           this.setData({
             totalPrice: res.data.data.price * 100
@@ -98,6 +100,11 @@ Page({
         cartData[i].num = target.detail
       }
     }
+    for (let j in selectData) {
+      if (selectData[j].id == goodId) {
+        selectData[j].num = target.detail
+      }
+    }
     if (target.detail == 0) {
       for (let i in cartData) {
         if (cartData[i].id == goodId) {
@@ -109,6 +116,7 @@ Page({
           util.arrayRemoveItem(selectData, selectData[j])
         }
       }
+      this.guess()
       // 删除接口 重新计算价格
       api.actionShop({
         id: goodId,
@@ -124,6 +132,7 @@ Page({
             cartList: cartData,
             selectList: selectData
           })
+          util.showToastSuccess('删除成功')
           this.countPrice(selectData)
         }
       })
@@ -142,6 +151,7 @@ Page({
           this.setData({
             cartList: cartData
           })
+          this.countPrice(selectData)
         }
       })
     }
@@ -202,6 +212,21 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
+  guess() {
+    // 无数据 为你推荐
+    api.guess({
+      shop_id: app.globalData.shopId,
+      type: 4,
+      page: 1
+    }).then((res) => {
+      if (res.data.code == 1) {
+        this.setData({
+          recommendList: res.data.data,
+        })
+        wx.hideLoading();
+      }
+    })
+  },
   onShow: function () {
     util.showLoading()
     // 购物车查询
@@ -222,19 +247,7 @@ Page({
         this.setData({
           cartList: [],
         })
-        // 无数据 为你推荐
-        api.guess({
-          shop_id: app.globalData.shopId,
-          type: 4,
-          page: 1
-        }).then((res) => {
-          if (res.data.code == 1) {
-            this.setData({
-              recommendList: res.data.data,
-            })
-            wx.hideLoading();
-          }
-        })
+        this.guess()
       }
     })
   },

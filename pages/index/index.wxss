@@ -7,10 +7,34 @@
 .swiper-item {
   height: 100%;
 }
+
 .phoneIcon {
-  width: 25px;
-  height: 25px;
+  width: 50px;
+  height: 50px;
   position: fixed;
   top: 60%;
   right: 5%;
+}
+
+.getTrue {
+  border-radius: 50rpx;
+  /* background: rgb(231, 226, 226); *//* color: rgb(82, 79, 79); */
+  color: #fff;
+  background: #f70;
+  height: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.getFalse {
+  border-radius: 50rpx;
+  background: rgb(231, 226, 226);
+  color: rgb(82, 79, 79);
+  /* color: #fff;
+  background: #f70; */
+  height: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

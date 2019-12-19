@@ -84,13 +84,16 @@ Page({
             'paySign': paySign,
             success(res) {
               console.log('调用支付接口成功', res)
-              util.navigateTo('../mySubscribe/mySubscribe')
+              util.navigateTo('../mySubscribe/mySubscribe?status=1')
             },
             fail(res) {
               console.log('调用支付接口fail', res)
-              util.navigateTo('../mySubscribe/mySubscribe')
+              util.navigateTo('../mySubscribe/mySubscribe?status=1')
             }
           })
+        } else if (res.data.code == 1) {
+          util.showToastSuccess(res.data.msg)
+          util.navigateTo('../mySubscribe/mySubscribe?status=1')
         }
       })
     }
@@ -120,7 +123,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+ 
   },
 
   /**

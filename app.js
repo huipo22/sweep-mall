@@ -41,5 +41,6 @@ App({
     tableId:1,//餐桌id
     wxLogo:"../../dist/icon/logo.png",
     subscribeTitle:"../../dist/icon/subscribe-title.jpg",
+    payType:null,//1:线上支付 2:线下支付
   }
 })

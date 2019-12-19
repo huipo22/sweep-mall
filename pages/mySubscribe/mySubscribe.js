@@ -8,13 +8,14 @@ Page({
    * 页面的初始数据
    */
   data: {
+    subscribeActive: 1,
     subscribeListTab: [
       {
-        name: "1",
+        name: 1,
         title: "已预约"
       },
       {
-        name: "2",
+        name: 2,
         title: "已消费"
       },
     ],
@@ -22,6 +23,9 @@ Page({
   },
   // 预约页面状态更改
   subscribeChange(event) {
+    this.setData({
+      subscribeActive: event.detail.name
+    })
     console.log(event)
     const statusName = event.detail.name
     this.reserveList(statusName)
@@ -30,13 +34,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.reserveList(options.status)
+    console.log(options)
+    // this.reserveList(options.status)
+    this.setData({
+      subscribeActive: Number(options.status)
+    })
   },
   // 预约列表
   reserveList(statusName) {
     api.myReserve({
       shop_id: app.globalData.shopId,
-      status:statusName
+      status: statusName
     }, {
       Token: wx.getStorageSync('token'),
       "Device-Type": 'wxapp',
@@ -73,7 +81,9 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    wx.switchTab({
+      url: '../person/person',
+    });
   },
 
   /**

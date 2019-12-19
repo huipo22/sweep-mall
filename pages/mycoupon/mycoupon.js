@@ -30,7 +30,7 @@ Page({
     console.log(event)
     const statusName = event.detail.name
     this.setData({
-      couponActive:event.detail.name
+      couponActive: event.detail.name
     })
     this.loadCouponData(statusName)
   },
@@ -79,7 +79,9 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    wx.switchTab({
+      url: '../person/person',
+    });
   },
 
   /**

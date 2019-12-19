@@ -4,10 +4,10 @@
         <view>
             <image src="{{resourse+goodDetail.goods_img}}" mode="aspectFill" style="height:400rpx" />
         </view>
-        <view class="priceBox">
-            <text>{{'¥'+goodDetail.present_price}}</text>
+        <view class="priceBox title">
+            <text class="price">{{'¥'+goodDetail.present_price}}</text>
         </view>
-        <view class="goodNameBox">
+        <view class="goodNameBox title">
             <text>{{goodDetail.goods_name}}</text>
         </view>
     </view>
@@ -19,9 +19,9 @@
     </view>
     <van-goods-action>
         <!-- <van-goods-action-icon icon="chat-o" text="客服"/> -->
-        <van-goods-action-icon icon="cart-o" text="首页" />
-        <van-goods-action-icon icon="shop-o" text="购物车" />
-        <van-goods-action-button text="加入购物车" type="warning" custom-class="btn" catch:tap="showPopup" data-item="{{goodDetail}}" data-sub="cart"/>
+        <van-goods-action-icon icon="cart-o" text="首页" bind:click="home" />
+        <van-goods-action-icon icon="shop-o" text="购物车" bind:click="cart" />
+        <van-goods-action-button text="加入购物车" type="warning" custom-class="btn" catch:tap="showPopup" data-item="{{goodDetail}}" data-sub="cart" />
         <van-goods-action-button catch:tap="showPopup" data-item="{{goodDetail}}" data-sub="submit" text="立即购买" custom-class="btn" />
     </van-goods-action>
     <!-- 弹出层 -->
@@ -39,7 +39,7 @@
             </view>
         </view>
         <view class="popup">
-            <button class="popup-btn" type="primary" bind:tap="addShopEvent">确定</button>
+            <button class="popup-btn" bind:tap="addShopEvent" color="#ff7700">确定</button>
         </view>
     </van-popup>
 </view>

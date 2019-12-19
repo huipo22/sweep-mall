@@ -6,3 +6,12 @@
     margin: 15rpx 5rpx;
     box-sizing: border-box;
 }
+
+.btnText {
+    background: #ff7700;
+    color: #fff;
+    border-radius: 20rpx;
+    font-size: 24rpx;
+    width: 100%;
+    text-align: center;
+}

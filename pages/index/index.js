@@ -10,7 +10,7 @@ Page({
     resourse: app.globalData.imgAddress,
     indicatorDots: true,
     vertical: false,
-    autoplay: false,
+    autoplay: true,
     interval: 2000,
     duration: 500,
     indexRich: null,
@@ -41,10 +41,31 @@ Page({
       }
     })
   },
+  // 提示框
+  ylytip(data) {
+    wx.showModal({
+      content: data,
+      showCancel: false,
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        }
+      }
+    })
+  },
+  // 呼叫店小二
   call: function (e) {
     api.ylyCall({
       tid: app.globalData.tableId
-    }).then((res) => { console.log(res) })
+    }).then((res) => {
+      if (res.data.code == 1) {
+        // 成功
+        this.ylytip(res.data.msg)
+      } else if (res.data.code == 0) {
+        // 失败
+        this.ylytip(res.data.msg)
+      }
+    })
     // var id = e.currentTarget.dataset.id;
     // wx.makePhoneCall({
     //   phoneNumber: id, //
@@ -116,6 +137,7 @@ Page({
           indexData: res.data.data,
           indexRich: rich
         })
+        app.globalData.payType=res.data.data.pay_type
       }
     }).then(() => {
       // 精品推荐

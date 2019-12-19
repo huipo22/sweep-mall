@@ -12,7 +12,10 @@
     display: flex;
     flex-direction: column;
 }
+.reserveInfo>view{
+  padding: 10rpx 0;
 
+}
 .reserveBox {
     font-size: 0.5rem;
     background: #fff;

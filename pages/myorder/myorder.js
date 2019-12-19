@@ -26,6 +26,7 @@ Page({
   // 订单选项卡改变事件
   orderChange(event) {
     console.log(event)
+    console.log(this.data.orderActive)
     const paymentType = event.detail.name
     this.setData({
       orderActive: event.detail.name
@@ -73,11 +74,12 @@ Page({
           'paySign': paySign,
           success(res) {
             console.log('调用支付接口成功', res)
-
+            this.onShow()
             // util.navigateTo('../myorder/myorder?active=1')
           },
           fail(res) {
             console.log('调用支付接口fail', res)
+            this.onShow()
             // util.navigateTo('../myorder/myorder?active=1')
           }
         })
@@ -93,9 +95,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
     this.setData({
-      orderActive: options.active
+      orderActive: Number(options.active)
     })
   },
 

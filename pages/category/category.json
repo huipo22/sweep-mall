@@ -8,7 +8,8 @@
     "van-popup": "../../dist/vant/popup/index",
     "van-sidebar": "../../dist/vant/sidebar/index",
     "van-sidebar-item": "../../dist/vant/sidebar-item/index",
-    "van-stepper": "../../dist/vant/stepper/index"
+    "van-stepper": "../../dist/vant/stepper/index",
+    "van-button": "../../dist/vant/button/index"
   },
   "navigationBarTitleText": "点餐"
 }

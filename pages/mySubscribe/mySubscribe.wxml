@@ -1,6 +1,6 @@
 <view class="container">
     <view class="Box">
-        <van-tabs active="{{ active }}" bind:change="subscribeChange">
+        <van-tabs active="{{ subscribeActive }}" bind:change="subscribeChange">
             <van-tab title="{{item.title}}" wx:for="{{subscribeListTab}}" wx:for-item="item" wx:key="unique" name="{{item.name}}">
                 <view class="Box reserveBox" wx:for="{{reserveList}}" wx:for-item="reserve" wx:key="unique">
                     <!-- 订单号 -->

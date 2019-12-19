@@ -14,8 +14,8 @@
                         <view class="good_detail">
                             <text>{{good.goods_name}}</text>
                             <view class="menu_box_n">
-                                <view class="menu_box_n_1">
-                                    <text>{{"￥"+good.present_price}}</text>
+                                <view class="menu_box_n_1 title price">
+                                    <text>{{'¥'+good.present_price}}</text>
                                 </view>
                             </view>
                         </view>
@@ -33,8 +33,8 @@
                 <view class="good_detail">
                     <text>{{good.goods_name}}</text>
                     <view class="menu_box_n">
-                        <view class="menu_box_n_1">
-                            <text>{{"￥"+good.present_price}}</text>
+                        <view class="menu_box_n_1 title price">
+                            <text>{{'¥'+good.present_price}}</text>
                         </view>
                     </view>
                 </view>

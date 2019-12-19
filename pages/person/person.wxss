@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   width: 100%;
-  background: #ccc;
+  background: #e0620d;
 }
 
 .avatar {
@@ -16,4 +16,18 @@
   display: flex;
   flex-direction: column;
   padding-left: 45rpx;
+  color: #fff;
+  flex:1;
+}
+
+.jifen {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jifen>image {
+  height: 48rpx;
+  width: 48rpx;
 }

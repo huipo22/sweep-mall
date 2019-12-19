@@ -55,8 +55,8 @@
     </view>
     <view class="actionBtn Box">
         <van-goods-action custom-class="">
-            <van-goods-action-button text="线下支付" bind:click="submitUnderline" />
-            <van-goods-action-button square text="线上支付" bind:click="submitOnline" />
+            <van-goods-action-button text="线下支付" bind:click="submitUnderline" wx:if="{{payType==2}}"/>
+            <van-goods-action-button square text="线上支付" bind:click="submitOnline" wx:if="{{payType==1}}"/>
         </van-goods-action>
     </view>
 </view>

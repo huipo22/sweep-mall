@@ -1,13 +1,15 @@
 // pages/person.js
 const app = getApp()
 import util from '../../utils/util'
+let api = require('../../utils/request').default;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    userInfo:null,
+    userInfo: null,
+    userData:null,
   },
 
   /**
@@ -16,7 +18,28 @@ Page({
   onLoad: function (options) {
     console.log(app)
     this.setData({
-      userInfo:app.globalData.userInfo
+      userInfo: app.globalData.userInfo
+    })
+    api.userInfo({
+      Token: wx.getStorageSync('token'),
+      "Device-Type": 'wxapp',
+    }).then((res) => {
+      if (res.data.code == 1) {
+        this.setData({
+          userData: res.data.data
+        })
+      }
+    })
+  },
+  call() {
+    wx.makePhoneCall({
+      phoneNumber: '18510841995', //
+      success: function () {
+        console.log("拨打电话成功！")
+      },
+      fail: function () {
+        console.log("拨打电话失败！")
+      }
     })
   },
 

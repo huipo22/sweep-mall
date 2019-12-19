@@ -165,6 +165,12 @@ let ylyCall = (data) => {
         resolve(apiRequest(apiList.ylyCall, 'get', data))
     })
 }
+// 用户信息
+let userInfo = (data) => {
+    return new Promise((resolve, reject) => {
+        resolve(apiRequest(apiList.userInfo, 'get', data))
+    })
+}
 //最后需要将具体调用的函数暴露出，给具体业务调用
 export default {
     login: login,
@@ -190,5 +196,6 @@ export default {
     orderPay: orderPay,
     orderStatus: orderStatus,
     myReserve: myReserve,
-    ylyCall: ylyCall
+    ylyCall: ylyCall,
+    userInfo:userInfo
 }

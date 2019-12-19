@@ -15,7 +15,10 @@
     align-items: center;
 }
 
-
-.btn{
+.btn {
     width: 100px;
+}
+
+.title {
+    padding: 0 20rpx;
 }

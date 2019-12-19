@@ -12,6 +12,7 @@ Page({
     orderConfirmData: null,
     resourse: app.globalData.imgAddress,
     remark: null,
+    payType: null,
   },
   // 留言
   remarkChange(event) {
@@ -45,11 +46,21 @@ Page({
           'paySign': paySign,
           success(res) {
             console.log('调用支付接口成功', res)
-            util.navigateTo('../myorder/myorder?active=1')
+            console.log(type)
+            if (type == 2) {
+              util.navigateTo('../myorder/myorder?active=2')
+            } else if (type == 1) {
+              util.navigateTo('../myorder/myorder?active=1')
+            }
           },
           fail(res) {
             console.log('调用支付接口fail', res)
-            util.navigateTo('../myorder/myorder?active=1')
+            console.log(type)
+            if (type == 2) {
+              util.navigateTo('../myorder/myorder?active=2')
+            } else if (type == 1) {
+              util.navigateTo('../myorder/myorder?active=1')
+            }
           }
         })
       }
@@ -68,6 +79,9 @@ Page({
    */
   onLoad: function (options) {
     const orderSelect = JSON.parse(options.orderList)
+    this.setData({
+      payType: app.globalData.payType
+    })
     this.loadOrderData(orderSelect)
   },
 
@@ -108,7 +122,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    
+
   },
 
   /**

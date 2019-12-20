@@ -134,6 +134,9 @@ Page({
     const goodId = target.currentTarget.dataset.goodid
     const cartData = this.data.cartList
     const selectData = this.data.selectList;
+    const resultData = this.data.result
+
+
     for (let i in cartData) {
       if (cartData[i].id == goodId) {
         cartData[i].num = target.detail
@@ -146,6 +149,20 @@ Page({
         // cartData[j].num = target.currentTarget.dataset.goodnum+1
       }
     }
+    let resultArr = []
+    let resultDefault = []
+    for (let v in selectData) {
+      let objData = {};
+      let defaultObj = {}
+      objData.goods_id = selectData[v].goods_id
+      objData.present_price = selectData[v].present_price
+      objData.num = selectData[v].num
+      objData.id = selectData[v].id
+      resultArr.push(objData)
+      defaultObj = selectData[v].goods_id + '-' + selectData[v].present_price + '-' + selectData[v].num + '-' + selectData[v].id
+      resultDefault.push(defaultObj)
+    }
+  
     if (target.detail == 0) {
       for (let i in cartData) {
         if (cartData[i].id == goodId) {
@@ -164,21 +181,21 @@ Page({
         type: 3,
         num: target.detail
       }, {
-        Token: wx.getStorageSync('token'),
-        "Device-Type": 'wxapp',
-        'content-type': 'application/x-www-form-urlencoded'
-      }).then((res) => {
-        if (res.data.code == 1) {
-          setTimeout(() => {
-            this.setData({
-              cartList: cartData,
-              selectList: selectData
-            })
-          }, 500)
-          util.showToastSuccess('删除成功')
-          this.countPrice(selectData)
-        }
-      })
+          Token: wx.getStorageSync('token'),
+          "Device-Type": 'wxapp',
+          'content-type': 'application/x-www-form-urlencoded'
+        }).then((res) => {
+          if (res.data.code == 1) {
+            setTimeout(() => {
+              this.setData({
+                cartList: cartData,
+                selectList: selectData
+              })
+            }, 500)
+            util.showToastSuccess('删除成功')
+            this.countPrice(selectData)
+          }
+        })
     } else {
       // 更改接口
       api.actionShop({
@@ -186,19 +203,21 @@ Page({
         type: 1,
         num: target.detail
       }, {
-        Token: wx.getStorageSync('token'),
-        "Device-Type": 'wxapp',
-        'content-type': 'application/x-www-form-urlencoded'
-      }).then((res) => {
-        if (res.data.code == 1) {
-          setTimeout(() => {
-            this.setData({
-              cartList: cartData
-            })
-          }, 500)
-          this.countPrice(selectData)
-        }
-      })
+          Token: wx.getStorageSync('token'),
+          "Device-Type": 'wxapp',
+          'content-type': 'application/x-www-form-urlencoded'
+        }).then((res) => {
+          if (res.data.code == 1) {
+            setTimeout(() => {
+              this.setData({
+                cartList: cartData,
+                selectList: selectData,
+                result: resultDefault,
+              })
+            }, 500)
+            this.countPrice(selectData)
+          }
+        })
     }
   },
   // 创建订单事件 --> 跳转订单页orderConfirm   s/''
@@ -278,23 +297,23 @@ Page({
     api.getShop({
       shop_id: app.globalData.shopId,
     }, {
-      Token: wx.getStorageSync('token'),
-      "Device-Type": 'wxapp',
-    }).then((res) => {
-      if (res.data.code == 1) {
-        // 有数据
-        this.setData({
-          cartList: res.data.data,
-        })
-        wx.hideLoading();
-        this.loadPrice()
-      } else if (res.data.code == 0) {
-        this.setData({
-          cartList: [],
-        })
-        this.guess()
-      }
-    })
+        Token: wx.getStorageSync('token'),
+        "Device-Type": 'wxapp',
+      }).then((res) => {
+        if (res.data.code == 1) {
+          // 有数据
+          this.setData({
+            cartList: res.data.data,
+          })
+          wx.hideLoading();
+          this.loadPrice()
+        } else if (res.data.code == 0) {
+          this.setData({
+            cartList: [],
+          })
+          this.guess()
+        }
+      })
   },
 
   /**

@@ -4,11 +4,23 @@
         <view>
             <image src="{{resourse+goodDetail.goods_img}}" mode="aspectFill" style="height:400rpx" />
         </view>
-        <view class="priceBox title">
-            <text class="price">{{'¥'+goodDetail.present_price}}</text>
-        </view>
-        <view class="goodNameBox title">
-            <text>{{goodDetail.goods_name}}</text>
+        <view class="con">
+            <view class="left">
+                <view class="priceBox title">
+                    <text class="price">{{'¥'+goodDetail.present_price}}</text>
+                </view>
+                <view class="goodNameBox title">
+                    <text>{{goodDetail.goods_name}}</text>
+                </view>
+            </view>
+            <view class="right">
+                <view class="shareIcon">
+                    <button open-type="share" size="mini" style="line-height:.8">
+                        <van-icon name="share" size="45rpx" color="#ff7700" />
+                    </button>
+                </view>
+                <view class="num">销量:{{goodDetail.goods_volume}}</view>
+            </view>
         </view>
     </view>
     <view class="goodDetailCon">

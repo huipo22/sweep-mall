@@ -49,8 +49,11 @@
 .actionBtn {
   margin-top: 50px;
   z-index: 9999;
+  position: fixed;
+  bottom: 0;
 }
-.jj{
+
+.jj {
   background: #ccc;
   border-radius: 0;
 }

@@ -4,7 +4,8 @@
     "van-cell-group": "../../dist/vant/cell-group/index",
     "van-row": "../../dist/vant/row/index",
     "van-col": "../../dist/vant/col/index",
-    "van-image": "../../dist/vant/image/index"
+    "van-image": "../../dist/vant/image/index",
+    "van-icon": "../../dist/vant/icon/index"
   },
   "navigationBarTitleText": "个人中心"
 }

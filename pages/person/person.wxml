@@ -11,17 +11,18 @@
         <!-- <text>李四</text> -->
       </view>
       <view class="jifen">
-        <image class="" src="../../dist/icon/jifen.png" mode="aspectFit|aspectFill|widthFix"></image>
-        <text>{{userData.score}}</text>
+        <!-- <image class="" src="../../dist/icon/jifen.png" mode="aspectFit|aspectFill|widthFix"></image> -->
+        <van-icon name="points" color="" size="45rpx" color="#ffff80"/>
+        <text style="color:#fff;font-size:14px;padding-left:20rpx">{{userData.score}}</text>
       </view>
     </view>
   </view>
   <!-- 个人中心列表 -->
   <van-cell-group class="Box">
-    <van-cell title="我的预约" icon="location-o" is-link url="../mySubscribe/mySubscribe" />
-    <van-cell title="我的优惠券" icon="location-o" is-link url="../mycoupon/mycoupon" />
-    <van-cell title="我的订单" icon="location-o" is-link url="../myorder/myorder" />
+    <van-cell title="我的预约" icon="underway-o" is-link url="../mySubscribe/mySubscribe" />
+    <van-cell title="我的优惠券" icon="new-o" is-link url="../mycoupon/mycoupon" />
+    <van-cell title="我的订单" icon="description" is-link url="../myorder/myorder" />
     <!-- <van-cell title="我的积分" icon="location-o" is-link /> -->
-    <van-cell title="联系开发小程序" icon="location-o" bind:tap="call" />
+    <van-cell title="联系开发小程序" icon="comment-circle-o" bind:tap="call" />
   </van-cell-group>
 </view>

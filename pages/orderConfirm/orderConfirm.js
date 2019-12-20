@@ -88,7 +88,8 @@ Page({
             },
             fail(res) {
               console.log('调用支付接口fail', res)
-              util.navigateTo('../mySubscribe/mySubscribe?status=1')
+              return
+              // util.navigateTo('../mySubscribe/mySubscribe?status=1')
             }
           })
         } else if (res.data.code == 1) {
@@ -123,7 +124,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
- 
+
   },
 
   /**

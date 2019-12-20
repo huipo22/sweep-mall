@@ -35,7 +35,7 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
-    // this.reserveList(options.status)
+    this.reserveList(options.status)
     this.setData({
       subscribeActive: Number(options.status)
     })

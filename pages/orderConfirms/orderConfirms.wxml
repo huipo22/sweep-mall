@@ -54,10 +54,15 @@
         <van-field value="{{ remark }}" placeholder="备注留言" border="{{ false }}" bind:blur="remarkChange" />
     </view>
     <view class="actionBtn Box">
-        <van-goods-action custom-class="jj">
-            <!-- <button>456</button> -->
+        <van-button size="large" type="warning" color="#ff7700" bind:click="submitUnderline" wx:if="{{payType==2}}">
+            线下支付
+        </van-button>
+        <van-button size="large" type="warning" color="#ff7700" bind:click="submitOnline" wx:if="{{payType==1}}">
+            线上支付
+        </van-button>
+        <!-- <van-goods-action custom-class="jj">
             <van-goods-action-button size="large" text="线下支付" bind:click="submitUnderline" wx:if="{{payType==2}}"/>
             <van-goods-action-button size="large" text="线上支付" bind:click="submitOnline" wx:if="{{payType==1}}"/>
-        </van-goods-action>
+        </van-goods-action> -->
     </view>
 </view>

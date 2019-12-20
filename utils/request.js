@@ -166,9 +166,9 @@ let ylyCall = (data) => {
     })
 }
 // 用户信息
-let userInfo = (data) => {
+let userInfo = (data,header) => {
     return new Promise((resolve, reject) => {
-        resolve(apiRequest(apiList.userInfo, 'get', data))
+        resolve(apiRequest(apiList.userInfo, 'get', data,header))
     })
 }
 //最后需要将具体调用的函数暴露出，给具体业务调用

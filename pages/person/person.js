@@ -20,7 +20,7 @@ Page({
     this.setData({
       userInfo: app.globalData.userInfo
     })
-    api.userInfo({
+    api.userInfo({},{
       Token: wx.getStorageSync('token'),
       "Device-Type": 'wxapp',
     }).then((res) => {

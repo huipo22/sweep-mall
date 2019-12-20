@@ -83,7 +83,7 @@ Page({
   },
   _yybindhide: function () {
     console.log('隐藏')
-    this.weilai(1)
+    this.weilai(2)
   },
 
   /**

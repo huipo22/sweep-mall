@@ -1,3 +1,4 @@
+<wxs module="filter" src="../../utils/common.wxs"></wxs>
 <view class="container">
     <view class="Box">
         <van-tabs active="{{ subscribeActive }}" bind:change="subscribeChange">
@@ -6,7 +7,7 @@
                     <!-- 订单号 -->
                     <view class="Box orderInfo">
                         <view class="order-num">{{reserve.reserve_sn}}</view>
-                        <view class="order-datetime">{{reserve.reserve_time}}</view>
+                        <view class="order-datetime">{{filter.timestampToTime(reserve.reserve_time)}}</view>
                     </view>
                     <view class="Box reserveInfo">
                         <view>{{'姓名:'+reserve.reserve_name}}</view>

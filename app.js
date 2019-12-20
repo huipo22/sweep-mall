@@ -35,12 +35,12 @@ App({
   },
   globalData: {
     userInfo: null,//微信数据
-    imgAddress:'https://saoma.jishanhengrui.com/upload/',
+    imgAddress: 'https://saoma.jishanhengrui.com/upload/',
     page: 1,//分页默认
     shopId: 1,//商家id,
-    tableId:1,//餐桌id
-    wxLogo:"../../dist/icon/logo.png",
-    subscribeTitle:"../../dist/icon/subscribe-title.jpg",
-    payType:null,//1:线上支付 2:线下支付
+    tableId: 1,//餐桌id
+    wxLogo: "http://saoma.jishanhengrui.com/upload/saoma.jpg",
+    subscribeTitle: "../../dist/icon/subscribe-title.jpg",
+    payType: null,//1:线上支付 2:线下支付
   }
 })

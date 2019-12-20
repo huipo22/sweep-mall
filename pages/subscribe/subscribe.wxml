@@ -5,7 +5,7 @@
     <view class="titleImg">
         <image mode="widthFix" src='{{subscribeTitle}}'></image>
     </view>
-    <van-card title="{{item.table_name}}" thumb="{{resourse+item.thumbnail}}" desc="{{item.lable}}" thumb-mode="aspectFill" class="Box" wx:for="{{subscribeIndexData.list}}" wx:for-item="item" wx:key="unique">
+    <van-card title="{{item.table_name}}" thumb="{{resourse+item.thumbnail}}" desc="{{item.lable}}" thumb-mode="aspectFill" class="Box" wx:for="{{subscribeIndexData.list}}" wx:for-item="item" wx:key="unique" bind:tap="preview" data-src="{{resourse+item.thumbnail}}">
         <view slot="tags">
             <van-tag plain type="danger">{{item.category_name}}</van-tag>
         </view>

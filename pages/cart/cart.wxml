@@ -10,16 +10,41 @@
                     </view>
                     <view class="right">
                         <view class="stepper">
-                            <van-stepper value="{{item.num}}" min="0" async-change data-goodId="{{item.id}}" data-goodNum="{{item.num}}" bind:change="goodChange" />
+                            <!-- <van-stepper value="{{ value }}" async-change bind:change="onChange2" bind:plus="goodPlus"  
+                            bind:minus="goodMinus"/> -->
+                            <van-stepper value="{{item.num}}" min="0" async-change data-goodId="{{item.id}}" data-goodNum="{{item.num}}"
+                            bind:plus="goodPlus"  
+                            bind:minus="goodMinus"
+                            catch:change="goodChange"
+                            />
                         </view>
                     </view>
                 </view>
             </van-card>
         </view>
     </van-checkbox-group>
+    <!-- <view wx:if="{{cartList.length!==0}}" class="Box">
+        <view wx:for="{{cartList}}" wx:for-item="item" wx:key="unique" class="checkBox">
+            <checkbox-group bindchange="checkboxChange" class="checkBoxcheck">
+                <checkbox value="{{item.goods_id}}-{{item.present_price}}-{{item.num}}-{{item.id}}" checked="{{item.checked}}" />
+                <van-card title="{{item.goods_name}}" thumb="{{resourse+item.goods_img}}" style="flex:1">
+                    <view slot="bottom" class="goodContent">
+                        <view class="left">
+                            <text class="">{{'¥'+item.present_price}}</text>
+                        </view>
+                        <view class="right">
+                            <view class="stepper">
+                                <van-stepper value="{{item.num}}" min="0" async-change data-goodId="{{item.id}}" data-goodNum="{{item.num}}" catch:change="goodChange" />
+                            </view>
+                        </view>
+                    </view>
+                </van-card>
+            </checkbox-group>
+        </view>
+    </view> -->
     <!-- 猜你喜欢 -->
     <view class="Box pageSetting Boxtop" wx:elif="{{recommendList.length!==0}}">
-        <view class="recommend">
+        <view class="recommend titlePadding">
             <view>猜你喜欢</view>
         </view>
         <view class="Box foodBox">

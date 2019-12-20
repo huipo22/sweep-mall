@@ -14,15 +14,45 @@ Page({
     recommendList: [],
     resourse: app.globalData.imgAddress,
     cartList: [],
-    totalPrice: 0
+    totalPrice: 0,
+    value: 3
   },
   // 商品详情
   detailPage(e) {
     const goodId = e.currentTarget.dataset.goodid
     util.navigateTo('../detail/detail?goodId=' + goodId)
   },
+  //单选
+  checkboxChange(e) {
+    this.setData({
+      result: e.detail.value
+    });
+    if (e.detail.value == 0) {
+      this.setData({
+        totalPrice: 0
+      })
+    }
+    const resultData = this.data.result
+    let resultArr = []
+    for (let i in resultData) {
+      if (resultData[i]) {
+        let obj = resultData[i].split('-');
+        let objData = {}
+        objData.goods_id = obj[0]
+        objData.present_price = obj[1]
+        objData.num = obj[2]
+        objData.id = obj[3]
+        resultArr.push(objData)
+        this.countPrice(resultArr)
+      }
+    }
+    this.setData({
+      selectList: resultArr,
+    })
+  },
   // check 事件
   onChange(event) {
+    console.log(event)
     this.setData({
       result: event.detail,
     });
@@ -90,19 +120,30 @@ Page({
       this.loadPrice()
     }
   },
+  goodMinus(target) {
+    console.log(target)
+    // this.goodChange(target)
+  },
+  goodPlus(target) {
+    console.log(target)
+    // this.goodChange(target)
+  },
   // 商品数量+-
   goodChange(target) {
+
     const goodId = target.currentTarget.dataset.goodid
     const cartData = this.data.cartList
     const selectData = this.data.selectList;
     for (let i in cartData) {
       if (cartData[i].id == goodId) {
         cartData[i].num = target.detail
+        // cartData[i].num = target.currentTarget.dataset.goodnum+1
       }
     }
     for (let j in selectData) {
       if (selectData[j].id == goodId) {
         selectData[j].num = target.detail
+        // cartData[j].num = target.currentTarget.dataset.goodnum+1
       }
     }
     if (target.detail == 0) {
@@ -128,10 +169,12 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       }).then((res) => {
         if (res.data.code == 1) {
-          this.setData({
-            cartList: cartData,
-            selectList: selectData
-          })
+          setTimeout(() => {
+            this.setData({
+              cartList: cartData,
+              selectList: selectData
+            })
+          }, 500)
           util.showToastSuccess('删除成功')
           this.countPrice(selectData)
         }
@@ -148,9 +191,11 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       }).then((res) => {
         if (res.data.code == 1) {
-          this.setData({
-            cartList: cartData
-          })
+          setTimeout(() => {
+            this.setData({
+              cartList: cartData
+            })
+          }, 500)
           this.countPrice(selectData)
         }
       })

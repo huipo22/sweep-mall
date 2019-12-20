@@ -20,9 +20,9 @@
                             <van-col span="19">
                                 <view class="Box goodInfo">
                                     <view class="left">{{orderDetail.goods_name}}</view>
-                                    <view class="right">{{orderDetail.goods_price}}</view>
+                                    <view class="right">{{'¥'+orderDetail.goods_price}}</view>
                                 </view>
-                                <view class="Box goodInfoNum">{{orderDetail.goods_num}}</view>
+                                <view class="Box goodInfoNum">x{{orderDetail.goods_num}}</view>
                             </van-col>
                         </van-row>
                         <view class="status" wx:if="{{orderActive==1}}">

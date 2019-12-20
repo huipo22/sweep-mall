@@ -1,17 +1,19 @@
 /* pages/subscribe/subscribe.wxss */
 
 .titleImg {
-    width: 100%;
-    height: 30px;
-    margin: 15rpx 5rpx;
-    box-sizing: border-box;
+  width: 100%;
+  height: 30px;
+  margin: 25rpx 5rpx;
+  box-sizing: border-box;
 }
 
+
+
 .btnText {
-    background: #ff7700;
-    color: #fff;
-    border-radius: 20rpx;
-    font-size: 24rpx;
-    width: 100%;
-    text-align: center;
+  background: #f70;
+  color: #fff;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+  width: 100%;
+  text-align: center;
 }

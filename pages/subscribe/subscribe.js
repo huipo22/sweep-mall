@@ -21,7 +21,7 @@ Page({
     timeSlotList: [],
     Ttid: null,
     selectItem: null,
-    subscribeTitle:app.globalData.subscribeTitle
+    subscribeTitle: app.globalData.subscribeTitle
   },
   // 点击显示插件
   btnClick: function (e) {
@@ -52,7 +52,7 @@ Page({
   __binddaychange() {
     this.weilai(0)
   },
-  weilai(status){
+  weilai(status) {
     const Tid = this.data.Ttid
     //未来时间段
     api.subscribeTime({ shop_id: app.globalData.shopId, tid: Tid }).then(res => {
@@ -85,7 +85,17 @@ Page({
     console.log('隐藏')
     this.weilai(2)
   },
-
+  // 预览图片
+  preview(event) {
+    console.log(event)
+    let currentUrl = event.currentTarget.dataset.src
+    let imgList = []
+    imgList.push(currentUrl)
+    wx.previewImage({
+      current: currentUrl, // 当前显示图片的http链接
+      urls: imgList // 需要预览的图片http链接列表
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

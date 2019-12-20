@@ -7,12 +7,14 @@
                     <!-- 订单号 -->
                     <view class="Box orderInfo">
                         <view class="order-num">{{reserve.reserve_sn}}</view>
-                        <view class="order-datetime">{{filter.timestampToTime(reserve.reserve_time)}}</view>
+                        <view class="order-datetime">
+                            {{filter.timestampToTime(reserve.add_time)}}
+                        </view>
                     </view>
                     <view class="Box reserveInfo">
                         <view>{{'姓名:'+reserve.reserve_name}}</view>
                         <view>{{'手机号:'+reserve.reserve_mobile}}</view>
-                        <view>{{'预约价格:'+reserve.reserve_price}}</view>
+                        <view>{{'预约价格:¥'+reserve.reserve_price}}</view>
                         <view>{{"预约备注:"+reserve.ramark}}</view>
                     </view>
                 </view>

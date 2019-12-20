@@ -10,3 +10,8 @@
     box-sizing: border-box;
     padding:0 0 0 30rpx;
 }
+.checkBoxcheck{
+    display: flex;
+    align-items: center;
+    
+}

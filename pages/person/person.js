@@ -9,7 +9,7 @@ Page({
    */
   data: {
     userInfo: null,
-    userData:null,
+    userData: null,
   },
 
   /**
@@ -17,19 +17,7 @@ Page({
    */
   onLoad: function (options) {
     console.log(app)
-    this.setData({
-      userInfo: app.globalData.userInfo
-    })
-    api.userInfo({},{
-      Token: wx.getStorageSync('token'),
-      "Device-Type": 'wxapp',
-    }).then((res) => {
-      if (res.data.code == 1) {
-        this.setData({
-          userData: res.data.data
-        })
-      }
-    })
+
   },
   call() {
     wx.makePhoneCall({
@@ -54,7 +42,19 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      userInfo: app.globalData.userInfo
+    })
+    api.userInfo({}, {
+      Token: wx.getStorageSync('token'),
+      "Device-Type": 'wxapp',
+    }).then((res) => {
+      if (res.data.code == 1) {
+        this.setData({
+          userData: res.data.data
+        })
+      }
+    })
   },
 
   /**

@@ -6,25 +6,29 @@
         </view>
         <view class="con">
             <view class="left">
-                <view class="priceBox title">
-                    <text class="price">{{'¥'+goodDetail.present_price}}</text>
-                </view>
                 <view class="goodNameBox title">
                     <text>{{goodDetail.goods_name}}</text>
+                </view>
+                <view class="priceBox title">
+                    <view class="hah">
+                        <text class="renminb">¥</text>
+                        <text class="price">{{goodDetail.present_price}}</text>
+                    </view>
+                    <view class="num gray">销量:{{goodDetail.goods_volume}}</view>
                 </view>
             </view>
             <view class="right">
                 <view class="shareIcon">
                     <button open-type="share" size="mini" style="line-height:.8">
-                        <van-icon name="share" size="45rpx" color="#ff7700" />
+                        <van-icon name="share" size="60rpx" color="#ff7700" />
                     </button>
+                    <view class="num">分享</view>
                 </view>
-                <view class="num">销量:{{goodDetail.goods_volume}}</view>
             </view>
         </view>
     </view>
     <view class="goodDetailCon">
-        <view class="goodDetailCon_title">详情</view>
+        <view class="goodDetailCon_title titlePadding">详情</view>
         <view class="goodDetailCon_con">
             <rich-text class="" nodes="{{rich}}"></rich-text>
         </view>

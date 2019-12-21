@@ -30,7 +30,11 @@ Page({
         data[i].checked = !data[i].checked
         if (data[i].checked == false) {
           // 从选中数组移除
-          util.arrayRemoveItem(select, select[i])
+          for (let j in select) {
+            if (select[j].id == goodId) {
+              util.arrayRemoveItem(select, select[j])
+            }
+          }
         } else {
           // 选中数组push
           let objData = {};

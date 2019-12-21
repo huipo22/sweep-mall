@@ -11,15 +11,15 @@
             <van-col span="19">
                 <view class="Box goodInfo">
                     <view class="left">{{item.goods_name}}</view>
-                    <view class="right">{{item.goods_price}}</view>
+                    <view class="right">{{'¥'+item.goods_price}}</view>
                 </view>
-                <view class="Box goodInfoNum">{{item.goods_num}}</view>
+                <view class="Box goodInfoNum">x{{item.goods_num}}</view>
             </van-col>
         </van-row>
     </view>
     <!-- 总价格 -->
     <view class="Box Boxtop">
-        <van-cell title="总价" value="{{orderConfirmData.sum_price}}" />
+        <van-cell title="总价" value="{{'¥'+orderConfirmData.sum_price}}" />
     </view>
     <!-- 优惠信息 -->
     <view class="Box Boxtop Boxpadding subscrbeFont">
@@ -50,7 +50,7 @@
     </view>
     <!-- 应付价格 -->
     <view class="Box Boxtop">
-        <van-cell title="应付" value="{{orderConfirmData.price}}" />
+        <van-cell title="应付" value="{{'¥'+orderConfirmData.price}}" />
         <van-field value="{{ remark }}" placeholder="备注留言" border="{{ false }}" bind:blur="remarkChange" />
     </view>
     <view class="actionBtn Box">

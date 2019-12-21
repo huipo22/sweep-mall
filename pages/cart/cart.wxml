@@ -34,6 +34,6 @@
         </view>
     </view>
     <van-submit-bar custom-class="submitBox" style="{{cartList.length==0?'display:none':''}}" price="{{ totalPrice }}" button-text="提交订单" bind:submit="onSubmitPage" tip="{{ true }}" wx:if="{{cartList!==null}}">
-        <van-checkbox value="{{checkedAll}}" bind:change="allSelectChange">全选</van-checkbox>
+        <van-checkbox value="{{checkedAll}}" bind:change="allSelectChange" checked-color="#e0620d">全选</van-checkbox>
     </van-submit-bar>
 </view>

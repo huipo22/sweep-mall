@@ -245,8 +245,8 @@ checkbox .wx-checkbox-input {
 /* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
 
 checkbox .wx-checkbox-input.wx-checkbox-input-checked {
-  border: 1rpx solid #1d2088;
-  background: #1d2088;
+  border: 1rpx solid #e0620d;
+  background: #e0620d;
 }
 
 /* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */

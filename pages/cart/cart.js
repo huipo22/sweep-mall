@@ -8,14 +8,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    result: [],
     selectList: [],
     checkedAll: true,
     recommendList: [],
     resourse: app.globalData.imgAddress,
     cartList: [],
     totalPrice: 0,
-    value: 3
   },
   // 商品详情
   detailPage(e) {
@@ -23,74 +21,43 @@ Page({
     util.navigateTo('../detail/detail?goodId=' + goodId)
   },
   //单选
-  checkboxChange(e) {
-    this.setData({
-      result: e.detail.value
-    });
-    if (e.detail.value == 0) {
-      this.setData({
-        totalPrice: 0
-      })
-    }
-    const resultData = this.data.result
-    let resultArr = []
-    for (let i in resultData) {
-      if (resultData[i]) {
-        let obj = resultData[i].split('-');
-        let objData = {}
-        objData.goods_id = obj[0]
-        objData.present_price = obj[1]
-        objData.num = obj[2]
-        objData.id = obj[3]
-        resultArr.push(objData)
-        this.countPrice(resultArr)
+  check(e) {
+    const goodId = e.currentTarget.dataset.goodid
+    const data = this.data.cartList;
+    const select = this.data.selectList;
+    for (var i in data) {
+      if (data[i].id == goodId) {
+        data[i].checked = !data[i].checked
+        if (data[i].checked == false) {
+          // 从选中数组移除
+          util.arrayRemoveItem(select, select[i])
+        } else {
+          // 选中数组push
+          let objData = {};
+          objData.goods_id = data[i].goods_id
+          objData.present_price = data[i].present_price
+          objData.num = data[i].num
+          objData.id = data[i].id
+          select.push(objData)
+        }
       }
     }
     this.setData({
-      selectList: resultArr,
+      selectList: select,
+      cartList: data
     })
-  },
-  // check 事件
-  onChange(event) {
-    console.log(event)
-    this.setData({
-      result: event.detail,
-    });
-    if (event.detail.length == 0) {
-      this.setData({
-        totalPrice: 0
-      })
-    }
-    const resultData = this.data.result
-    let resultArr = []
-    for (let i in resultData) {
-      if (resultData[i]) {
-        let obj = resultData[i].split('-');
-        let objData = {}
-        objData.goods_id = obj[0]
-        objData.present_price = obj[1]
-        objData.num = obj[2]
-        objData.id = obj[3]
-        resultArr.push(objData)
-        this.countPrice(resultArr)
-      }
-    }
-    this.setData({
-      selectList: resultArr,
-    })
+    this.countPrice(select)
 
   },
+
   // 计算价格事件
   countPrice(resultArr) {
-    console.log(resultArr)
     // 计算价格接口
     if (resultArr == 0) {
       this.setData({
         totalPrice: 0 * 100
       })
-      console.log(123)
     } else {
-      console.log(456)
       console.log(resultArr)
       api.createPrice(resultArr, {
         Token: wx.getStorageSync('token'),
@@ -110,59 +77,45 @@ Page({
     this.setData({
       checkedAll: event.detail
     })
+    const resultData = this.data.cartList;
     if (event.detail == false) {
+      // false  全false
+      for (let i in resultData) {
+        resultData[i].checked = false
+      }
       this.setData({
-        result: [],
         selectList: [],
+        cartList: resultData,
         totalPrice: 0
       })
     } else {
+      // true  全true
+      for (let i in resultData) {
+        resultData[i].checked = true
+      }
+      this.setData({
+        cartList: resultData,
+      })
       this.loadPrice()
     }
   },
-  goodMinus(target) {
-    console.log(target)
-    // this.goodChange(target)
-  },
-  goodPlus(target) {
-    console.log(target)
-    // this.goodChange(target)
-  },
+
   // 商品数量+-
   goodChange(target) {
-
     const goodId = target.currentTarget.dataset.goodid
     const cartData = this.data.cartList
     const selectData = this.data.selectList;
-    const resultData = this.data.result
-
-
     for (let i in cartData) {
       if (cartData[i].id == goodId) {
         cartData[i].num = target.detail
-        // cartData[i].num = target.currentTarget.dataset.goodnum+1
       }
     }
     for (let j in selectData) {
       if (selectData[j].id == goodId) {
         selectData[j].num = target.detail
-        // cartData[j].num = target.currentTarget.dataset.goodnum+1
       }
     }
-    let resultArr = []
-    let resultDefault = []
-    for (let v in selectData) {
-      let objData = {};
-      let defaultObj = {}
-      objData.goods_id = selectData[v].goods_id
-      objData.present_price = selectData[v].present_price
-      objData.num = selectData[v].num
-      objData.id = selectData[v].id
-      resultArr.push(objData)
-      defaultObj = selectData[v].goods_id + '-' + selectData[v].present_price + '-' + selectData[v].num + '-' + selectData[v].id
-      resultDefault.push(defaultObj)
-    }
-  
+
     if (target.detail == 0) {
       for (let i in cartData) {
         if (cartData[i].id == goodId) {
@@ -212,7 +165,6 @@ Page({
               this.setData({
                 cartList: cartData,
                 selectList: selectData,
-                result: resultDefault,
               })
             }, 500)
             this.countPrice(selectData)
@@ -251,25 +203,22 @@ Page({
   },
   // 加载计算价格
   loadPrice() {
-    // 全选
+    // 全选 true   selcet 数组中push   为true 对象
     const resultData = this.data.cartList;
     let resultArr = []
-    let resultDefault = []
     for (let i in resultData) {
-      let objData = {};
-      let defaultObj = {}
-      objData.goods_id = resultData[i].goods_id
-      objData.present_price = resultData[i].present_price
-      objData.num = resultData[i].num
-      objData.id = resultData[i].id
-      resultArr.push(objData)
-      defaultObj = resultData[i].goods_id + '-' + resultData[i].present_price + '-' + resultData[i].num + '-' + resultData[i].id
-      resultDefault.push(defaultObj)
+      if (resultData[i].checked == true) {
+        let objData = {};
+        objData.goods_id = resultData[i].goods_id
+        objData.present_price = resultData[i].present_price
+        objData.num = resultData[i].num
+        objData.id = resultData[i].id
+        resultArr.push(objData)
+      }
     }
     // 计算价格接口
     this.countPrice(resultArr)
     this.setData({
-      result: resultDefault,
       selectList: resultArr
     })
   },
@@ -302,8 +251,12 @@ Page({
       }).then((res) => {
         if (res.data.code == 1) {
           // 有数据
+          let data = res.data.data;
+          for (var i in data) {
+            data[i].checked = true;
+          }
           this.setData({
-            cartList: res.data.data,
+            cartList: data,
           })
           wx.hideLoading();
           this.loadPrice()

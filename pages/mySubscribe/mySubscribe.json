@@ -1,7 +1,8 @@
 {
   "usingComponents": {
     "van-tab": "../../dist/vant/tab/index",
-    "van-tabs": "../../dist/vant/tabs/index"
+    "van-tabs": "../../dist/vant/tabs/index",
+    "van-button": "../../dist/vant/button/index"
   },
   "navigationBarTitleText": "我的预约"
 }

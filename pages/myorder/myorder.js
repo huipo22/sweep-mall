@@ -95,16 +95,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      orderActive: Number(options.active)
-    })
+    if (options.active) {
+      this.setData({
+        orderActive: Number(options.active)
+      })
+    }else{
+      this.loadOrdernData(1)
+    }
   },
-
+  onShow() {
+    util.queryCart()
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    this.loadOrdernData(this.data.orderActive)
   },
 
   /**

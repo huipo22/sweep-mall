@@ -171,6 +171,11 @@ let userInfo = (data,header) => {
         resolve(apiRequest(apiList.userInfo, 'get', data,header))
     })
 }
+let doStatus=(data)=>{
+    return new Promise((resolve, reject) => {
+        resolve(apiRequest(apiList.doStatus, 'get', data))
+    }) 
+}
 //最后需要将具体调用的函数暴露出，给具体业务调用
 export default {
     login: login,
@@ -197,5 +202,6 @@ export default {
     orderStatus: orderStatus,
     myReserve: myReserve,
     ylyCall: ylyCall,
-    userInfo:userInfo
+    userInfo:userInfo,
+    doStatus:doStatus,
 }

@@ -4,7 +4,7 @@
   <!-- <van-overlay show="{{show}}"></van-overlay> -->
   <!-- 轮播 -->
   <view class="page-section page-section-spacing swiper">
-    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="height:200px">
       <block wx:for="{{indexData.banners}}" wx:key="unique" wx:for-item="item">
         <swiper-item>
           <view class="swiper-item">
@@ -17,7 +17,12 @@
   <!-- 商家地址 -->
   <view class="Box">
     <van-cell title="{{shopInfo.user_address}}" icon="location-o" />
-    <!--   bindtap="getLocation" is-link  -->
+    <!-- bindtap="getLocation" is-link -->
+  </view>
+  <!-- 商家电话 -->
+  <view class="Box">
+    <van-cell title="{{shopInfo.user_phone}}" icon="phone-o" bind:tap="callPhone" data-phone="{{shopInfo.user_phone}}" />
+    <!-- bindtap="getLocation" is-link -->
   </view>
   <!-- 优惠券 -->
   <view class="Box" style="height:200rpx" wx:for="{{couponInfo}}" wx:for-item="coupon" wx:key="{{coupon.id}}">
@@ -33,8 +38,7 @@
         </view>
       </view>
       <view class="right">
-        <view class="top" data-Cid="{{coupon.id}}" bind:tap="{{coupon.is_get==0?'getCoupon':''}}"
-        class="{{coupon.is_get==0?'getTrue':'getFalse'}}">
+        <view class="top" data-Cid="{{coupon.id}}" bind:tap="{{coupon.is_get==0?'getCoupon':''}}" class="{{coupon.is_get==0?'getTrue':'getFalse'}}">
           {{coupon.is_get==0?"领取":"已领取"}}
         </view>
       </view>

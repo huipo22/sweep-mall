@@ -79,7 +79,8 @@ Page({
       Toast('请选择时刻');
       return
     }
-    util.navigateTo('../orderConfirm/orderConfirm?date=' + data.date + "&item=" + JSON.stringify(this.data.selectItem))
+    let mydata=data.date.split('.').join('/');  
+    util.navigateTo('../orderConfirm/orderConfirm?date=' + mydata + "&item=" + JSON.stringify(this.data.selectItem))
   },
   _yybindhide: function () {
     console.log('隐藏')

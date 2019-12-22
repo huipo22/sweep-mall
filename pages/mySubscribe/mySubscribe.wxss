@@ -11,15 +11,41 @@
 .reserveInfo {
     display: flex;
     flex-direction: column;
+    flex: 4;
 }
-.reserveInfo>view{
-  padding: 10rpx 0;
 
+.reserveInfo>view {
+    padding: 10rpx 0;
 }
+
 .reserveBox {
     font-size: 0.5rem;
     background: #fff;
     padding: 5rpx 30rpx;
     margin-bottom: 15rpx;
     box-sizing: border-box;
+}
+
+.statusBox {
+    display: flex;
+}
+
+.statusBtn {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnText {
+    background: #f70;
+    color: #fff;
+    border-radius: 30rpx;
+    font-size: 24rpx;
+    height: 60rpx;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
 }

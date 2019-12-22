@@ -4,6 +4,7 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
+  /* height: 80vh; */
 }
 
 .goodContent {
@@ -50,6 +51,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  line-height: 0;
+}
+.jiesuan{
+  width: 100%;
 }
 
 

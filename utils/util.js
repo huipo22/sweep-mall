@@ -1,3 +1,5 @@
+const app = getApp()
+let api = require('./request').default;
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -67,6 +69,28 @@ const arrayRemoveItem = (arr, delVal) => {
     }
   }
 }
+const queryCart = () => {
+  api.getShop({
+    shop_id: app.globalData.shopId,
+  }, {
+    Token: wx.getStorageSync('token'),
+    "Device-Type": 'wxapp',
+  }).then((res) => {
+    if (res.data.code == 1) {
+      // 购物车右上角数量
+      let num = res.data.data.length;
+      console.log(num)
+      wx.setTabBarBadge({
+        index: 3,
+        text: String(num)
+      })
+    } else if (res.data.code == 0) {
+      wx.removeTabBarBadge({
+        index: 3,
+      });
+    }
+  })
+}
 // 页面参数获取 小程序自带  onLoad(options)
 
 module.exports = {
@@ -76,5 +100,6 @@ module.exports = {
   errorTip: errorTip,
   arrayRemoveItem: arrayRemoveItem,
   showLoading: showLoading,
-  errorTips: errorTips
+  errorTips: errorTips,
+  queryCart: queryCart
 }

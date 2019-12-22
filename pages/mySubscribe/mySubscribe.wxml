@@ -11,11 +11,20 @@
                             {{filter.timestampToTime(reserve.add_time)}}
                         </view>
                     </view>
-                    <view class="Box reserveInfo">
-                        <view>{{'姓名:'+reserve.reserve_name}}</view>
-                        <view>{{'手机号:'+reserve.reserve_mobile}}</view>
-                        <view>{{'预约价格:¥'+reserve.reserve_price}}</view>
-                        <view>{{"预约备注:"+reserve.ramark}}</view>
+                    <view class="Box statusBox">
+                        <view class="Box reserveInfo">
+                            <view>{{'姓名:'+reserve.reserve_name}}</view>
+                            <view>{{'手机号:'+reserve.reserve_mobile}}</view>
+                            <view>{{'预约价格:¥'+reserve.reserve_price}}</view>
+                            <view>{{'预约时间:'+filter.timestampToTime(reserve.reserve_time)}}</view>
+                            <view>{{'预约餐桌:'+reserve.table_name}}</view>
+                            <view>{{"预约备注:"+reserve.ramark}}</view>
+                        </view>
+                        <view class="statusBtn" wx:if="{{subscribeActive==1}}">
+                            <text class="btnText" catch:tap="cancelStatus" data-id="{{reserve.id}}">
+                                取消
+                            </text>
+                        </view>
                     </view>
                 </view>
             </van-tab>

@@ -31,7 +31,6 @@
         <van-field value="{{ '¥'+Item.reserve_money}}" label="应付金额" disabled input-align="right" />
     </view>
     <van-goods-action>
-        <van-goods-action-icon icon="chat-o" text="客服" bind:click="onClickIcon" />
         <van-goods-action-button text="立即预约{{ '¥'+Item.reserve_money}}" bind:click="submitSubscribe" />
     </van-goods-action>
 </view>

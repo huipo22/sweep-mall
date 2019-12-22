@@ -73,6 +73,7 @@ Page({
         this.setData({
           popupShow: false
         })
+        util.queryCart()
       }
     })
   },

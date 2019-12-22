@@ -48,8 +48,10 @@ Page({
             console.log('调用支付接口成功', res)
             console.log(type)
             if (type == 2) {
+              util.queryCart()
               util.navigateTo('../myorder/myorder?active=2')
             } else if (type == 1) {
+              util.queryCart()
               util.navigateTo('../myorder/myorder?active=1')
             }
           },
@@ -57,8 +59,10 @@ Page({
             console.log('调用支付接口fail', res)
             console.log(type)
             if (type == 2) {
+              util.queryCart()
               util.navigateTo('../myorder/myorder?active=2')
             } else if (type == 1) {
+              util.queryCart()
               util.navigateTo('../myorder/myorder?active=1')
             }
           }

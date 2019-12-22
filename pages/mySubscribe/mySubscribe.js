@@ -18,6 +18,10 @@ Page({
         name: 2,
         title: "已消费"
       },
+      {
+        name: 0,
+        title: "已取消"
+      },
     ],
     reserveList: [],
   },
@@ -35,9 +39,26 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
-    this.reserveList(options.status)
-    this.setData({
-      subscribeActive: Number(options.status)
+    if (options.status) {
+      this.setData({
+        subscribeActive: Number(options.status)
+      })
+      this.reserveList(this.data.subscribeActive)
+    } else {
+      this.reserveList(1)
+    }
+  },
+  // 关闭预约状态
+  cancelStatus(e) {
+    const id = e.currentTarget.dataset.id;
+    api.doStatus({ reserve_id: id }).then((res) => {
+      console.log(res)
+      if(res.data.code==1){
+        this.setData({
+          subscribeActive: 0
+        })
+        this.reserveList(0)
+      }
     })
   },
   // 预约列表

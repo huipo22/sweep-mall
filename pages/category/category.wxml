@@ -1,41 +1,50 @@
 <!-- pages/category/category.wxml -->
-<view class="topSearch" bindtap="searchTap">
-    <input placeholder="搜索" class="top_search"></input>
-</view>
-<view class="container">
-    <!-- 分类 left -->
-    <van-sidebar>
-        <van-sidebar-item title="{{cate.name}}" wx:for="{{categoryList}}" wx:for-item="cate" wx:key="unique" bind:tap="categoryNav" data-cateId="{{cate.id}}" />
-    </van-sidebar>
-    <!-- 分类 right -->
-    <view class="Box">
-        <van-card title="{{good.goods_name}}" thumb="{{resourse+good.goods_img}}" wx:for="{{goodsList}}" thumb-mode="aspectFill" wx:for-item="good" wx:key="unique" bind:tap="detailPage" data-goodId="{{good.id}}">
-            <view slot="bottom" class="goodContent">
-                <view class="left">
-                    <text class="">{{'¥'+good.present_price}}</text>
-                </view>
-                <view class="right">
-                    <text class="btnText" catch:tap="showPopup" data-item="{{good}}">加入菜单</text>
-                </view>
-            </view>
-        </van-card>
+<view style="width: 100%;display: flex;flex-direction: column">
+    <view class="topSearch" bindtap="searchTap">
+        <input placeholder="搜索" class="top_search"></input>
     </view>
-    <!-- 弹出层 -->
-    <van-popup show="{{ popupShow }}" closeable position="bottom" custom-style="height: 35%" bind:close="onClose">
-        <view class="popup">
-            <view>
-                <van-image width="80" height="80" src="{{resourse+activeItem.goods_img}}" />
+    <view class="container">
+        <!-- 分类 left -->
+        <van-sidebar style="height:100%">
+            <van-sidebar-item title="{{cate.name}}" wx:for="{{categoryList}}" wx:for-item="cate" wx:key="unique" bind:tap="categoryNav" data-cateId="{{cate.id}}" />
+        </van-sidebar>
+        <!-- 分类 right -->
+        <view class="Box" style="height:100%">
+            <scroll-view class="" scroll-x="false" scroll-y="true" style="height: 100%;" upper-threshold="50" lower-threshold="50" scroll-top="0" scroll-left="0" scroll-into-view="" scroll-with-animation="false" enable-back-to-top="false" bindscrolltoupper="" bindscroll="" data-type="true">
+                <van-card title="{{good.goods_name}}" thumb="{{resourse+good.goods_img}}" wx:for="{{goodsList}}" thumb-mode="aspectFill" wx:for-item="good" wx:key="unique" bind:tap="detailPage" data-goodId="{{good.id}}">
+                    <view slot="bottom" class="goodContent">
+                        <view class="left">
+                            <text class="">{{'¥'+good.present_price}}</text>
+                        </view>
+                        <view class="right">
+                            <text class="btnText" catch:tap="showPopup" data-item="{{good}}">
+                                加入菜单
+                            </text>
+                        </view>
+                    </view>
+                </van-card>
+            </scroll-view>
+        </view>
+        <!-- 弹出层 -->
+        <van-popup show="{{ popupShow }}" closeable position="bottom" custom-style="height: 35%" bind:close="onClose">
+            <view class="popup">
+                <view>
+                    <van-image width="80" height="80" src="{{resourse+activeItem.goods_img}}" />
+                </view>
+                <view class="price">¥{{activeItem.present_price}}</view>
             </view>
-            <view class="price">¥{{activeItem.present_price}}</view>
-        </view>
-        <view class="popup">
-            <view class="popup-title">数量</view>
-            <view class="stepper">
-                <van-stepper value="{{ activeItem.goodNum }}" min="1" async-change bind:change="goodNumChange" />
+            <view class="popup">
+                <view class="popup-title">数量</view>
+                <view class="stepper">
+                    <van-stepper value="{{ activeItem.goodNum }}" min="1" async-change bind:change="goodNumChange" />
+                </view>
             </view>
-        </view>
-        <view class="popup">
-            <button class="popup-btn" bind:tap="addShopEvent" color="#ff7700">确定</button>
-        </view>
-    </van-popup>
+            <view class="popup">
+                <button class="popup-btn" bind:tap="addShopEvent" color="#ff7700">确定</button>
+            </view>
+        </van-popup>
+    </view>
 </view>
+<!-- <view>
+    <van-button size="normal" custom-class="jiesuan" type="warning" color="#ff7700">去结算</van-button>
+</view> -->

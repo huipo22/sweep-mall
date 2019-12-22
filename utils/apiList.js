@@ -28,6 +28,7 @@ let apiList = {
     myReserve: host + "/api/goods/reserve/my_reserve",//预约状态
     ylyCall: host + "/api/goods/reserve/ylyCall",//呼叫店小二
     userInfo:host+"/api/user/profile/userInfo",//用户信息
+    doStatus:host+"/api/goods/reserve/do_status",//取消预约状态
 }
 
 module.exports = apiList;    //暴露出来

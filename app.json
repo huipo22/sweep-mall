@@ -49,7 +49,7 @@
       },
       {
         "pagePath": "pages/cart/cart",
-        "text": "菜单",
+        "text": "订单",
         "iconPath": "./dist/icon/cart.png",
         "selectedIconPath": "./dist/icon/cart-select.png"
       },

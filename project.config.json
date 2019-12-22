@@ -60,7 +60,7 @@
 					"id": 0,
 					"name": "pages/index/index",
 					"pathName": "pages/index/index",
-					"query": "shopId=1&tableId=1",
+					"query": "shopId=2&tableId=2",
 					"scene": 1011
 				}
 			]

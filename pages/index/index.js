@@ -53,6 +53,19 @@ Page({
       }
     })
   },
+  //商家电话
+  callPhone(e) {
+    const phone = e.currentTarget.dataset.phone
+    wx.makePhoneCall({
+      phoneNumber: phone,
+      success: function () {
+        console.log("拨打电话成功！")
+      },
+      fail: function () {
+        console.log("拨打电话失败！")
+      }
+    })
+  },
   // 呼叫店小二
   call: function (e) {
     api.ylyCall({
@@ -126,6 +139,8 @@ Page({
     } else {
       console.log('商家id,餐桌id未传')
     }
+
+    util.queryCart()
   },
   onShow() {
     util.showLoading()
@@ -137,7 +152,7 @@ Page({
           indexData: res.data.data,
           indexRich: rich
         })
-        app.globalData.payType=res.data.data.pay_type
+        app.globalData.payType = res.data.data.pay_type
       }
     }).then(() => {
       // 精品推荐
@@ -150,7 +165,7 @@ Page({
       })
     }).then(() => {
       // 商家信息
-      api.shopInfo({ shop_id: 8 }).then(res => {
+      api.shopInfo({ shop_id: app.globalData.shopId }).then(res => {
         if (res.data.code == 1) {
           this.setData({
             shopInfo: res.data.data

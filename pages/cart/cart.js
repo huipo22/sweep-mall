@@ -138,21 +138,22 @@ Page({
         type: 3,
         num: target.detail
       }, {
-          Token: wx.getStorageSync('token'),
-          "Device-Type": 'wxapp',
-          'content-type': 'application/x-www-form-urlencoded'
-        }).then((res) => {
-          if (res.data.code == 1) {
-            setTimeout(() => {
-              this.setData({
-                cartList: cartData,
-                selectList: selectData
-              })
-            }, 500)
-            util.showToastSuccess('删除成功')
-            this.countPrice(selectData)
-          }
-        })
+        Token: wx.getStorageSync('token'),
+        "Device-Type": 'wxapp',
+        'content-type': 'application/x-www-form-urlencoded'
+      }).then((res) => {
+        if (res.data.code == 1) {
+          setTimeout(() => {
+            this.setData({
+              cartList: cartData,
+              selectList: selectData
+            })
+          }, 500)
+          util.showToastSuccess('删除成功')
+          util.queryCart()
+          this.countPrice(selectData)
+        }
+      })
     } else {
       // 更改接口
       api.actionShop({
@@ -160,20 +161,20 @@ Page({
         type: 1,
         num: target.detail
       }, {
-          Token: wx.getStorageSync('token'),
-          "Device-Type": 'wxapp',
-          'content-type': 'application/x-www-form-urlencoded'
-        }).then((res) => {
-          if (res.data.code == 1) {
-            setTimeout(() => {
-              this.setData({
-                cartList: cartData,
-                selectList: selectData,
-              })
-            }, 500)
-            this.countPrice(selectData)
-          }
-        })
+        Token: wx.getStorageSync('token'),
+        "Device-Type": 'wxapp',
+        'content-type': 'application/x-www-form-urlencoded'
+      }).then((res) => {
+        if (res.data.code == 1) {
+          setTimeout(() => {
+            this.setData({
+              cartList: cartData,
+              selectList: selectData,
+            })
+          }, 500)
+          this.countPrice(selectData)
+        }
+      })
     }
   },
   // 创建订单事件 --> 跳转订单页orderConfirm   s/''
@@ -245,32 +246,33 @@ Page({
     })
   },
   onShow: function () {
+    util.queryCart()
     util.showLoading()
     // 购物车查询
     api.getShop({
       shop_id: app.globalData.shopId,
     }, {
-        Token: wx.getStorageSync('token'),
-        "Device-Type": 'wxapp',
-      }).then((res) => {
-        if (res.data.code == 1) {
-          // 有数据
-          let data = res.data.data;
-          for (var i in data) {
-            data[i].checked = true;
-          }
-          this.setData({
-            cartList: data,
-          })
-          wx.hideLoading();
-          this.loadPrice()
-        } else if (res.data.code == 0) {
-          this.setData({
-            cartList: [],
-          })
-          this.guess()
+      Token: wx.getStorageSync('token'),
+      "Device-Type": 'wxapp',
+    }).then((res) => {
+      if (res.data.code == 1) {
+        // 有数据
+        let data = res.data.data;
+        for (var i in data) {
+          data[i].checked = true;
         }
-      })
+        this.setData({
+          cartList: data,
+        })
+        wx.hideLoading();
+        this.loadPrice()
+      } else if (res.data.code == 0) {
+        this.setData({
+          cartList: [],
+        })
+        this.guess()
+      }
+    })
   },
 
   /**

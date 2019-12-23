@@ -19,7 +19,7 @@
             </view>
             <view class="right">
                 <view class="shareIcon">
-                    <button open-type="share" size="mini" style="line-height:.8">
+                    <button open-type="share" size="mini" style="line-height:.8;background:#fff">
                         <van-icon name="share" size="60rpx" color="#ff7700" />
                     </button>
                     <view class="num">分享</view>

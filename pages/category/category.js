@@ -83,7 +83,7 @@ Page({
   onLoad: function (options) {
     util.showLoading()
     // 总分类
-    api.category({ shop_id: 1 }).then(res => {
+    api.category({ shop_id: app.globalData.shopId }).then(res => {
       console.log(res)
       if (res.data.code == 1) {
         // 获取分类[0]内容

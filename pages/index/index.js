@@ -125,9 +125,10 @@ Page({
       success: (res) => {
         // 未授权 ==>授权页
         if (!res.authSetting['scope.userInfo']) {
-          wx.reLaunch({
-            url: '../authorization/authorization',
-          })
+          console.log("未授权")
+          // wx.reLaunch({
+          //   url: '../authorization/authorization',
+          // })
         }
       }
     })
@@ -139,8 +140,6 @@ Page({
     } else {
       console.log('商家id,餐桌id未传')
     }
-
-    util.queryCart()
   },
   onShow() {
     util.showLoading()
@@ -175,6 +174,8 @@ Page({
     }).then(() => {
       // 获取优惠券
       this.loadCoupon()
+    }).then(() => {
+      util.queryCart()
     })
     wx.hideLoading()
   }

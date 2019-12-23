@@ -91,6 +91,28 @@ const queryCart = () => {
     }
   })
 }
+// 判断token
+const isToken = () => {
+  if (wx.getStorageSync('token')) {
+    wx.showModal({
+      title: '温馨提示',
+      content: '小程序需要您的授权',
+      cancelText: '残忍拒绝',
+      confirmText: '立即授权',
+      confirmColor: '#e0620d',
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          wx.reLaunch({
+            url: '../authorization/authorization',
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  }
+}
 // 页面参数获取 小程序自带  onLoad(options)
 
 module.exports = {
@@ -101,5 +123,6 @@ module.exports = {
   arrayRemoveItem: arrayRemoveItem,
   showLoading: showLoading,
   errorTips: errorTips,
-  queryCart: queryCart
+  queryCart: queryCart,
+  isToken:isToken
 }

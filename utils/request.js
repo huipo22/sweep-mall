@@ -8,10 +8,30 @@ const apiRequest = (url, method, data, header) => {     //接收所需要的参�
             method: method,
             header: header ? header : { 'content-type': 'application/x-www-form-urlencoded' },
             success: function (res) {
+                // if (res.data.code == 10001) {
+                //     wx.showModal({
+                //         title: '温馨提示',
+                //         content: '小程序需要您的授权',
+                //         cancelText:'残忍拒绝',
+                //         confirmText:'立即授权',
+                //         confirmColor:'#e0620d',
+                //         success(res) {
+                //             if (res.confirm) {
+                //                 console.log('用户点击确定')
+                //                 wx.reLaunch({
+                //                     url: '../authorization/authorization',
+                //                 })
+                //             } else if (res.cancel) {
+                //                 console.log('用户点击取消')
+                //             }
+                //         }
+                //     })
+                // }
                 //接口调用成功
                 resolve(res);    //根据业务需要resolve接口返回的json的数据
             },
             fail: function (res) {
+                console.log(res)
                 // fail调用接口失败
                 reject({ errormsg: '网络错误,请稍后重试', code: -1 });
             }
@@ -76,6 +96,7 @@ let shopInfo = (data) => {
 }
 // 添加到购物车
 let addShop = (data, header) => {
+    
     return new Promise((resolve, reject) => {
         resolve(apiRequest(apiList.addShop, 'post', data, header))
     })
@@ -166,15 +187,15 @@ let ylyCall = (data) => {
     })
 }
 // 用户信息
-let userInfo = (data,header) => {
+let userInfo = (data, header) => {
     return new Promise((resolve, reject) => {
-        resolve(apiRequest(apiList.userInfo, 'get', data,header))
+        resolve(apiRequest(apiList.userInfo, 'get', data, header))
     })
 }
-let doStatus=(data)=>{
+let doStatus = (data) => {
     return new Promise((resolve, reject) => {
         resolve(apiRequest(apiList.doStatus, 'get', data))
-    }) 
+    })
 }
 //最后需要将具体调用的函数暴露出，给具体业务调用
 export default {
@@ -202,6 +223,6 @@ export default {
     orderStatus: orderStatus,
     myReserve: myReserve,
     ylyCall: ylyCall,
-    userInfo:userInfo,
-    doStatus:doStatus,
+    userInfo: userInfo,
+    doStatus: doStatus,
 }

@@ -24,8 +24,8 @@
 }
 
 .bottom {
-  border-radius: 80rpx;
-  margin: 70rpx 50rpx;
+  /* border-radius: 80rpx; */
+  margin: 40rpx 10rpx;
   font-size: 35rpx;
   background: #f70;
   color: #fff;
@@ -33,12 +33,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex:1;
 }
-
+.gray{
+  background: #9d9d9d;
+}
 button:not([size='mini']) {
   min-height: auto;
   width: auto;
-  margin-left: auto;
-  margin-right: auto;
+  /* margin-left: auto; */
+  /* margin-right: auto; */
   line-height: 2;
 }

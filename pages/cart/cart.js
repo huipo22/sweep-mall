@@ -264,13 +264,15 @@ Page({
         this.setData({
           cartList: data,
         })
-        wx.hideLoading();
         this.loadPrice()
       } else if (res.data.code == 0) {
         this.setData({
           cartList: [],
         })
         this.guess()
+      }else{
+        wx.hideLoading();
+        util.errorTip()
       }
     })
   },

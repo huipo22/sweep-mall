@@ -16,9 +16,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    util.isToken()
     util.queryCart()
     console.log(app)
-
   },
   login(){
     console.log('login');

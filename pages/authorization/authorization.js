@@ -43,7 +43,7 @@ Page({
                       try {
                         wx.setStorageSync('token', res.data.data.token);
                         wx.switchTab({
-                          url: '../index/index'
+                          url: '../category/category'
                         })
                       } catch (e) {
                         console.log(e)

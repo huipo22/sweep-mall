@@ -140,6 +140,8 @@ const sceneName = (options) => {
     app.globalData.tableId = wx.getStorageSync('tableId')
   } else {
     console.log("没有二维码");
+    app.globalData.shopId = wx.getStorageSync('shopId') ||1
+    app.globalData.tableId = wx.getStorageSync('tableId')||1
   }
 }
 // 页面参数获取 小程序自带  onLoad(options)

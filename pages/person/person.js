@@ -20,6 +20,10 @@ Page({
     console.log(app)
 
   },
+  login(){
+    console.log('login');
+    util.navigateTo('../authorization/authorization')
+  },
   call() {
     wx.makePhoneCall({
       phoneNumber: '18510841995', //
@@ -36,7 +40,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    util.isToken()
   },
 
   /**

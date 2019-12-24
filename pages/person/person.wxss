@@ -12,12 +12,25 @@
   margin-left: 10%;
 }
 
+.login {
+  color: #fff;
+  border-radius: 30rpx;
+  font-size: 26rpx;
+  height: 60rpx;
+  width: 160rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  border: 1rpx solid #fff;
+}
+
 .userInfo {
   display: flex;
   flex-direction: column;
   padding-left: 45rpx;
   color: #fff;
-  flex:1;
+  flex: 1;
 }
 
 .jifen {
@@ -30,4 +43,7 @@
 .jifen>image {
   height: 48rpx;
   width: 48rpx;
+}
+.cancellogin{
+  line-height: 0;
 }

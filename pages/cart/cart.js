@@ -270,10 +270,8 @@ Page({
           cartList: [],
         })
         this.guess()
-      }else{
-        wx.hideLoading();
-        util.errorTip()
       }
+      wx.hideLoading();
     })
   },
 

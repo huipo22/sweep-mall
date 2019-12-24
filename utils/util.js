@@ -98,6 +98,30 @@ const isToken = () => {
       url: '../authorization/authorization',
     })
   }
+  //小程序是否授权
+  // wx.getSetting({
+  //   success: (res) => {
+  //     // 未授权 ==>授权页
+  //     if (!res.authSetting['scope.userInfo']) {
+  //       wx.showModal({
+  //         title: '提示',
+  //         content: '请到个人中心登录',
+  //         showCancel: false,
+  //         confirmText: '确定',
+  //         confirmColor: '#e0620d',
+  //         success(res) {
+  //           if (res.confirm) {
+  //             console.log('用户点击确定')
+  //             wx.switchTab({
+  //               url: '../person/person'
+  //             })
+  //           }
+  //         }
+  //       })
+  //       return
+  //     }
+  //   }
+  // })
 }
 // 页面参数获取 小程序自带  onLoad(options)
 

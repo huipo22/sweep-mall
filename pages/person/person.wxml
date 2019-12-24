@@ -7,12 +7,14 @@
         <van-image round width="2.5rem" height="2.5rem" src="{{userInfo.avatarUrl}}" />
       </view>
       <view class="userInfo">
+        <!-- <text bind:tap="{{!userInfo.nickName?'login':''}}" class="{{!userInfo.nickName?'login':'cancellogin'}}">
+          {{!userInfo.nickName?'立即登录':userInfo.nickName}}
+        </text> -->
         <text>{{userInfo.nickName}}</text>
-        <!-- <text>李四</text> -->
       </view>
       <view class="jifen">
         <!-- <image class="" src="../../dist/icon/jifen.png" mode="aspectFit|aspectFill|widthFix"></image> -->
-        <van-icon name="points" color="" size="45rpx" color="#ffff80"/>
+        <van-icon name="points" color="" size="45rpx" color="#ffff80" />
         <text style="color:#fff;font-size:14px;padding-left:20rpx">{{userData.score}}</text>
       </view>
     </view>

@@ -1,6 +1,22 @@
 //app.js
 App({
-  onLaunch: function () {
+  onLaunch: function (options) {
+    if (options.query.scene) {
+      console.log("有返回二维码");
+      var scene = decodeURIComponent(options.query.scene);
+      console.log("二维码:", scene);
+      var arrPara = scene.split("&");
+      var arr = [];
+      for (var i in arrPara) {
+        arr = arrPara[i].split("=");
+        wx.setStorageSync(arr[0], arr[1]);
+        console.log("setStorageSync:", arr[0], "=", arr[1]);
+      }
+      this.globalData.shopId = wx.getStorageSync('shopId')
+      this.globalData.tableId = wx.getStorageSync('tableId')
+    } else {
+      console.log("没有二维码");
+    }
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())

@@ -123,6 +123,25 @@ const isToken = () => {
   //   }
   // })
 }
+// 二维码
+const sceneName = (options) => {
+  if (options.scene) {
+    console.log("有返回二维码");
+    var scene = decodeURIComponent(options.scene);
+    console.log("二维码:", scene);
+    var arrPara = scene.split("&");
+    var arr = [];
+    for (var i in arrPara) {
+      arr = arrPara[i].split("=");
+      wx.setStorageSync(arr[0], arr[1]);
+      console.log("setStorageSync:", arr[0], "=", arr[1]);
+    }
+    app.globalData.shopId = wx.getStorageSync('shopId')
+    app.globalData.tableId = wx.getStorageSync('tableId')
+  } else {
+    console.log("没有二维码");
+  }
+}
 // 页面参数获取 小程序自带  onLoad(options)
 
 module.exports = {
@@ -134,5 +153,6 @@ module.exports = {
   showLoading: showLoading,
   errorTips: errorTips,
   queryCart: queryCart,
-  isToken: isToken
+  isToken: isToken,
+  sceneName:sceneName
 }

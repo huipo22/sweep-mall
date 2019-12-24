@@ -58,8 +58,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/index/index",
-					"pathName": "pages/authorization/authorization",
+					"name": "pages/category/category",
+					"pathName": "pages/category/category",
 					"query": "shopId=6&tableId=5",
 					"scene": 1011
 				}

@@ -9,12 +9,6 @@ Page({
   },
 
   onLoad: function (options) {
-    if (options.shopId && options.tableId) {
-      app.globalData.shopId = options.shopId
-      app.globalData.tableId = options.tableId
-    } else {
-      console.log('商家id,餐桌id未传')
-    }
     var that = this;
     // 查看是否授权
     wx.getSetting({

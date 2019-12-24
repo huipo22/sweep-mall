@@ -126,20 +126,20 @@ Page({
         // 未授权 ==>授权页
         if (!res.authSetting['scope.userInfo']) {
           console.log("未授权")
-          // wx.reLaunch({
-          //   url: '../authorization/authorization',
-          // })
+          wx.reLaunch({
+            url: '../authorization/authorization',
+          })
         }
       }
     })
   },
   onLoad(options) {
-    if (options.shopId && options.tableId) {
-      app.globalData.shopId = options.shopId
-      app.globalData.tableId = options.tableId
-    } else {
-      console.log('商家id,餐桌id未传')
-    }
+    // if (options.shopId && options.tableId) {
+    //   app.globalData.shopId = options.shopId
+    //   app.globalData.tableId = options.tableId
+    // } else {
+    //   console.log('商家id,餐桌id未传')
+    // }
   },
   onShow() {
     util.showLoading()

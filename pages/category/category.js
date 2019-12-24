@@ -81,6 +81,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (options.shopId && options.tableId) {
+      app.globalData.shopId = options.shopId
+      app.globalData.tableId = options.tableId
+    } else {
+      console.log('商家id,餐桌id未传')
+    }
     util.showLoading()
     // 总分类
     api.category({ shop_id: app.globalData.shopId }).then(res => {

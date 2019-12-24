@@ -79,7 +79,7 @@ Page({
       Toast('请选择时刻');
       return
     }
-    let mydata=data.date.split('.').join('/');  
+    let mydata = data.date.split('.').join('/');
     util.navigateTo('../orderConfirm/orderConfirm?date=' + mydata + "&item=" + JSON.stringify(this.data.selectItem))
   },
   _yybindhide: function () {
@@ -101,6 +101,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onReady: function (options) {
+    util.isToken()
     util.showLoading()
     // 预约商家信息及餐桌列表 接口
     api.subscribeIndex({ shop_id: app.globalData.shopId }).then(res => {

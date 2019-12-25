@@ -33,6 +33,7 @@ Page({
   },
   // 商品弹框
   showPopup(e) {
+    util.isToken()
     console.log(e)
     const dataObj = e.currentTarget.dataset.item
     dataObj.goodNum = 1;//默认商品数量
@@ -84,19 +85,7 @@ Page({
     // 二维码参数
     util.sceneName(options)
     util.showLoading()
-    // 总分类
-    api.category({ shop_id: app.globalData.shopId }).then(res => {
-      console.log(res)
-      if (res.data.code == 1) {
-        // 获取分类[0]内容
-        const firstId = res.data.data[0].id;
-        this.getGoods(firstId)
-        this.setData({
-          categoryList: res.data.data
-        })
-        wx.hideLoading();
-      }
-    })
+
   },
   // 分类列表
   getGoods(cateId) {
@@ -118,7 +107,27 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    util.queryCart()
+    // 总分类
+    api.category({ shop_id: app.globalData.shopId }).then(res => {
+      console.log(res)
+      if (res.data.code == 1) {
+        // 获取分类[0]内容
+        const firstId = res.data.data[0].id;
+        this.getGoods(firstId)
+        this.setData({
+          categoryList: res.data.data
+        })
+        wx.hideLoading();
+      }
+    })
+    // payType
+    api.wheels({ shop_id: app.globalData.shopId }).then(res => {
+      if (res.data.code == 1) {
+        var rich = res.data.data.content.replace(/\<p><img/gi, '<img class="richImg" ')
+        app.globalData.payType = res.data.data.pay_type
+      }
+    })
   },
 
   /**

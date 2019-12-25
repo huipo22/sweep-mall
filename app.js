@@ -16,12 +16,14 @@ App({
       this.globalData.tableId = wx.getStorageSync('tableId')
     } else {
       console.log("没有二维码");
+      this.globalData.shopId = wx.getStorageSync('shopId') || 1
+      this.globalData.tableId = wx.getStorageSync('tableId') || 1
     }
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
+    
     // 登录
     wx.login({
       success: res => {

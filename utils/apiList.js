@@ -22,7 +22,8 @@ let apiList = {
     getCoupon: host + "/api/goods/coupon",//获取优惠券
     doCoupon: host + "/api/goods/coupon/do_coupon",// 领取优惠券
     myCoupon: host + "/api/goods/coupon/my_coupon",// 我的优惠券
-    orderCreat: host + "/api/goods/order/create_order?shop_id=" + app.globalData.shopId + "&table_id=" + app.globalData.tableId,// 订单页 预约支付生成订单
+    // orderCreat: host + "/api/goods/order/create_order?shop_id=" + app.globalData.shopId + "&table_id=" + app.globalData.tableId,// 订单页 预约支付生成订单
+    orderCreat: host + "/api/goods/order/create_order",// 订单页 预约支付生成订单
     orderPay: host + "/api/goods/order/order_pay",//订单页 线上支付生成订单
     orderStatus: host + "/api/goods/order/order_status",//订单状态
     myReserve: host + "/api/goods/reserve/my_reserve",//预约状态

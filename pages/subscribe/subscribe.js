@@ -101,7 +101,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onReady: function (options) {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onLoad: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
     util.isToken()
+    util.queryCart()
     util.showLoading()
     // 预约商家信息及餐桌列表 接口
     api.subscribeIndex({ shop_id: app.globalData.shopId }).then(res => {
@@ -116,20 +131,6 @@ Page({
         wx.hideLoading();
       }
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onLoad: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
   },
 
   /**

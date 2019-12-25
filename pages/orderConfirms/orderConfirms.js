@@ -82,10 +82,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const orderSelect = JSON.parse(options.orderList)
+    const orderSelect={};
+    orderSelect.orderInfo=JSON.parse(options.orderList)
+    // const orderSelect = JSON.parse(options.orderList)
+    // payType = 全局paytype
     this.setData({
       payType: app.globalData.payType
     })
+    orderSelect.shop_id=app.globalData.shopId;
+    orderSelect.table_id=app.globalData.tableId;
     this.loadOrderData(orderSelect)
   },
 
@@ -100,6 +105,8 @@ Page({
     api.orderCreat(orderSelect, {
       Token: wx.getStorageSync('token'),
       "Device-Type": 'wxapp',
+      // shop_id: app.globalData.shopId,
+      // table_id: app.globalData.tableId,
     }).then(res => {
       if (res.data.code == 1) {
         this.setData({

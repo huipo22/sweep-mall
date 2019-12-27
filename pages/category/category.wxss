@@ -4,7 +4,12 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  /* height: 80vh; */
+  height: calc(100vh - 120rpx)
+}
+
+.Box {
+  height: calc(100vh - 120rpx);
+  overflow: hidden;
 }
 
 .goodContent {
@@ -26,7 +31,7 @@
 /* search */
 
 .topSearch {
-  width: 100%;
+  /* width: 100%; */
   height: 80rpx;
   background: #fff;
   margin: 20rpx;
@@ -53,8 +58,7 @@
   justify-content: center;
   line-height: 0;
 }
-.jiesuan{
+
+.jiesuan {
   width: 100%;
 }
-
-

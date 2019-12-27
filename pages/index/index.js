@@ -68,17 +68,30 @@ Page({
   },
   // 呼叫店小二
   call: function (e) {
-    api.ylyCall({
-      tid: app.globalData.tableId
-    }).then((res) => {
-      if (res.data.code == 1) {
-        // 成功
-        this.ylytip(res.data.msg)
-      } else if (res.data.code == 0) {
-        // 失败
-        this.ylytip(res.data.msg)
+    // 提示框 是否呼叫店小二
+    wx.showModal({
+      title: '提示',
+      content: '呼叫店小二',
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          api.ylyCall({
+            tid: app.globalData.tableId
+          }).then((res) => {
+            if (res.data.code == 1) {
+              // 成功
+              this.ylytip(res.data.msg)
+            } else if (res.data.code == 0) {
+              // 失败
+              this.ylytip(res.data.msg)
+            }
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
       }
     })
+
     // var id = e.currentTarget.dataset.id;
     // wx.makePhoneCall({
     //   phoneNumber: id, //

@@ -4,6 +4,7 @@ import util from '../../utils/util'
 import md5 from '../../utils/md5.js';
 let api = require('../../utils/request').default;
 import Toast from '../../dist/vant/toast/toast';
+import Notify from '../../dist/vant/notify/notify';
 Page({
 
   /**
@@ -51,6 +52,11 @@ Page({
   },
   // 提交事件
   submitSubscribe() {
+    console.log(app.globalData)
+    if (app.globalData.user_status == 0) {
+      Notify({ type: 'danger', message: '你已被管理员拉黑', duration: 3000, });
+      return
+    }
     const data = this.data;
     if (data.sub_name == "") {
       Toast("请输入预约人姓名")
@@ -110,7 +116,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    util.isBlack()
   },
 
   /**

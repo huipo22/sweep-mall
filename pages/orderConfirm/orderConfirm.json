@@ -8,7 +8,8 @@
     "van-toast": "../../dist/vant/toast/index",
     "van-goods-action": "../../dist/vant/goods-action/index",
     "van-goods-action-icon": "../../dist/vant/goods-action-icon/index",
-    "van-goods-action-button": "../../dist/vant/goods-action-button/index"
+    "van-goods-action-button": "../../dist/vant/goods-action-button/index",
+    "van-notify": "../../dist/vant/notify/index"
   },
   "navigationBarTitleText": "订单确认"
 }

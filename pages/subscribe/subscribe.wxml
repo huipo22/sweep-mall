@@ -1,11 +1,12 @@
 <!-- pages/subscribe/subscribe.wxml -->
+<van-notify id="van-notify" />
 <view class="container">
     <van-toast id="van-toast" />
     <van-image class="Box" width="100%" height="200px" fit="cover" wx:if="{{subscribeIndexData.shop_info}}" src="{{resourse+subscribeIndexData.shop_info.head_photo}}" />
     <view class="titleImg">
         <image mode="widthFix" src='{{subscribeTitle}}'></image>
     </view>
-    <van-card title="{{item.table_name}}" desc="{{item.lable}}"  class="Box" wx:for="{{subscribeIndexData.list}}" wx:for-item="item" wx:key="unique" >
+    <van-card title="{{item.table_name}}" desc="{{item.lable}}" class="Box" wx:for="{{subscribeIndexData.list}}" wx:for-item="item" wx:key="unique">
         <view slot="thumb" style="height:100%" bind:tap="preview" data-src="{{resourse+item.thumbnail}}">
             <image src="{{resourse+item.thumbnail}}" />
         </view>

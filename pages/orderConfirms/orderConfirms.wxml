@@ -1,4 +1,5 @@
 <!-- pages/orderConfirms/orderConfirms.wxml -->
+<van-notify id="van-notify" />
 <view class="container">
     <!-- 商品列表 -->
     <view class="Box subscrbeFont">

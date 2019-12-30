@@ -60,5 +60,6 @@ App({
     wxLogo: "http://saoma.jishanhengrui.com/upload/saoma.jpg",
     subscribeTitle: "../../dist/icon/subscribe-title.jpg",
     payType: null,//1:线上支付 2:线下支付
+    user_status:null
   }
 })

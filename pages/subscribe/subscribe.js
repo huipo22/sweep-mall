@@ -3,6 +3,7 @@ const app = getApp()
 import util from '../../utils/util'
 let api = require('../../utils/request').default;
 import Toast from '../../dist/vant/toast/toast';
+import Notify from '../../dist/vant/notify/notify';
 Page({
 
   /**
@@ -25,6 +26,7 @@ Page({
   },
   // 点击显示插件
   btnClick: function (e) {
+    util.isBlack()
     const Tid = e.currentTarget.dataset.tid;
     this.setData({
       Ttid: Tid,
@@ -73,6 +75,10 @@ Page({
     })
   },
   _yybindchange: function (e) {
+    if (app.globalData.user_status == 0) {
+      Notify({ type: 'danger', message: '你已被管理员拉黑', duration: 3000, });
+      return
+    }
     var data = e.detail
     console.log(data)
     if (data.time == "") {

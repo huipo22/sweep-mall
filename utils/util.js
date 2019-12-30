@@ -91,6 +91,19 @@ const queryCart = () => {
     }
   })
 }
+// 判断是否拉黑
+const isBlack = () => {
+  api.userInfo({}, {
+    Token: wx.getStorageSync('token'),
+    "Device-Type": 'wxapp',
+  }).then((res) => {
+    console.log(res)
+    if (res.data.code == 1) {
+      app.globalData.user_status = res.data.data.user_status;
+    }
+  })
+
+}
 // 判断token
 const isToken = () => {
   if (!wx.getStorageSync('token')) {
@@ -156,5 +169,6 @@ module.exports = {
   errorTips: errorTips,
   queryCart: queryCart,
   isToken: isToken,
-  sceneName: sceneName
+  sceneName: sceneName,
+  isBlack: isBlack,
 }

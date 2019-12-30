@@ -3,6 +3,7 @@ const app = getApp()
 import util from '../../utils/util'
 import md5 from '../../utils/md5.js';
 let api = require('../../utils/request').default;
+import Notify from '../../dist/vant/notify/notify';
 Page({
 
   /**
@@ -22,6 +23,11 @@ Page({
   },
   // 封装支付事件
   pay(type) {
+    console.log(app.globalData)
+    if (app.globalData.user_status == 0) {
+      Notify({ type: 'danger', message: '你已被管理员拉黑', duration: 3000, });
+      return
+    }
     const payData = this.data.orderConfirmData;
     const params = {
       order_id: payData.order_id,
@@ -82,15 +88,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const orderSelect={};
-    orderSelect.orderInfo=JSON.parse(options.orderList)
+    const orderSelect = {};
+    orderSelect.orderInfo = JSON.parse(options.orderList)
     // const orderSelect = JSON.parse(options.orderList)
     // payType = 全局paytype
     this.setData({
       payType: app.globalData.payType
     })
-    orderSelect.shop_id=app.globalData.shopId;
-    orderSelect.table_id=app.globalData.tableId;
+    orderSelect.shop_id = app.globalData.shopId;
+    orderSelect.table_id = app.globalData.tableId;
     this.loadOrderData(orderSelect)
   },
 
@@ -119,7 +125,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    util.isBlack()
+     // payType
+     api.wheels({ shop_id: app.globalData.shopId }).then(res => {
+      if (res.data.code == 1) {
+        var rich = res.data.data.content.replace(/\<p><img/gi, '<img class="richImg" ')
+        app.globalData.payType = res.data.data.pay_type
+        this.setData({
+          payType: app.globalData.payType
+        })
+      }
+    })
   },
 
   /**
